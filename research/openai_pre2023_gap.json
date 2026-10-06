@@ -1,0 +1,277 @@
+{
+  "posts": [
+    {
+      "url": "https://openai.com/index/language-unsupervised/",
+      "title": "Improving language understanding with unsupervised learning",
+      "date": "2018-06-11",
+      "models": [
+        "GPT-1"
+      ],
+      "scores": [
+        {
+          "model": "GPT-1",
+          "benchmark": "SNLI",
+          "measure": "reported score",
+          "value": "89.9",
+          "locator": "Results table, lines 41-56",
+          "excerpt": "SNLI | Ours | 89.9"
+        },
+        {
+          "model": "GPT-1",
+          "benchmark": "MNLI matched",
+          "measure": "reported score",
+          "value": "82.1",
+          "locator": "Results table, lines 41-56",
+          "excerpt": "MNLI matched | Ours | 82.1"
+        },
+        {
+          "model": "GPT-1",
+          "benchmark": "MNLI mismatched",
+          "measure": "reported score",
+          "value": "81.4",
+          "locator": "Results table, lines 41-56",
+          "excerpt": "MNLI mismatched | Ours | 81.4"
+        },
+        {
+          "model": "GPT-1",
+          "benchmark": "SciTail",
+          "measure": "reported score",
+          "value": "88.3",
+          "locator": "Results table, lines 41-56",
+          "excerpt": "SciTail | Ours | 88.3"
+        },
+        {
+          "model": "GPT-1",
+          "benchmark": "QNLI",
+          "measure": "reported score",
+          "value": "88.1",
+          "locator": "Results table, lines 41-56",
+          "excerpt": "QNLI | Ours | 88.1"
+        },
+        {
+          "model": "GPT-1",
+          "benchmark": "RTE",
+          "measure": "reported score",
+          "value": "56.0",
+          "locator": "Results table, lines 41-56",
+          "excerpt": "RTE | Ours | 56.0"
+        },
+        {
+          "model": "GPT-1",
+          "benchmark": "STS-B",
+          "measure": "reported score",
+          "value": "82.0",
+          "locator": "Results table, lines 41-56",
+          "excerpt": "STS-B | Ours | 82.0"
+        },
+        {
+          "model": "GPT-1",
+          "benchmark": "QQP",
+          "measure": "reported score",
+          "value": "70.3",
+          "locator": "Results table, lines 41-56",
+          "excerpt": "QQP | Ours | 70.3"
+        },
+        {
+          "model": "GPT-1",
+          "benchmark": "MRPC",
+          "measure": "reported score",
+          "value": "82.3",
+          "locator": "Results table, lines 41-56",
+          "excerpt": "MRPC | Ours | 82.3"
+        },
+        {
+          "model": "GPT-1",
+          "benchmark": "RACE",
+          "measure": "reported score",
+          "value": "59.0",
+          "locator": "Results table, lines 41-56",
+          "excerpt": "RACE | Ours | 59.0"
+        },
+        {
+          "model": "GPT-1",
+          "benchmark": "ROCStories",
+          "measure": "reported score",
+          "value": "86.5",
+          "locator": "Results table, lines 41-56",
+          "excerpt": "ROCStories | Ours | 86.5"
+        },
+        {
+          "model": "GPT-1",
+          "benchmark": "COPA",
+          "measure": "reported score",
+          "value": "78.6",
+          "locator": "Results table, lines 41-56",
+          "excerpt": "COPA | Ours | 78.6"
+        },
+        {
+          "model": "GPT-1",
+          "benchmark": "SST-2",
+          "measure": "reported score",
+          "value": "91.3",
+          "locator": "Results table, lines 41-56",
+          "excerpt": "SST-2 | Ours | 91.3"
+        },
+        {
+          "model": "GPT-1",
+          "benchmark": "CoLA",
+          "measure": "reported score",
+          "value": "45.4",
+          "locator": "Results table, lines 41-56",
+          "excerpt": "CoLA | Ours | 45.4"
+        },
+        {
+          "model": "GPT-1",
+          "benchmark": "GLUE",
+          "measure": "reported score",
+          "value": "72.8",
+          "locator": "Results table, lines 41-56",
+          "excerpt": "GLUE | Ours | 72.8"
+        }
+      ],
+      "coverage_note": "The article calls the model a transformer rather than GPT-1; GPT-1 is the widely used later name. Scores are the article’s Ours column; metric varies by task."
+    },
+    {
+      "url": "https://openai.com/index/clip/",
+      "title": "CLIP: Connecting text and images",
+      "date": "2021-01-05",
+      "models": [
+        "CLIP"
+      ],
+      "scores": [
+        {
+          "model": "CLIP",
+          "benchmark": "MNIST",
+          "measure": "zero-shot accuracy",
+          "value": "88%",
+          "locator": "Limitations, line 87",
+          "excerpt": "zero-shot CLIP only achieves 88% accuracy"
+        }
+      ],
+      "coverage_note": "Other evaluation charts do not expose exact scores in accessible article text.",
+      "benchmark_mentions": [
+        {
+          "benchmark": "ImageNet",
+          "locator": "Approach and limitations"
+        }
+      ]
+    },
+    {
+      "url": "https://openai.com/index/dall-e/",
+      "title": "DALL·E: Creating images from text",
+      "date": "2021-01-05",
+      "models": [
+        "DALL·E"
+      ],
+      "scores": [],
+      "coverage_note": "Launch article uses qualitative examples and does not report exact benchmark scores in accessible text."
+    },
+    {
+      "url": "https://openai.com/index/openai-codex/",
+      "title": "OpenAI Codex",
+      "date": "2021-08-10",
+      "models": [
+        "OpenAI Codex"
+      ],
+      "scores": [],
+      "coverage_note": "Launch article does not report a named benchmark score. HumanEval values in later papers are excluded."
+    },
+    {
+      "url": "https://openai.com/index/text-and-code-embeddings-by-contrastive-pre-training/",
+      "title": "Text and code embeddings by contrastive pre-training",
+      "date": "2022-01-24",
+      "models": [
+        "OpenAI text embedding model",
+        "OpenAI code embedding model"
+      ],
+      "scores": [],
+      "coverage_note": "Publication abstract reports relative improvements but no absolute model scores; model identities are not pinned to API names.",
+      "benchmark_mentions": [
+        {
+          "benchmark": "MS MARCO",
+          "locator": "Abstract"
+        },
+        {
+          "benchmark": "Natural Questions",
+          "locator": "Abstract"
+        },
+        {
+          "benchmark": "TriviaQA",
+          "locator": "Abstract"
+        },
+        {
+          "benchmark": "code search",
+          "locator": "Abstract"
+        }
+      ]
+    },
+    {
+      "url": "https://openai.com/index/dall-e-2/",
+      "title": "DALL·E 2",
+      "date": null,
+      "models": [
+        "DALL·E 2"
+      ],
+      "scores": [
+        {
+          "model": "DALL·E 2",
+          "benchmark": "DALL·E 2 vs DALL·E 1 human preference",
+          "measure": "caption matching preference",
+          "value": "71.7%",
+          "locator": "Comparison, lines 41-45",
+          "excerpt": "71.7% preferred for caption matching"
+        },
+        {
+          "model": "DALL·E 2",
+          "benchmark": "DALL·E 2 vs DALL·E 1 human preference",
+          "measure": "photorealism preference",
+          "value": "88.8%",
+          "locator": "Comparison, lines 41-49",
+          "excerpt": "88.8% preferred for photorealism"
+        }
+      ],
+      "coverage_note": "The current canonical page has no explicit publication date in accessible text; leave date unknown rather than infer from secondary pages."
+    },
+    {
+      "url": "https://openai.com/index/whisper/",
+      "title": "Introducing Whisper",
+      "date": "2022-09-21",
+      "models": [
+        "Whisper"
+      ],
+      "scores": [],
+      "coverage_note": "Launch article names LibriSpeech and describes relative error reduction across datasets but gives no exact Whisper benchmark score in accessible article text.",
+      "benchmark_mentions": [
+        {
+          "benchmark": "LibriSpeech",
+          "locator": "Evaluation discussion"
+        }
+      ]
+    },
+    {
+      "url": "https://openai.com/index/new-and-improved-embedding-model/",
+      "title": "New and improved embedding model",
+      "date": "2022-12-15",
+      "models": [
+        "text-embedding-ada-002"
+      ],
+      "scores": [
+        {
+          "model": "text-embedding-ada-002",
+          "benchmark": "BEIR",
+          "measure": "reported performance",
+          "value": "53.3",
+          "locator": "Performance table near page footer, lines 167-173",
+          "excerpt": "text-embedding-ada-002 | 53.3"
+        }
+      ],
+      "coverage_note": "Article HTML also has chart-based comparisons for other tasks; only accessible text table score included.",
+      "benchmark_mentions": [
+        {
+          "benchmark": "SentEval",
+          "locator": "Limitations"
+        }
+      ]
+    }
+  ]
+}

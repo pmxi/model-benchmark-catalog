@@ -1,0 +1,42 @@
+{
+  "posts": [
+    {
+      "url": "https://openai.com/index/introducing-structured-outputs-in-the-api/",
+      "title": "Introducing Structured Outputs in the API",
+      "date": "2024-08-06",
+      "models": ["gpt-4o-2024-08-06", "gpt-4-0613"],
+      "scores": [
+        {"model":"gpt-4o-2024-08-06", "benchmark":"OpenAI complex JSON schema following eval", "measure":"reliability with Structured Outputs", "value":"100%", "locator":"Opening section, paragraph beginning 'On our evals'", "excerpt":"our new model gpt-4o-2024-08-06 with Structured Outputs scores a perfect 100%"},
+        {"model":"gpt-4-0613", "benchmark":"OpenAI complex JSON schema following eval", "measure":"reliability", "value":"less than 40%", "locator":"Opening section, paragraph beginning 'On our evals'", "excerpt":"In comparison, gpt-4-0613 scores less than 40%"},
+        {"model":"gpt-4o-2024-08-06", "benchmark":"OpenAI complex JSON schema following eval", "measure":"reliability before constrained sampling", "value":"93%", "locator":"Under the hood", "excerpt":"this model's performance improvements (93% on our benchmark)"}
+      ],
+      "coverage_note":"The 100% score depends on strict Structured Outputs/constrained decoding; the article separately reports 93% for the model before constrained sampling. Do not treat these as the same configuration."
+    },
+    {
+      "url": "https://openai.com/index/introducing-chatgpt-pro/",
+      "title": "Introducing ChatGPT Pro",
+      "date": "2024-12-05",
+      "models": ["OpenAI o1 pro mode", "OpenAI o1", "OpenAI o1-preview"],
+      "scores": [],
+      "benchmark_mentions": [
+        {"benchmark":"AIME 2024", "locator":"More thinking power for more difficult problems; Competition Math chart"},
+        {"benchmark":"Codeforces", "locator":"More thinking power for more difficult problems; Competition Code chart"},
+        {"benchmark":"GPQA Diamond", "locator":"More thinking power for more difficult problems; PhD-Level Science Questions chart"}
+      ],
+      "coverage_note":"Benchmark comparisons are embedded as image charts; exact values were not verified from accessible article text. Article distinguishes single-attempt accuracy from 4/4 reliability."
+    },
+    {
+      "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
+      "title": "Model Release Notes: Launching OpenAI o3-pro",
+      "date": "2025-06-10",
+      "models": ["OpenAI o3-pro", "OpenAI o3", "OpenAI o1-pro"],
+      "scores": [],
+      "benchmark_mentions": [
+        {"benchmark":"AIME 2024", "locator":"June 10, 2025 o3-pro launch note; academic evaluation chart"},
+        {"benchmark":"GPQA Diamond", "locator":"June 10, 2025 o3-pro launch note; academic evaluation chart"},
+        {"benchmark":"Codeforces", "locator":"June 10, 2025 o3-pro launch note; academic evaluation chart"}
+      ],
+      "coverage_note":"Launch notice is in OpenAI's cumulative model release notes, not a standalone launch post. The evaluation charts are images. The source states o3-pro beats o3 and o1-pro and shows both pass@1 and 4/4 reliability, but exact chart values were not verified."
+    }
+  ]
+}

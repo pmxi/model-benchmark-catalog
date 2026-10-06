@@ -1,0 +1,147 @@
+{
+  "coverage_note": "Official OpenAI launch pages for image, audio, and video models absent from existing research files. Scores are included only when the launch page prints an explicit value; model capabilities, usage counts, comparative improvements without an absolute score, and chart-only values are excluded from score observations. This is a targeted coverage pass, not an exhaustive census of all modalities or system cards.",
+  "posts": [
+    {
+      "url": "https://openai.com/index/dall-e/",
+      "title": "DALL·E: Creating images from text",
+      "date": "2021-01-05",
+      "models": [
+        "DALL·E"
+      ],
+      "scores": [],
+      "coverage_note": "Launch page describes image examples; no named benchmark score in accessible text."
+    },
+    {
+      "url": "https://openai.com/index/dall-e-2/",
+      "title": "DALL·E 2",
+      "date": null,
+      "models": [
+        "DALL·E 2"
+      ],
+      "scores": [],
+      "coverage_note": "The launch page supplies a head-to-head evaluator preference, but does not name a standardized external benchmark or state sample size."
+    },
+    {
+      "url": "https://openai.com/index/whisper/",
+      "title": "Introducing Whisper",
+      "date": "2022-09-21",
+      "models": [
+        "Whisper"
+      ],
+      "scores": [],
+      "benchmark_mentions": [
+        {
+          "benchmark": "LibriSpeech",
+          "locator": "Article paragraph beginning Other existing approaches"
+        },
+        {
+          "benchmark": "CoVoST2",
+          "locator": "Article paragraph beginning About a third of Whisper’s audio dataset"
+        }
+      ],
+      "coverage_note": "The article claims robust zero-shot performance and mentions LibriSpeech and CoVoST2, but prints no absolute benchmark-specific Whisper score. Its 50% fewer errors claim is an aggregate comparison across diverse datasets, not a named benchmark score."
+    },
+    {
+      "url": "https://openai.com/index/dall-e-3/",
+      "title": "DALL·E 3",
+      "date": "2023-09-20",
+      "models": [
+        "DALL·E 3"
+      ],
+      "scores": [],
+      "coverage_note": "Official launch page describes prompt following and image examples without an exact named benchmark score."
+    },
+    {
+      "url": "https://openai.com/index/sora/",
+      "title": "Creating video from text",
+      "date": null,
+      "models": [
+        "Sora"
+      ],
+      "scores": [],
+      "coverage_note": "Launch post shows examples and qualitative capability statements; no named benchmark score."
+    },
+    {
+      "url": "https://openai.com/index/introducing-our-next-generation-audio-models/",
+      "title": "Introducing next-generation audio models in the API",
+      "date": "2025-03-20",
+      "models": [
+        "gpt-4o-transcribe",
+        "gpt-4o-mini-transcribe",
+        "gpt-4o-mini-tts"
+      ],
+      "scores": [],
+      "benchmark_mentions": [
+        {
+          "benchmark": "FLEURS",
+          "locator": "Reduced Transcription Error in Latest Speech-to-Text Models on FLEURS and Word Error Rate Comparison on FLEURS Across Leading Models"
+        }
+      ],
+      "coverage_note": "FLEURS comparison figures are rendered without extractable numeric WER values in the article text. No score was inferred from chart images."
+    },
+    {
+      "url": "https://openai.com/index/introducing-4o-image-generation/",
+      "title": "Introducing 4o Image Generation",
+      "date": "2025-03-25",
+      "models": [
+        "GPT-4o image generation"
+      ],
+      "scores": [],
+      "coverage_note": "The post reports qualitative image generation capabilities and sample images, with no exact named benchmark score."
+    },
+    {
+      "url": "https://openai.com/index/image-generation-api/",
+      "title": "Introducing our latest image generation model in the API",
+      "date": "2025-04-23",
+      "models": [
+        "gpt-image-1"
+      ],
+      "scores": [],
+      "coverage_note": "API launch post names gpt-image-1 but no benchmark score. User and image generation counts describe adoption, not evaluation."
+    },
+    {
+      "url": "https://openai.com/index/sora-2/",
+      "title": "Sora 2 is here",
+      "date": "2025-09-30",
+      "models": [
+        "Sora 2"
+      ],
+      "scores": [],
+      "coverage_note": "Launch article describes physics and video generation examples; no exact named benchmark score."
+    },
+    {
+      "url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/",
+      "title": "Advancing voice intelligence with new models in the API",
+      "date": "2026-05-07",
+      "models": [
+        "GPT-Realtime-2",
+        "GPT-Realtime-Translate",
+        "GPT-Realtime-Whisper"
+      ],
+      "scores": [],
+      "benchmark_mentions": [
+        {
+          "benchmark": "Big Bench Audio",
+          "locator": "Realtime voice: helping voice models reason and take action"
+        },
+        {
+          "benchmark": "Audio MultiChallenge",
+          "locator": "Realtime voice: helping voice models reason and take action"
+        }
+      ],
+      "coverage_note": "The article reports relative improvements over GPT-Realtime-1.5 (15.2% higher and 13.8% higher) rather than absolute benchmark scores; these should not be imported as score observations."
+    },
+    {
+      "url": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "title": "Introducing ChatGPT Images 2.5",
+      "date": "2026-09-08",
+      "models": [
+        "ChatGPT Images 2.5",
+        "GPT-Image-2.5 Flare",
+        "GPT-Image-2.5 Sunburst"
+      ],
+      "scores": [],
+      "coverage_note": "The article reports speed and visual quality claims but no exact named benchmark score."
+    }
+  ]
+}

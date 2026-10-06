@@ -85,6 +85,18 @@ CREATE TABLE source_retrieval (
     CHECK ((snapshot_location IS NULL) = (content_hash IS NULL))
 ) STRICT;
 
+-- A source may mention a benchmark without reporting a readable numeric score.
+-- Score observations themselves also establish benchmark use; this relation is
+-- for mentions that would otherwise be lost from the catalog.
+CREATE TABLE benchmark_mention (
+    id TEXT PRIMARY KEY NOT NULL,
+    source_retrieval_id TEXT NOT NULL REFERENCES source_retrieval(id),
+    reported_benchmark_name TEXT NOT NULL
+        CHECK (length(trim(reported_benchmark_name)) > 0),
+    source_locator TEXT NOT NULL CHECK (length(trim(source_locator)) > 0),
+    benchmark_id TEXT REFERENCES benchmark(id)
+) STRICT;
+
 -- One row is one score as reported by one retrieved source. Never deduplicate
 -- by model/measure/value. Preserve raw wording even after resolving IDs.
 -- A NULL normalized ID means the identity has not been resolved. Composite
@@ -209,6 +221,8 @@ CREATE INDEX benchmark_version_benchmark_idx ON benchmark_version(benchmark_id);
 CREATE INDEX benchmark_measure_benchmark_idx ON benchmark_measure(benchmark_id);
 CREATE INDEX source_publisher_idx ON source(publisher_id);
 CREATE INDEX source_retrieval_source_time_idx ON source_retrieval(source_id, fetched_at);
+CREATE INDEX benchmark_mention_retrieval_idx ON benchmark_mention(source_retrieval_id);
+CREATE INDEX benchmark_mention_benchmark_idx ON benchmark_mention(benchmark_id);
 CREATE INDEX score_observation_retrieval_idx ON score_observation(source_retrieval_id);
 CREATE INDEX score_observation_comparison_idx
     ON score_observation(model_id, benchmark_measure_id);
