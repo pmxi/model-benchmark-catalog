@@ -45,6 +45,6 @@ Likewise, do not infer that matching scores came from the same evaluation. Linki
 
 ## Storage format
 
-The storage format is still open. For text files tracked in Git, one CSV file per relation could make changes reviewable. RFC 4180 provides a baseline for CSV syntax, but the project would also need explicit conventions for UTF-8 encoding, headers, line endings, null values, IDs, column types, and foreign keys. CSV on the Web (CSVW) metadata is one possible way to describe that schema. A queryable database could be generated from the source files.
+The proposed schema targets SQLite. The SQL file is the schema source of truth; it does not yet include data, migrations, or an ingestion pipeline. SQLite databases are convenient to query but binary changes are difficult to review in Git. A text-based export may be added later if collaborative data editing requires it.
 
-See [model-benchmark-catalog/SCHEMA.md](SCHEMA.md) for the proposed logical schema.
+See [model-benchmark-catalog/schema.sql](schema.sql) for the schema. Apply it to a new database with `sqlite3 catalog.sqlite < schema.sql`; enable foreign keys on every application connection.
