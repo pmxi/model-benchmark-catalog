@@ -43,8 +43,29 @@ Likewise, do not infer that matching scores came from the same evaluation. Linki
 - Make benchmark version, measure definition, and evaluation conditions visible when comparing scores.
 - Keep raw source observations distinct from normalized identities and editorial choices used in a comparison view.
 
-## Storage format
+## Current data
 
-The proposed schema targets SQLite. The SQL file is the schema source of truth; it does not yet include data, migrations, or an ingestion pipeline. SQLite databases are convenient to query but binary changes are difficult to review in Git. A text-based export may be added later if collaborative data editing requires it.
+[model-benchmark-catalog/catalog.sqlite](catalog.sqlite) is a populated SQLite database built from the text research files in [model-benchmark-catalog/research/](research/). The current pass covers OpenAI and Anthropic launch material through October 6, 2026. It includes 69 source documents, 93 model records, 322 benchmark labels, and 818 score observations. These counts include a linked GPT-4 technical report and posts that have no transcribed numeric scores.
 
-See [model-benchmark-catalog/schema.sql](schema.sql) for the schema. Apply it to a new database with `sqlite3 catalog.sqlite < schema.sql`; enable foreign keys on every application connection.
+Each observation retains the exact reported value, model and benchmark wording, source location, source URL, and a retrieval timestamp. The [retrieval log](retrieval_log.json) records when each URL was checked. Many posts put benchmark results only in images; those values have been omitted unless they were read and verified. Source records carry coverage notes for known gaps. This is a substantial first pass, **not an exhaustive inventory** of every release or every chart cell.
+
+The normalized model and benchmark IDs are provisional exact-name groupings. Matching IDs do not establish that evaluation configurations, benchmark versions, or score units are comparable. Where a unit or configuration was not recorded, it remains unknown. The database does not yet contain source snapshots; the URL, locator, excerpt, and retrieval time remain available, and snapshot fields are null.
+
+## Use and rebuild
+
+See [model-benchmark-catalog/schema.sql](schema.sql) for the SQLite schema and [model-benchmark-catalog/build_db.py](build_db.py) for the importer. The research JSON files are the editable data source; `catalog.sqlite` is a generated query artifact. To rebuild, move the existing database aside and run `uv run python build_db.py`. The importer refuses to overwrite an existing database.
+
+For example, inspect a reported score and its provenance with:
+
+```sh
+sqlite3 -header -column catalog.sqlite '
+  SELECT m.name AS model, b.name AS benchmark, o.reported_measure_name AS measure,
+         o.reported_value_text AS score, s.title AS source, r.final_url, r.fetched_at,
+         o.source_locator
+  FROM score_observation AS o
+  JOIN model AS m ON m.id = o.model_id
+  JOIN benchmark AS b ON b.id = o.benchmark_id
+  JOIN source_retrieval AS r ON r.id = o.source_retrieval_id
+  JOIN source AS s ON s.id = r.source_id
+  LIMIT 10;'
+```

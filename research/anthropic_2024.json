@@ -1,0 +1,578 @@
+{
+  "posts": [
+    {
+      "url": "https://www.anthropic.com/news/claude-3-family",
+      "title": "Introducing the next generation of Claude",
+      "date": "2024-03-04",
+      "models": [
+        "Claude 3 Opus",
+        "Claude 3 Sonnet",
+        "Claude 3 Haiku"
+      ],
+      "scores": [
+        {
+          "model": "Claude 3 Opus",
+          "benchmark": "MMLU",
+          "measure": "accuracy, 5-shot",
+          "value": "86.8%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Opus column; MMLU row; 86.8% (accuracy, 5-shot)"
+        },
+        {
+          "model": "Claude 3 Sonnet",
+          "benchmark": "MMLU",
+          "measure": "accuracy, 5-shot",
+          "value": "79.0%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Sonnet column; MMLU row; 79.0% (accuracy, 5-shot)"
+        },
+        {
+          "model": "Claude 3 Haiku",
+          "benchmark": "MMLU",
+          "measure": "accuracy, 5-shot",
+          "value": "75.2%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Haiku column; MMLU row; 75.2% (accuracy, 5-shot)"
+        },
+        {
+          "model": "Claude 3 Opus",
+          "benchmark": "GPQA Diamond",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "50.4%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Opus column; GPQA Diamond row; 50.4% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3 Sonnet",
+          "benchmark": "GPQA Diamond",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "40.4%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Sonnet column; GPQA Diamond row; 40.4% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3 Haiku",
+          "benchmark": "GPQA Diamond",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "33.3%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Haiku column; GPQA Diamond row; 33.3% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3 Opus",
+          "benchmark": "GSM8K",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "95.0%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Opus column; GSM8K row; 95.0% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3 Sonnet",
+          "benchmark": "GSM8K",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "92.3%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Sonnet column; GSM8K row; 92.3% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3 Haiku",
+          "benchmark": "GSM8K",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "88.9%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Haiku column; GSM8K row; 88.9% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3 Opus",
+          "benchmark": "MATH",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "60.1%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Opus column; MATH row; 60.1% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3 Sonnet",
+          "benchmark": "MATH",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "43.1%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Sonnet column; MATH row; 43.1% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3 Haiku",
+          "benchmark": "MATH",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "38.9%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Haiku column; MATH row; 38.9% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3 Opus",
+          "benchmark": "MGSM",
+          "measure": "accuracy, 0-shot",
+          "value": "90.7%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Opus column; MGSM row; 90.7% (accuracy, 0-shot)"
+        },
+        {
+          "model": "Claude 3 Sonnet",
+          "benchmark": "MGSM",
+          "measure": "accuracy, 0-shot",
+          "value": "83.5%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Sonnet column; MGSM row; 83.5% (accuracy, 0-shot)"
+        },
+        {
+          "model": "Claude 3 Haiku",
+          "benchmark": "MGSM",
+          "measure": "accuracy, 0-shot",
+          "value": "75.1%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Haiku column; MGSM row; 75.1% (accuracy, 0-shot)"
+        },
+        {
+          "model": "Claude 3 Opus",
+          "benchmark": "HumanEval",
+          "measure": "pass rate, 0-shot",
+          "value": "84.9%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Opus column; HumanEval row; 84.9% (pass rate, 0-shot)"
+        },
+        {
+          "model": "Claude 3 Sonnet",
+          "benchmark": "HumanEval",
+          "measure": "pass rate, 0-shot",
+          "value": "73.0%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Sonnet column; HumanEval row; 73.0% (pass rate, 0-shot)"
+        },
+        {
+          "model": "Claude 3 Haiku",
+          "benchmark": "HumanEval",
+          "measure": "pass rate, 0-shot",
+          "value": "75.9%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Haiku column; HumanEval row; 75.9% (pass rate, 0-shot)"
+        },
+        {
+          "model": "Claude 3 Opus",
+          "benchmark": "DROP",
+          "measure": "F1, 3-shot",
+          "value": "83.1",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Opus column; DROP row; 83.1 (F1, 3-shot)"
+        },
+        {
+          "model": "Claude 3 Sonnet",
+          "benchmark": "DROP",
+          "measure": "F1, 3-shot",
+          "value": "78.9",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Sonnet column; DROP row; 78.9 (F1, 3-shot)"
+        },
+        {
+          "model": "Claude 3 Haiku",
+          "benchmark": "DROP",
+          "measure": "F1, 3-shot",
+          "value": "78.4",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Haiku column; DROP row; 78.4 (F1, 3-shot)"
+        },
+        {
+          "model": "Claude 3 Opus",
+          "benchmark": "BIG-Bench-Hard",
+          "measure": "accuracy, 3-shot CoT",
+          "value": "86.8%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Opus column; BIG-Bench-Hard row; 86.8% (accuracy, 3-shot CoT)"
+        },
+        {
+          "model": "Claude 3 Sonnet",
+          "benchmark": "BIG-Bench-Hard",
+          "measure": "accuracy, 3-shot CoT",
+          "value": "82.9%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Sonnet column; BIG-Bench-Hard row; 82.9% (accuracy, 3-shot CoT)"
+        },
+        {
+          "model": "Claude 3 Haiku",
+          "benchmark": "BIG-Bench-Hard",
+          "measure": "accuracy, 3-shot CoT",
+          "value": "73.7%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Haiku column; BIG-Bench-Hard row; 73.7% (accuracy, 3-shot CoT)"
+        },
+        {
+          "model": "Claude 3 Opus",
+          "benchmark": "ARC-Challenge",
+          "measure": "accuracy, 25-shot",
+          "value": "96.4%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Opus column; ARC-Challenge row; 96.4% (accuracy, 25-shot)"
+        },
+        {
+          "model": "Claude 3 Sonnet",
+          "benchmark": "ARC-Challenge",
+          "measure": "accuracy, 25-shot",
+          "value": "93.2%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Sonnet column; ARC-Challenge row; 93.2% (accuracy, 25-shot)"
+        },
+        {
+          "model": "Claude 3 Haiku",
+          "benchmark": "ARC-Challenge",
+          "measure": "accuracy, 25-shot",
+          "value": "89.2%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Haiku column; ARC-Challenge row; 89.2% (accuracy, 25-shot)"
+        },
+        {
+          "model": "Claude 3 Opus",
+          "benchmark": "HellaSwag",
+          "measure": "accuracy, 10-shot",
+          "value": "95.4%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Opus column; HellaSwag row; 95.4% (accuracy, 10-shot)"
+        },
+        {
+          "model": "Claude 3 Sonnet",
+          "benchmark": "HellaSwag",
+          "measure": "accuracy, 10-shot",
+          "value": "89.0%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Sonnet column; HellaSwag row; 89.0% (accuracy, 10-shot)"
+        },
+        {
+          "model": "Claude 3 Haiku",
+          "benchmark": "HellaSwag",
+          "measure": "accuracy, 10-shot",
+          "value": "85.9%",
+          "locator": "A new standard for intelligence, benchmark comparison image",
+          "excerpt": "Claude 3 Haiku column; HellaSwag row; 85.9% (accuracy, 10-shot)"
+        },
+        {
+          "model": "Claude 3 Opus",
+          "benchmark": "Needle In A Haystack",
+          "measure": "recall accuracy",
+          "value": ">99%",
+          "locator": "Long context and near-perfect recall",
+          "excerpt": "Claude 3 Opus ... surpassing 99% accuracy"
+        }
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/news/claude-3-5-sonnet",
+      "title": "Claude 3.5 Sonnet",
+      "date": "2024-06-21",
+      "models": [
+        "Claude 3.5 Sonnet (June 2024)"
+      ],
+      "scores": [
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "GPQA Diamond",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "59.4%",
+          "locator": "Frontier intelligence at 2x the speed, benchmark image",
+          "excerpt": "Claude 3.5 Sonnet column; GPQA Diamond row or footnote; 59.4% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "GPQA Diamond",
+          "measure": "accuracy, 5-shot CoT with maj@32",
+          "value": "67.2%",
+          "locator": "Frontier intelligence at 2x the speed, benchmark image",
+          "excerpt": "Claude 3.5 Sonnet column; GPQA Diamond row or footnote; 67.2% (accuracy, 5-shot CoT with maj@32)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "MMLU",
+          "measure": "accuracy, 5-shot",
+          "value": "88.7%",
+          "locator": "Frontier intelligence at 2x the speed, benchmark image",
+          "excerpt": "Claude 3.5 Sonnet column; MMLU row or footnote; 88.7% (accuracy, 5-shot)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "MMLU",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "88.3%",
+          "locator": "Frontier intelligence at 2x the speed, benchmark image",
+          "excerpt": "Claude 3.5 Sonnet column; MMLU row or footnote; 88.3% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "MMLU",
+          "measure": "accuracy, 5-shot CoT",
+          "value": "90.4%",
+          "locator": "Frontier intelligence at 2x the speed, benchmark image",
+          "excerpt": "Claude 3.5 Sonnet column; MMLU row or footnote; 90.4% (accuracy, 5-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "HumanEval",
+          "measure": "pass rate, 0-shot",
+          "value": "92.0%",
+          "locator": "Frontier intelligence at 2x the speed, benchmark image",
+          "excerpt": "Claude 3.5 Sonnet column; HumanEval row or footnote; 92.0% (pass rate, 0-shot)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "MGSM",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "91.6%",
+          "locator": "Frontier intelligence at 2x the speed, benchmark image",
+          "excerpt": "Claude 3.5 Sonnet column; MGSM row or footnote; 91.6% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "DROP",
+          "measure": "F1, 3-shot",
+          "value": "87.1",
+          "locator": "Frontier intelligence at 2x the speed, benchmark image",
+          "excerpt": "Claude 3.5 Sonnet column; DROP row or footnote; 87.1 (F1, 3-shot)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "BIG-Bench-Hard",
+          "measure": "accuracy, 3-shot CoT",
+          "value": "93.1%",
+          "locator": "Frontier intelligence at 2x the speed, benchmark image",
+          "excerpt": "Claude 3.5 Sonnet column; BIG-Bench-Hard row or footnote; 93.1% (accuracy, 3-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "MATH",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "71.1%",
+          "locator": "Frontier intelligence at 2x the speed, benchmark image",
+          "excerpt": "Claude 3.5 Sonnet column; MATH row or footnote; 71.1% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "GSM8K",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "96.4%",
+          "locator": "Frontier intelligence at 2x the speed, benchmark image",
+          "excerpt": "Claude 3.5 Sonnet column; GSM8K row or footnote; 96.4% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "MathVista testmini",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "67.7%",
+          "locator": "State-of-the-art vision, vision evals image",
+          "excerpt": "Claude 3.5 Sonnet column; MathVista testmini row; 67.7% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "AI2D test",
+          "measure": "accuracy, 0-shot",
+          "value": "94.7%",
+          "locator": "State-of-the-art vision, vision evals image",
+          "excerpt": "Claude 3.5 Sonnet column; AI2D test row; 94.7% (accuracy, 0-shot)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "MMMU val",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "68.3%",
+          "locator": "State-of-the-art vision, vision evals image",
+          "excerpt": "Claude 3.5 Sonnet column; MMMU val row; 68.3% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "ChartQA test",
+          "measure": "relaxed accuracy, 0-shot CoT",
+          "value": "90.8%",
+          "locator": "State-of-the-art vision, vision evals image",
+          "excerpt": "Claude 3.5 Sonnet column; ChartQA test row; 90.8% (relaxed accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "DocVQA test",
+          "measure": "ANLS, 0-shot",
+          "value": "95.2%",
+          "locator": "State-of-the-art vision, vision evals image",
+          "excerpt": "Claude 3.5 Sonnet column; DocVQA test row; 95.2% (ANLS, 0-shot)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (June 2024)",
+          "benchmark": "Internal agentic coding evaluation",
+          "measure": "problems solved",
+          "value": "64%",
+          "locator": "Frontier intelligence at 2x the speed, paragraph 3",
+          "excerpt": "Claude 3.5 Sonnet solved 64% of problems"
+        }
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/news/3-5-models-and-computer-use",
+      "title": "Introducing computer use, a new Claude 3.5 Sonnet, and Claude 3.5 Haiku",
+      "date": "2024-10-22",
+      "models": [
+        "Claude 3.5 Sonnet (October 2024)",
+        "Claude 3.5 Haiku"
+      ],
+      "scores": [
+        {
+          "model": "Claude 3.5 Sonnet (October 2024)",
+          "benchmark": "GPQA Diamond",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "65.0%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Sonnet (October 2024) column; GPQA Diamond row; 65.0% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Haiku",
+          "benchmark": "GPQA Diamond",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "41.6%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Haiku column; GPQA Diamond row; 41.6% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (October 2024)",
+          "benchmark": "MMLU Pro",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "78.0%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Sonnet (October 2024) column; MMLU Pro row; 78.0% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Haiku",
+          "benchmark": "MMLU Pro",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "65.0%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Haiku column; MMLU Pro row; 65.0% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (October 2024)",
+          "benchmark": "HumanEval",
+          "measure": "pass rate, 0-shot",
+          "value": "93.7%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Sonnet (October 2024) column; HumanEval row; 93.7% (pass rate, 0-shot)"
+        },
+        {
+          "model": "Claude 3.5 Haiku",
+          "benchmark": "HumanEval",
+          "measure": "pass rate, 0-shot",
+          "value": "88.1%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Haiku column; HumanEval row; 88.1% (pass rate, 0-shot)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (October 2024)",
+          "benchmark": "MATH",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "78.3%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Sonnet (October 2024) column; MATH row; 78.3% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Haiku",
+          "benchmark": "MATH",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "69.2%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Haiku column; MATH row; 69.2% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (October 2024)",
+          "benchmark": "AIME 2024",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "16.0%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Sonnet (October 2024) column; AIME 2024 row; 16.0% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Haiku",
+          "benchmark": "AIME 2024",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "5.3%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Haiku column; AIME 2024 row; 5.3% (accuracy, 0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (October 2024)",
+          "benchmark": "SWE-bench Verified",
+          "measure": "resolved",
+          "value": "49.0%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Sonnet (October 2024) column; SWE-bench Verified row; 49.0% (resolved)"
+        },
+        {
+          "model": "Claude 3.5 Haiku",
+          "benchmark": "SWE-bench Verified",
+          "measure": "resolved",
+          "value": "40.6%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Haiku column; SWE-bench Verified row; 40.6% (resolved)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (October 2024)",
+          "benchmark": "TAU-bench retail",
+          "measure": "success rate",
+          "value": "69.2%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Sonnet (October 2024) column; TAU-bench retail row; 69.2% (success rate)"
+        },
+        {
+          "model": "Claude 3.5 Haiku",
+          "benchmark": "TAU-bench retail",
+          "measure": "success rate",
+          "value": "51.0%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Haiku column; TAU-bench retail row; 51.0% (success rate)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (October 2024)",
+          "benchmark": "TAU-bench airline",
+          "measure": "success rate",
+          "value": "46.0%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Sonnet (October 2024) column; TAU-bench airline row; 46.0% (success rate)"
+        },
+        {
+          "model": "Claude 3.5 Haiku",
+          "benchmark": "TAU-bench airline",
+          "measure": "success rate",
+          "value": "22.8%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Haiku column; TAU-bench airline row; 22.8% (success rate)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (October 2024)",
+          "benchmark": "MMMU",
+          "measure": "accuracy, 0-shot CoT",
+          "value": "70.4%",
+          "locator": "Model comparison image below introduction",
+          "excerpt": "Claude 3.5 Sonnet (new) column; MMMU row; 70.4% (0-shot CoT)"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (October 2024)",
+          "benchmark": "OSWorld screenshot-only",
+          "measure": "task success rate",
+          "value": "14.9%",
+          "locator": "Teaching Claude to navigate computers, responsibly",
+          "excerpt": "Claude 3.5 Sonnet scored 14.9% in the screenshot-only category"
+        },
+        {
+          "model": "Claude 3.5 Sonnet (October 2024)",
+          "benchmark": "OSWorld screenshot-only, more steps",
+          "measure": "task success rate",
+          "value": "22.0%",
+          "locator": "Teaching Claude to navigate computers, responsibly",
+          "excerpt": "When afforded more steps to complete the task, Claude scored 22.0%"
+        }
+      ]
+    }
+  ],
+  "coverage_notes": [
+    "Primary 2024 model launch posts covered: March Claude 3 family, June Claude 3.5 Sonnet, October updated Claude 3.5 Sonnet and Claude 3.5 Haiku. March 13 Claude 3 Haiku availability post repeats launch with no new scored benchmarks in text.",
+    "Image table scores were visually transcribed from linked images on primary Anthropic posts. Comparison columns for third-party or previously released models were omitted.",
+    "Some scores have uncertain exact evaluation protocol beyond the image label; measure records only published context."
+  ]
+}

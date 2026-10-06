@@ -1,0 +1,413 @@
+{
+  "posts": [
+    {
+      "url": "https://www.anthropic.com/news/claude-opus-4-1",
+      "title": "Claude Opus 4.1",
+      "date": "2025-08-05",
+      "models": [
+        "Claude Opus 4.1"
+      ],
+      "scores": [
+        {
+          "model": "Claude Opus 4.1",
+          "benchmark": "SWE-bench Verified",
+          "measure": "pass@1",
+          "value": "74.5%",
+          "locator": "Claude Opus 4.1 section, benchmark table image",
+          "excerpt": "Claude Opus 4.1: SWE-bench Verified (pass@1) 74.5%"
+        },
+        {
+          "model": "Claude Opus 4.1",
+          "benchmark": "Terminal-Bench",
+          "measure": "task success, Terminus 1",
+          "value": "43.3%",
+          "locator": "Claude Opus 4.1 section, benchmark table image",
+          "excerpt": "Claude Opus 4.1: Terminal-Bench (task success, Terminus 1) 43.3%"
+        },
+        {
+          "model": "Claude Opus 4.1",
+          "benchmark": "GPQA Diamond",
+          "measure": "accuracy",
+          "value": "80.9%",
+          "locator": "Claude Opus 4.1 section, benchmark table image",
+          "excerpt": "Claude Opus 4.1: GPQA Diamond (accuracy) 80.9%"
+        },
+        {
+          "model": "Claude Opus 4.1",
+          "benchmark": "TAU-bench",
+          "measure": "Retail success",
+          "value": "82.4%",
+          "locator": "Claude Opus 4.1 section, benchmark table image",
+          "excerpt": "Claude Opus 4.1: TAU-bench (Retail success) 82.4%"
+        },
+        {
+          "model": "Claude Opus 4.1",
+          "benchmark": "TAU-bench",
+          "measure": "Airline success",
+          "value": "56.0%",
+          "locator": "Claude Opus 4.1 section, benchmark table image",
+          "excerpt": "Claude Opus 4.1: TAU-bench (Airline success) 56.0%"
+        },
+        {
+          "model": "Claude Opus 4.1",
+          "benchmark": "MMMLU",
+          "measure": "accuracy",
+          "value": "89.5%",
+          "locator": "Claude Opus 4.1 section, benchmark table image",
+          "excerpt": "Claude Opus 4.1: MMMLU (accuracy) 89.5%"
+        },
+        {
+          "model": "Claude Opus 4.1",
+          "benchmark": "MMMU",
+          "measure": "validation accuracy",
+          "value": "77.1%",
+          "locator": "Claude Opus 4.1 section, benchmark table image",
+          "excerpt": "Claude Opus 4.1: MMMU (validation accuracy) 77.1%"
+        },
+        {
+          "model": "Claude Opus 4.1",
+          "benchmark": "AIME 2025",
+          "measure": "accuracy",
+          "value": "78.0%",
+          "locator": "Claude Opus 4.1 section, benchmark table image",
+          "excerpt": "Claude Opus 4.1: AIME 2025 (accuracy) 78.0%"
+        }
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/news/claude-sonnet-4-5",
+      "title": "Introducing Claude Sonnet 4.5",
+      "date": "2025-09-29",
+      "models": [
+        "Claude Sonnet 4.5"
+      ],
+      "scores": [
+        {
+          "model": "Claude Sonnet 4.5",
+          "benchmark": "SWE-bench Verified",
+          "measure": "pass@1",
+          "value": "77.2%",
+          "locator": "Frontier intelligence, benchmark table image",
+          "excerpt": "Claude Sonnet 4.5: SWE-bench Verified (pass@1) 77.2%"
+        },
+        {
+          "model": "Claude Sonnet 4.5",
+          "benchmark": "SWE-bench Verified",
+          "measure": "parallel test-time compute",
+          "value": "82.0%",
+          "locator": "Frontier intelligence, benchmark table image",
+          "excerpt": "Claude Sonnet 4.5: SWE-bench Verified (parallel test-time compute) 82.0%"
+        },
+        {
+          "model": "Claude Sonnet 4.5",
+          "benchmark": "Terminal-Bench",
+          "measure": "task success",
+          "value": "50.0%",
+          "locator": "Frontier intelligence, benchmark table image",
+          "excerpt": "Claude Sonnet 4.5: Terminal-Bench (task success) 50.0%"
+        },
+        {
+          "model": "Claude Sonnet 4.5",
+          "benchmark": "τ2-bench",
+          "measure": "Retail success",
+          "value": "86.2%",
+          "locator": "Frontier intelligence, benchmark table image",
+          "excerpt": "Claude Sonnet 4.5: τ2-bench (Retail success) 86.2%"
+        },
+        {
+          "model": "Claude Sonnet 4.5",
+          "benchmark": "τ2-bench",
+          "measure": "Airline success",
+          "value": "70.0%",
+          "locator": "Frontier intelligence, benchmark table image",
+          "excerpt": "Claude Sonnet 4.5: τ2-bench (Airline success) 70.0%"
+        },
+        {
+          "model": "Claude Sonnet 4.5",
+          "benchmark": "τ2-bench",
+          "measure": "Telecom success",
+          "value": "98.0%",
+          "locator": "Frontier intelligence, benchmark table image",
+          "excerpt": "Claude Sonnet 4.5: τ2-bench (Telecom success) 98.0%"
+        },
+        {
+          "model": "Claude Sonnet 4.5",
+          "benchmark": "OSWorld",
+          "measure": "computer use success",
+          "value": "61.4%",
+          "locator": "Frontier intelligence, benchmark table image",
+          "excerpt": "Claude Sonnet 4.5: OSWorld (computer use success) 61.4%"
+        },
+        {
+          "model": "Claude Sonnet 4.5",
+          "benchmark": "AIME 2025",
+          "measure": "accuracy with Python",
+          "value": "100%",
+          "locator": "Frontier intelligence, benchmark table image",
+          "excerpt": "Claude Sonnet 4.5: AIME 2025 (accuracy with Python) 100%"
+        },
+        {
+          "model": "Claude Sonnet 4.5",
+          "benchmark": "AIME 2025",
+          "measure": "accuracy without tools",
+          "value": "87.0%",
+          "locator": "Frontier intelligence, benchmark table image",
+          "excerpt": "Claude Sonnet 4.5: AIME 2025 (accuracy without tools) 87.0%"
+        },
+        {
+          "model": "Claude Sonnet 4.5",
+          "benchmark": "GPQA Diamond",
+          "measure": "accuracy",
+          "value": "83.4%",
+          "locator": "Frontier intelligence, benchmark table image",
+          "excerpt": "Claude Sonnet 4.5: GPQA Diamond (accuracy) 83.4%"
+        },
+        {
+          "model": "Claude Sonnet 4.5",
+          "benchmark": "MMMLU",
+          "measure": "accuracy",
+          "value": "89.1%",
+          "locator": "Frontier intelligence, benchmark table image",
+          "excerpt": "Claude Sonnet 4.5: MMMLU (accuracy) 89.1%"
+        },
+        {
+          "model": "Claude Sonnet 4.5",
+          "benchmark": "MMMU",
+          "measure": "validation accuracy",
+          "value": "77.8%",
+          "locator": "Frontier intelligence, benchmark table image",
+          "excerpt": "Claude Sonnet 4.5: MMMU (validation accuracy) 77.8%"
+        },
+        {
+          "model": "Claude Sonnet 4.5",
+          "benchmark": "Finance Agent",
+          "measure": "financial analysis success",
+          "value": "55.3%",
+          "locator": "Frontier intelligence, benchmark table image",
+          "excerpt": "Claude Sonnet 4.5: Finance Agent (financial analysis success) 55.3%"
+        }
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/news/claude-haiku-4-5",
+      "title": "Introducing Claude Haiku 4.5",
+      "date": "2025-10-15",
+      "models": [
+        "Claude Haiku 4.5"
+      ],
+      "scores": [
+        {
+          "model": "Claude Haiku 4.5",
+          "benchmark": "SWE-bench Verified",
+          "measure": "pass@1",
+          "value": "73.3%",
+          "locator": "Benchmarks, comparison table image",
+          "excerpt": "Claude Haiku 4.5: SWE-bench Verified (pass@1) 73.3%"
+        },
+        {
+          "model": "Claude Haiku 4.5",
+          "benchmark": "Terminal-Bench",
+          "measure": "task success",
+          "value": "41.0%",
+          "locator": "Benchmarks, comparison table image",
+          "excerpt": "Claude Haiku 4.5: Terminal-Bench (task success) 41.0%"
+        },
+        {
+          "model": "Claude Haiku 4.5",
+          "benchmark": "τ2-bench",
+          "measure": "Retail success",
+          "value": "83.2%",
+          "locator": "Benchmarks, comparison table image",
+          "excerpt": "Claude Haiku 4.5: τ2-bench (Retail success) 83.2%"
+        },
+        {
+          "model": "Claude Haiku 4.5",
+          "benchmark": "τ2-bench",
+          "measure": "Airline success",
+          "value": "63.6%",
+          "locator": "Benchmarks, comparison table image",
+          "excerpt": "Claude Haiku 4.5: τ2-bench (Airline success) 63.6%"
+        },
+        {
+          "model": "Claude Haiku 4.5",
+          "benchmark": "τ2-bench",
+          "measure": "Telecom success",
+          "value": "83.0%",
+          "locator": "Benchmarks, comparison table image",
+          "excerpt": "Claude Haiku 4.5: τ2-bench (Telecom success) 83.0%"
+        },
+        {
+          "model": "Claude Haiku 4.5",
+          "benchmark": "OSWorld",
+          "measure": "computer use success",
+          "value": "50.7%",
+          "locator": "Benchmarks, comparison table image",
+          "excerpt": "Claude Haiku 4.5: OSWorld (computer use success) 50.7%"
+        },
+        {
+          "model": "Claude Haiku 4.5",
+          "benchmark": "AIME 2025",
+          "measure": "accuracy with Python",
+          "value": "96.3%",
+          "locator": "Benchmarks, comparison table image",
+          "excerpt": "Claude Haiku 4.5: AIME 2025 (accuracy with Python) 96.3%"
+        },
+        {
+          "model": "Claude Haiku 4.5",
+          "benchmark": "AIME 2025",
+          "measure": "accuracy without tools",
+          "value": "80.7%",
+          "locator": "Benchmarks, comparison table image",
+          "excerpt": "Claude Haiku 4.5: AIME 2025 (accuracy without tools) 80.7%"
+        },
+        {
+          "model": "Claude Haiku 4.5",
+          "benchmark": "GPQA Diamond",
+          "measure": "accuracy",
+          "value": "73.0%",
+          "locator": "Benchmarks, comparison table image",
+          "excerpt": "Claude Haiku 4.5: GPQA Diamond (accuracy) 73.0%"
+        },
+        {
+          "model": "Claude Haiku 4.5",
+          "benchmark": "MMMLU",
+          "measure": "accuracy",
+          "value": "83.0%",
+          "locator": "Benchmarks, comparison table image",
+          "excerpt": "Claude Haiku 4.5: MMMLU (accuracy) 83.0%"
+        },
+        {
+          "model": "Claude Haiku 4.5",
+          "benchmark": "MMMU",
+          "measure": "validation accuracy",
+          "value": "73.2%",
+          "locator": "Benchmarks, comparison table image",
+          "excerpt": "Claude Haiku 4.5: MMMU (validation accuracy) 73.2%"
+        }
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/news/claude-opus-4-5",
+      "title": "Introducing Claude Opus 4.5",
+      "date": "2025-11-24",
+      "models": [
+        "Claude Opus 4.5"
+      ],
+      "scores": [
+        {
+          "model": "Claude Opus 4.5",
+          "benchmark": "SWE-bench Verified",
+          "measure": "pass@1",
+          "value": "80.9%",
+          "locator": "Evaluating Claude Opus 4.5, comparison table image",
+          "excerpt": "Claude Opus 4.5: SWE-bench Verified (pass@1) 80.9%"
+        },
+        {
+          "model": "Claude Opus 4.5",
+          "benchmark": "Terminal-bench 2.0",
+          "measure": "task success",
+          "value": "59.3%",
+          "locator": "Evaluating Claude Opus 4.5, comparison table image",
+          "excerpt": "Claude Opus 4.5: Terminal-bench 2.0 (task success) 59.3%"
+        },
+        {
+          "model": "Claude Opus 4.5",
+          "benchmark": "τ2-bench",
+          "measure": "Retail success",
+          "value": "88.9%",
+          "locator": "Evaluating Claude Opus 4.5, comparison table image",
+          "excerpt": "Claude Opus 4.5: τ2-bench (Retail success) 88.9%"
+        },
+        {
+          "model": "Claude Opus 4.5",
+          "benchmark": "τ2-bench",
+          "measure": "Telecom success",
+          "value": "98.2%",
+          "locator": "Evaluating Claude Opus 4.5, comparison table image",
+          "excerpt": "Claude Opus 4.5: τ2-bench (Telecom success) 98.2%"
+        },
+        {
+          "model": "Claude Opus 4.5",
+          "benchmark": "MCP Atlas",
+          "measure": "tool use success",
+          "value": "62.3%",
+          "locator": "Evaluating Claude Opus 4.5, comparison table image",
+          "excerpt": "Claude Opus 4.5: MCP Atlas (tool use success) 62.3%"
+        },
+        {
+          "model": "Claude Opus 4.5",
+          "benchmark": "OSWorld",
+          "measure": "computer use success",
+          "value": "66.3%",
+          "locator": "Evaluating Claude Opus 4.5, comparison table image",
+          "excerpt": "Claude Opus 4.5: OSWorld (computer use success) 66.3%"
+        },
+        {
+          "model": "Claude Opus 4.5",
+          "benchmark": "ARC-AGI-2",
+          "measure": "Verified accuracy",
+          "value": "37.6%",
+          "locator": "Evaluating Claude Opus 4.5, comparison table image",
+          "excerpt": "Claude Opus 4.5: ARC-AGI-2 (Verified accuracy) 37.6%"
+        },
+        {
+          "model": "Claude Opus 4.5",
+          "benchmark": "GPQA Diamond",
+          "measure": "accuracy",
+          "value": "87.0%",
+          "locator": "Evaluating Claude Opus 4.5, comparison table image",
+          "excerpt": "Claude Opus 4.5: GPQA Diamond (accuracy) 87.0%"
+        },
+        {
+          "model": "Claude Opus 4.5",
+          "benchmark": "MMMU",
+          "measure": "validation accuracy",
+          "value": "80.7%",
+          "locator": "Evaluating Claude Opus 4.5, comparison table image",
+          "excerpt": "Claude Opus 4.5: MMMU (validation accuracy) 80.7%"
+        },
+        {
+          "model": "Claude Opus 4.5",
+          "benchmark": "MMMLU",
+          "measure": "accuracy",
+          "value": "90.8%",
+          "locator": "Evaluating Claude Opus 4.5, comparison table image",
+          "excerpt": "Claude Opus 4.5: MMMLU (accuracy) 90.8%"
+        },
+        {
+          "model": "Claude Opus 4.5",
+          "benchmark": "Aider Polyglot",
+          "measure": "improvement over Sonnet 4.5",
+          "value": "10.6%",
+          "locator": "Evaluating Claude Opus 4.5, benchmark carousel",
+          "excerpt": "10.6% jump over Sonnet 4.5 on Aider Polyglot"
+        },
+        {
+          "model": "Claude Opus 4.5",
+          "benchmark": "Vending-Bench",
+          "measure": "earnings improvement over Sonnet 4.5",
+          "value": "29%",
+          "locator": "Evaluating Claude Opus 4.5, benchmark carousel",
+          "excerpt": "earning 29% more than Sonnet 4.5 on Vending-Bench"
+        },
+        {
+          "model": "Claude Opus 4.5",
+          "benchmark": "BrowseComp-Plus",
+          "measure": "fetch-enabled, with context management and memory",
+          "value": "85.30%",
+          "locator": "Footnote 4",
+          "excerpt": "improvement was from 70.48% without using the combination of techniques to 85.30% using it"
+        },
+        {
+          "model": "Claude Opus 4.5",
+          "benchmark": "BrowseComp-Plus",
+          "measure": "fetch-enabled, without context management and memory",
+          "value": "70.48%",
+          "locator": "Footnote 4",
+          "excerpt": "improvement was from 70.48% without using the combination of techniques to 85.30% using it"
+        }
+      ]
+    }
+  ],
+  "coverage_note": "Four Anthropic model launch posts dated July–December 2025 were identified. This file transcribes only scores for the newly launched model in each post. Image table readings were visually checked against each original Anthropic launch page. Other Anthropic models and competitor baselines shown in those images are omitted. Internal customer anecdotes without a named benchmark and numeric score are omitted. This is a 2025 H2 slice, not all Anthropic history."
+}

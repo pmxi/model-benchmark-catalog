@@ -1,0 +1,278 @@
+{
+  "https://cdn.openai.com/papers/gpt-4.pdf": {
+    "fetched_at": "2026-10-06T20:47:12Z",
+    "verified": true
+  },
+  "https://openai.com/index/better-language-models": {
+    "fetched_at": "2026-10-06T20:47:13Z",
+    "verified": true
+  },
+  "https://openai.com/index/chatgpt": {
+    "fetched_at": "2026-10-06T20:47:13Z",
+    "verified": true
+  },
+  "https://openai.com/index/function-calling-and-other-api-updates": {
+    "fetched_at": "2026-10-06T20:47:14Z",
+    "verified": true
+  },
+  "https://openai.com/index/gpt-2-1-5b-release": {
+    "fetched_at": "2026-10-06T20:47:15Z",
+    "verified": true
+  },
+  "https://openai.com/index/gpt-4": {
+    "fetched_at": "2026-10-06T20:47:15Z",
+    "verified": true
+  },
+  "https://openai.com/index/gpt-4-1": {
+    "fetched_at": "2026-10-06T20:47:17Z",
+    "verified": true
+  },
+  "https://openai.com/index/gpt-4-research": {
+    "fetched_at": "2026-10-06T20:47:19Z",
+    "verified": true
+  },
+  "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence": {
+    "fetched_at": "2026-10-06T20:47:20Z",
+    "verified": true
+  },
+  "https://openai.com/index/gpt-5-1": {
+    "fetched_at": "2026-10-06T20:47:21Z",
+    "verified": true
+  },
+  "https://openai.com/index/gpt-5-1-codex-max": {
+    "fetched_at": "2026-10-06T20:47:22Z",
+    "verified": true
+  },
+  "https://openai.com/index/gpt-5-1-for-developers": {
+    "fetched_at": "2026-10-06T20:47:24Z",
+    "verified": true
+  },
+  "https://openai.com/index/gpt-5-3-instant": {
+    "fetched_at": "2026-10-06T20:47:24Z",
+    "verified": true
+  },
+  "https://openai.com/index/gpt-5-6": {
+    "fetched_at": "2026-10-06T20:47:25Z",
+    "verified": true
+  },
+  "https://openai.com/index/gpt-6-astra": {
+    "fetched_at": "2026-10-06T20:47:26Z",
+    "verified": true
+  },
+  "https://openai.com/index/hello-gpt-4o": {
+    "fetched_at": "2026-10-06T20:47:26Z",
+    "verified": true
+  },
+  "https://openai.com/index/instruction-following": {
+    "fetched_at": "2026-10-06T20:47:27Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-codex": {
+    "fetched_at": "2026-10-06T20:47:28Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-deep-research": {
+    "fetched_at": "2026-10-06T20:47:29Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-gpt-4-5": {
+    "fetched_at": "2026-10-06T20:47:30Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-gpt-5": {
+    "fetched_at": "2026-10-06T20:47:30Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-gpt-5-2": {
+    "fetched_at": "2026-10-06T20:47:31Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-gpt-5-2-codex": {
+    "fetched_at": "2026-10-06T20:47:32Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-gpt-5-3-codex": {
+    "fetched_at": "2026-10-06T20:47:33Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-gpt-5-3-codex-spark": {
+    "fetched_at": "2026-10-06T20:47:33Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-gpt-5-4": {
+    "fetched_at": "2026-10-06T20:47:34Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-gpt-5-4-mini-and-nano": {
+    "fetched_at": "2026-10-06T20:47:35Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-gpt-5-5": {
+    "fetched_at": "2026-10-06T20:47:37Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-gpt-5-for-developers": {
+    "fetched_at": "2026-10-06T20:47:39Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-gpt-6-1-sol": {
+    "fetched_at": "2026-10-06T20:47:40Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-gpt-6-sol-and-luna": {
+    "fetched_at": "2026-10-06T20:47:41Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-gpt-oss": {
+    "fetched_at": "2026-10-06T20:47:42Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-gpt-oss-safeguard": {
+    "fetched_at": "2026-10-06T20:47:43Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-gpt-realtime": {
+    "fetched_at": "2026-10-06T20:47:44Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-o3-and-o4-mini": {
+    "fetched_at": "2026-10-06T20:47:44Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-openai-o1-preview": {
+    "fetched_at": "2026-10-06T20:47:45Z",
+    "verified": true
+  },
+  "https://openai.com/index/introducing-upgrades-to-codex": {
+    "fetched_at": "2026-10-06T20:47:46Z",
+    "verified": true
+  },
+  "https://openai.com/index/language-models-are-few-shot-learners": {
+    "fetched_at": "2026-10-06T20:47:47Z",
+    "verified": true
+  },
+  "https://openai.com/index/learning-to-reason-with-llms": {
+    "fetched_at": "2026-10-06T20:47:47Z",
+    "verified": true
+  },
+  "https://openai.com/index/new-chatgpt-images-is-here": {
+    "fetched_at": "2026-10-06T20:47:48Z",
+    "verified": true
+  },
+  "https://openai.com/index/new-models-and-developer-products-announced-at-devday": {
+    "fetched_at": "2026-10-06T20:47:49Z",
+    "verified": true
+  },
+  "https://openai.com/index/o1-and-new-tools-for-developers": {
+    "fetched_at": "2026-10-06T20:47:50Z",
+    "verified": true
+  },
+  "https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning": {
+    "fetched_at": "2026-10-06T20:47:51Z",
+    "verified": true
+  },
+  "https://openai.com/index/openai-o3-mini": {
+    "fetched_at": "2026-10-06T20:47:52Z",
+    "verified": true
+  },
+  "https://openai.com/index/previewing-gpt-5-6-sol": {
+    "fetched_at": "2026-10-06T20:47:53Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/claude-fable-and-mythos-5-1": {
+    "fetched_at": "2026-10-06T20:47:54Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/claude-opus-5-5": {
+    "fetched_at": "2026-10-06T20:47:55Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/claude-sonnet-5-5": {
+    "fetched_at": "2026-10-06T20:47:56Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/3-5-models-and-computer-use": {
+    "fetched_at": "2026-10-06T20:47:57Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-2": {
+    "fetched_at": "2026-10-06T20:47:58Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-2-1": {
+    "fetched_at": "2026-10-06T20:58:02Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-3-5-sonnet": {
+    "fetched_at": "2026-10-06T20:58:03Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-3-7-sonnet": {
+    "fetched_at": "2026-10-06T20:58:04Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-3-family": {
+    "fetched_at": "2026-10-06T20:58:05Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-3-haiku": {
+    "fetched_at": "2026-10-06T20:58:06Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-4": {
+    "fetched_at": "2026-10-06T20:58:07Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-fable-5-mythos-5": {
+    "fetched_at": "2026-10-06T20:58:08Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-haiku-4-5": {
+    "fetched_at": "2026-10-06T20:58:09Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-opus-4-1": {
+    "fetched_at": "2026-10-06T20:58:09Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-opus-4-5": {
+    "fetched_at": "2026-10-06T20:58:10Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-opus-4-6": {
+    "fetched_at": "2026-10-06T20:58:11Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-opus-4-7": {
+    "fetched_at": "2026-10-06T20:58:12Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-opus-4-8": {
+    "fetched_at": "2026-10-06T20:58:13Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-opus-5": {
+    "fetched_at": "2026-10-06T20:58:14Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-sonnet-4-5": {
+    "fetched_at": "2026-10-06T20:58:14Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-sonnet-4-6": {
+    "fetched_at": "2026-10-06T20:58:15Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/claude-sonnet-5": {
+    "fetched_at": "2026-10-06T20:58:16Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/introducing-claude": {
+    "fetched_at": "2026-10-06T20:58:17Z",
+    "verified": true
+  },
+  "https://www.anthropic.com/news/releasing-claude-instant-1-2": {
+    "fetched_at": "2026-10-06T20:58:17Z",
+    "verified": true
+  }
+}

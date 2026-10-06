@@ -52,7 +52,7 @@ CREATE TABLE benchmark_measure (
     subset TEXT,
     metric TEXT NOT NULL CHECK (length(trim(metric)) > 0),
     aggregation_rule TEXT,
-    unit TEXT NOT NULL CHECK (length(trim(unit)) > 0),
+    unit TEXT CHECK (unit IS NULL OR length(trim(unit)) > 0),
     higher_is_better INTEGER CHECK (higher_is_better IN (0, 1)),
     UNIQUE (id, benchmark_id)
 ) STRICT;
@@ -63,11 +63,13 @@ CREATE TABLE source (
     id TEXT PRIMARY KEY NOT NULL,
     title TEXT NOT NULL CHECK (length(trim(title)) > 0),
     publisher_id TEXT REFERENCES organization(id),
-    published_at TEXT
+    published_at TEXT,
+    coverage_note TEXT
 ) STRICT;
 
--- The snapshot must be retrievable at snapshot_location. The hash is lowercase
--- SHA-256 of the preserved bytes, not a replacement for the snapshot.
+-- When a snapshot is available, snapshot_location must point to retrievable
+-- bytes and content_hash is their lowercase SHA-256. Some publishers block
+-- archiving; leave BOTH fields NULL rather than claiming a snapshot exists.
 -- fetched_at uses UTC ISO 8601 with whole seconds, e.g. 2026-10-06T20:00:00Z.
 CREATE TABLE source_retrieval (
     id TEXT PRIMARY KEY NOT NULL,
@@ -76,9 +78,11 @@ CREATE TABLE source_retrieval (
         CHECK (fetched_at GLOB '????-??-??T??:??:??Z'),
     requested_url TEXT NOT NULL CHECK (length(trim(requested_url)) > 0),
     final_url TEXT NOT NULL CHECK (length(trim(final_url)) > 0),
-    snapshot_location TEXT NOT NULL CHECK (length(trim(snapshot_location)) > 0),
-    content_hash TEXT NOT NULL
-        CHECK (length(content_hash) = 64 AND content_hash NOT GLOB '*[^0-9a-f]*')
+    snapshot_location TEXT CHECK (snapshot_location IS NULL OR length(trim(snapshot_location)) > 0),
+    content_hash TEXT
+        CHECK (content_hash IS NULL OR
+            (length(content_hash) = 64 AND content_hash NOT GLOB '*[^0-9a-f]*')),
+    CHECK ((snapshot_location IS NULL) = (content_hash IS NULL))
 ) STRICT;
 
 -- One row is one score as reported by one retrieved source. Never deduplicate

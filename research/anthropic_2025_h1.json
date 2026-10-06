@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "url": "https://www.anthropic.com/news/claude-3-7-sonnet",
+      "title": "Claude 3.7 Sonnet and Claude Code",
+      "date": "2025-02-24",
+      "models": ["Claude 3.7 Sonnet"],
+      "scores": [
+        {"model":"Claude 3.7 Sonnet","benchmark":"GPQA Diamond","measure":"accuracy, 64K extended thinking, pass@1 / parallel test-time compute","value":"78.2% / 84.8%","locator":"Benchmark table image, Graduate-level reasoning row","excerpt":"GPQA Diamond: 78.2% / 84.8%."},
+        {"model":"Claude 3.7 Sonnet","benchmark":"GPQA Diamond","measure":"accuracy, no extended thinking","value":"68.0%","locator":"Benchmark table image, Graduate-level reasoning row","excerpt":"GPQA Diamond: 68.0%."},
+        {"model":"Claude 3.7 Sonnet","benchmark":"SWE-bench Verified","measure":"accuracy, no extended thinking, single attempt, full 500 tasks / custom scaffold high compute","value":"62.3% / 70.3%","locator":"Software engineering chart image and benchmark table image; appendix SWE-bench Verified","excerpt":"62.3% with simple scaffold; 70.3% with custom scaffold. Appendix says high-compute score is on 489 solvable tasks."},
+        {"model":"Claude 3.7 Sonnet","benchmark":"TAU-bench","measure":"accuracy, retail, no extended thinking, planning-tool addendum","value":"81.2%","locator":"Agentic tool use chart image, retail group; appendix TAU-bench","excerpt":"TAU-bench retail: 81.2%."},
+        {"model":"Claude 3.7 Sonnet","benchmark":"TAU-bench","measure":"accuracy, airline, no extended thinking, planning-tool addendum","value":"58.4%","locator":"Agentic tool use chart image, airline group; appendix TAU-bench","excerpt":"TAU-bench airline: 58.4%."},
+        {"model":"Claude 3.7 Sonnet","benchmark":"MMMLU","measure":"accuracy, 64K extended thinking","value":"86.1%","locator":"Benchmark table image, Multilingual Q&A row","excerpt":"MMMLU: 86.1%."},
+        {"model":"Claude 3.7 Sonnet","benchmark":"MMMLU","measure":"accuracy, no extended thinking","value":"83.2%","locator":"Benchmark table image, Multilingual Q&A row","excerpt":"MMMLU: 83.2%."},
+        {"model":"Claude 3.7 Sonnet","benchmark":"MMMU","measure":"accuracy, validation split, 64K extended thinking","value":"75%","locator":"Benchmark table image, Visual reasoning row","excerpt":"MMMU (validation): 75%."},
+        {"model":"Claude 3.7 Sonnet","benchmark":"MMMU","measure":"accuracy, validation split, no extended thinking","value":"71.8%","locator":"Benchmark table image, Visual reasoning row","excerpt":"MMMU (validation): 71.8%."},
+        {"model":"Claude 3.7 Sonnet","benchmark":"IFEval","measure":"accuracy, 64K extended thinking","value":"93.2%","locator":"Benchmark table image, Instruction-following row","excerpt":"IFEval: 93.2%."},
+        {"model":"Claude 3.7 Sonnet","benchmark":"IFEval","measure":"accuracy, no extended thinking","value":"90.8%","locator":"Benchmark table image, Instruction-following row","excerpt":"IFEval: 90.8%."},
+        {"model":"Claude 3.7 Sonnet","benchmark":"MATH 500","measure":"accuracy, 64K extended thinking","value":"96.2%","locator":"Benchmark table image, Math problem-solving row","excerpt":"MATH 500: 96.2%."},
+        {"model":"Claude 3.7 Sonnet","benchmark":"MATH 500","measure":"accuracy, no extended thinking","value":"82.2%","locator":"Benchmark table image, Math problem-solving row","excerpt":"MATH 500: 82.2%."},
+        {"model":"Claude 3.7 Sonnet","benchmark":"AIME 2024","measure":"accuracy, 64K extended thinking, pass@1 / parallel test-time compute","value":"61.3% / 80.0%","locator":"Benchmark table image, High school math competition row","excerpt":"AIME 2024: 61.3% / 80.0%."},
+        {"model":"Claude 3.7 Sonnet","benchmark":"AIME 2024","measure":"accuracy, no extended thinking","value":"23.3%","locator":"Benchmark table image, High school math competition row","excerpt":"AIME 2024: 23.3%."}
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/news/claude-4",
+      "title": "Introducing Claude 4",
+      "date": "2025-05-22",
+      "models": ["Claude Opus 4", "Claude Sonnet 4"],
+      "scores": [
+        {"model":"Claude Opus 4","benchmark":"SWE-bench Verified","measure":"accuracy, no extended thinking, full 500 tasks","value":"72.5%","locator":"Claude 4 section and software engineering chart image; appendix performance benchmark reporting","excerpt":"Opus 4 leads on SWE-bench (72.5%)."},
+        {"model":"Claude Sonnet 4","benchmark":"SWE-bench Verified","measure":"accuracy, no extended thinking, full 500 tasks","value":"72.7%","locator":"Claude 4 section and software engineering chart image; appendix performance benchmark reporting","excerpt":"Sonnet 4 scores 72.7% on SWE-bench."},
+        {"model":"Claude Opus 4","benchmark":"SWE-bench Verified","measure":"accuracy, no extended thinking, parallel test-time compute, full 500 tasks","value":"79.4%","locator":"Software engineering chart image; appendix SWE-bench methodology","excerpt":"79.4% with parallel test-time compute."},
+        {"model":"Claude Sonnet 4","benchmark":"SWE-bench Verified","measure":"accuracy, no extended thinking, parallel test-time compute, full 500 tasks","value":"80.2%","locator":"Software engineering chart image; appendix SWE-bench methodology","excerpt":"80.2% with parallel test-time compute."},
+        {"model":"Claude Opus 4","benchmark":"Terminal-bench","measure":"accuracy, no extended thinking","value":"43.2%","locator":"Claude 4 section; appendix performance benchmark reporting","excerpt":"Opus 4 leads on Terminal-bench (43.2%)."},
+        {"model":"Claude Opus 4","benchmark":"GPQA Diamond","measure":"accuracy, no extended thinking","value":"74.9%","locator":"Appendix, Performance benchmark reporting","excerpt":"Without extended thinking, Opus 4 scores 74.9%."},
+        {"model":"Claude Sonnet 4","benchmark":"GPQA Diamond","measure":"accuracy, no extended thinking","value":"70.0%","locator":"Appendix, Performance benchmark reporting","excerpt":"Without extended thinking, Sonnet 4 scores 70.0%."},
+        {"model":"Claude Opus 4","benchmark":"MMMLU","measure":"accuracy, no extended thinking","value":"87.4%","locator":"Appendix, Performance benchmark reporting","excerpt":"Without extended thinking, Opus 4 scores 87.4%."},
+        {"model":"Claude Sonnet 4","benchmark":"MMMLU","measure":"accuracy, no extended thinking","value":"85.4%","locator":"Appendix, Performance benchmark reporting","excerpt":"Without extended thinking, Sonnet 4 scores 85.4%."},
+        {"model":"Claude Opus 4","benchmark":"MMMU","measure":"accuracy, no extended thinking","value":"73.7%","locator":"Appendix, Performance benchmark reporting","excerpt":"Without extended thinking, Opus 4 scores 73.7%."},
+        {"model":"Claude Sonnet 4","benchmark":"MMMU","measure":"accuracy, no extended thinking","value":"72.6%","locator":"Appendix, Performance benchmark reporting","excerpt":"Without extended thinking, Sonnet 4 scores 72.6%."},
+        {"model":"Claude Opus 4","benchmark":"AIME","measure":"accuracy, no extended thinking","value":"33.9%","locator":"Appendix, Performance benchmark reporting","excerpt":"Without extended thinking, Opus 4 scores 33.9%."},
+        {"model":"Claude Sonnet 4","benchmark":"AIME","measure":"accuracy, no extended thinking","value":"33.1%","locator":"Appendix, Performance benchmark reporting","excerpt":"Without extended thinking, Sonnet 4 scores 33.1%."}
+      ]
+    }
+  ],
+  "coverage_notes": ["Two Anthropic model launch articles found for January-June 2025: February 24 Claude 3.7 Sonnet and May 22 Claude 4 (Opus 4 and Sonnet 4).", "Claude 3.7 scores were transcribed from three chart/table images in its primary launch article. Claude 4 article includes a SWE-bench chart plus textual and appendix scores. Its text refers to TAU-bench and other extended-thinking benchmarks but does not expose all numeric scores in the web text; those are omitted rather than guessed.", "AIME year is unspecified in the Claude 4 appendix and is kept as AIME; the Claude 3.7 chart explicitly says AIME 2024."]
+}

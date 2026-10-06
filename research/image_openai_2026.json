@@ -1,0 +1,73 @@
+{
+  "posts": [
+    {
+      "url": "https://openai.com/index/gpt-5-3-instant/",
+      "title": "GPT-5.3 Instant: Smoother, more useful everyday conversations",
+      "date": "2026-03-03",
+      "models": ["GPT-5.3 Instant"],
+      "scores": [
+        {
+          "model": "GPT-5.3 Instant",
+          "benchmark": "OpenAI higher-stakes hallucination evaluation",
+          "measure": "relative hallucination-rate reduction with web use",
+          "value": "26.8%",
+          "locator": "More reliably accurate responses, paragraph 2",
+          "excerpt": "On the higher-stakes evaluation, GPT-5.3 Instant reduces hallucination rates by 26.8% when using the web and 19.7% when relying only on its internal knowledge, compared to prior models.",
+          "qualifier": "Relative reduction compared to prior models; baseline model is not named. This is not an absolute accuracy score."
+        },
+        {
+          "model": "GPT-5.3 Instant",
+          "benchmark": "OpenAI higher-stakes hallucination evaluation",
+          "measure": "relative hallucination-rate reduction without web use",
+          "value": "19.7%",
+          "locator": "More reliably accurate responses, paragraph 2",
+          "excerpt": "On the higher-stakes evaluation, GPT-5.3 Instant reduces hallucination rates by 26.8% when using the web and 19.7% when relying only on its internal knowledge, compared to prior models.",
+          "qualifier": "Relative reduction compared to prior models; baseline model is not named. This is not an absolute accuracy score."
+        },
+        {
+          "model": "GPT-5.3 Instant",
+          "benchmark": "OpenAI user-feedback hallucination evaluation",
+          "measure": "relative hallucination-rate reduction with web use",
+          "value": "22.5%",
+          "locator": "More reliably accurate responses, paragraph 2",
+          "excerpt": "On the user-feedback evaluation, hallucinations decrease by 22.5% with web use and 9.6% without web access.",
+          "qualifier": "Relative reduction compared to prior models; baseline model is not named. This is not an absolute accuracy score."
+        },
+        {
+          "model": "GPT-5.3 Instant",
+          "benchmark": "OpenAI user-feedback hallucination evaluation",
+          "measure": "relative hallucination-rate reduction without web access",
+          "value": "9.6%",
+          "locator": "More reliably accurate responses, paragraph 2",
+          "excerpt": "On the user-feedback evaluation, hallucinations decrease by 22.5% with web use and 9.6% without web access.",
+          "qualifier": "Relative reduction compared to prior models; baseline model is not named. This is not an absolute accuracy score."
+        }
+      ],
+      "coverage_note": "These are the only exact numerical evaluation outcomes visible in the launch-post prose. Keep separate from absolute benchmark scores."
+    },
+    {
+      "url": "https://openai.com/index/introducing-gpt-5-3-codex-spark/",
+      "title": "Introducing GPT-5.3-Codex-Spark",
+      "date": "2026-02-12",
+      "models": ["GPT-5.3-Codex-Spark"],
+      "scores": [],
+      "coverage_note": "Post names SWE-Bench Pro and Terminal-Bench 2.0, but its scores are chart-only. Official page text gives no exact values, and the chart asset could not be retrieved for visual transcription. Do not infer bar heights."
+    },
+    {
+      "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+      "title": "Previewing GPT-5.6 Sol: a next-generation model",
+      "date": "2026-06-26",
+      "models": ["GPT-5.6 Sol", "GPT-5.6 Terra", "GPT-5.6 Luna"],
+      "scores": [],
+      "coverage_note": "Post names Terminal-Bench 2.1, GeneBench v1, ExploitBench, and ExploitGym. Numeric outcomes appear only in charts; official page text gives no exact values. The chart assets could not be retrieved for visual transcription. Do not infer bar heights."
+    },
+    {
+      "url": "https://openai.com/index/gpt-5-1/",
+      "title": "GPT-5.1: A smarter, more conversational ChatGPT",
+      "date": "2025-11-12",
+      "models": ["GPT-5.1 Instant", "GPT-5.1 Thinking"],
+      "scores": [],
+      "coverage_note": "Post names AIME 2025 and Codeforces for GPT-5.1 Instant but no exact numeric score is visible in its text. Any chart must be inspected separately."
+    }
+  ]
+}

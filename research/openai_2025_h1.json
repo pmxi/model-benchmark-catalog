@@ -1,0 +1,1010 @@
+{
+  "posts": [
+    {
+      "url": "https://openai.com/index/openai-o3-mini/",
+      "title": "OpenAI o3-mini",
+      "date": "2025-01-31",
+      "models": [
+        "OpenAI o3-mini"
+      ],
+      "scores": [
+        {
+          "model": "OpenAI o3-mini (high)",
+          "benchmark": "FrontierMath",
+          "measure": "first-attempt solve rate with Python",
+          "value": "over 32%",
+          "locator": "FrontierMath",
+          "excerpt": "On FrontierMath, when prompted to use a Python tool, o3-mini with high reasoning effort solves over 32% of problems on the first attempt"
+        },
+        {
+          "model": "OpenAI o3-mini (high)",
+          "benchmark": "FrontierMath T3",
+          "measure": "first-attempt solve rate with Python",
+          "value": "more than 28%",
+          "locator": "FrontierMath",
+          "excerpt": "including more than 28% of the challenging (T3) problems"
+        },
+        {
+          "model": "OpenAI o3-mini (high)",
+          "benchmark": "SWE-bench Verified",
+          "measure": "Agentless scaffold solve rate",
+          "value": "39%",
+          "locator": "Software Engineering",
+          "excerpt": "SWE-bench Verified: OpenAI o3-mini (high) 39%"
+        },
+        {
+          "model": "OpenAI o3-mini (high)",
+          "benchmark": "SWE-bench Verified",
+          "measure": "internal tools scaffold solve rate",
+          "value": "61%",
+          "locator": "Software Engineering",
+          "excerpt": "SWE-bench Verified: OpenAI o3-mini (high) 61%"
+        }
+      ]
+    },
+    {
+      "url": "https://openai.com/index/introducing-deep-research/",
+      "title": "Introducing deep research",
+      "date": "2025-02-02",
+      "models": [
+        "OpenAI deep research"
+      ],
+      "scores": [
+        {
+          "model": "OpenAI deep research",
+          "benchmark": "Humanity’s Last Exam",
+          "measure": "accuracy with browsing and Python",
+          "value": "26.6%",
+          "locator": "How it works > Humanity’s Last Exam",
+          "excerpt": "Humanity’s Last Exam: OpenAI deep research 26.6%"
+        },
+        {
+          "model": "OpenAI deep research",
+          "benchmark": "GAIA",
+          "measure": "Level 1 pass@1",
+          "value": "74.29",
+          "locator": "How it works > GAIA table",
+          "excerpt": "GAIA: OpenAI deep research 74.29"
+        },
+        {
+          "model": "OpenAI deep research",
+          "benchmark": "GAIA",
+          "measure": "Level 2 pass@1",
+          "value": "69.06",
+          "locator": "How it works > GAIA table",
+          "excerpt": "GAIA: OpenAI deep research 69.06"
+        },
+        {
+          "model": "OpenAI deep research",
+          "benchmark": "GAIA",
+          "measure": "Level 3 pass@1",
+          "value": "47.6",
+          "locator": "How it works > GAIA table",
+          "excerpt": "GAIA: OpenAI deep research 47.6"
+        },
+        {
+          "model": "OpenAI deep research",
+          "benchmark": "GAIA",
+          "measure": "average pass@1",
+          "value": "67.36",
+          "locator": "How it works > GAIA table",
+          "excerpt": "GAIA: OpenAI deep research 67.36"
+        },
+        {
+          "model": "OpenAI deep research",
+          "benchmark": "GAIA",
+          "measure": "Level 1 cons@64",
+          "value": "78.66",
+          "locator": "How it works > GAIA table",
+          "excerpt": "GAIA: OpenAI deep research 78.66"
+        },
+        {
+          "model": "OpenAI deep research",
+          "benchmark": "GAIA",
+          "measure": "Level 2 cons@64",
+          "value": "73.21",
+          "locator": "How it works > GAIA table",
+          "excerpt": "GAIA: OpenAI deep research 73.21"
+        },
+        {
+          "model": "OpenAI deep research",
+          "benchmark": "GAIA",
+          "measure": "Level 3 cons@64",
+          "value": "58.03",
+          "locator": "How it works > GAIA table",
+          "excerpt": "GAIA: OpenAI deep research 58.03"
+        },
+        {
+          "model": "OpenAI deep research",
+          "benchmark": "GAIA",
+          "measure": "average cons@64",
+          "value": "72.57",
+          "locator": "How it works > GAIA table",
+          "excerpt": "GAIA: OpenAI deep research 72.57"
+        }
+      ]
+    },
+    {
+      "url": "https://openai.com/index/introducing-gpt-4-5/",
+      "title": "Introducing GPT-4.5",
+      "date": "2025-02-27",
+      "models": [
+        "GPT-4.5"
+      ],
+      "scores": [
+        {
+          "model": "GPT-4.5",
+          "benchmark": "GPQA",
+          "measure": "science accuracy",
+          "value": "71.4%",
+          "locator": "Appendix > Model evaluation scores",
+          "excerpt": "GPQA: GPT-4.5 71.4%"
+        },
+        {
+          "model": "GPT-4.5",
+          "benchmark": "AIME 2024",
+          "measure": "math accuracy",
+          "value": "36.7%",
+          "locator": "Appendix > Model evaluation scores",
+          "excerpt": "AIME 2024: GPT-4.5 36.7%"
+        },
+        {
+          "model": "GPT-4.5",
+          "benchmark": "MMMLU",
+          "measure": "multilingual accuracy",
+          "value": "85.1%",
+          "locator": "Appendix > Model evaluation scores",
+          "excerpt": "MMMLU: GPT-4.5 85.1%"
+        },
+        {
+          "model": "GPT-4.5",
+          "benchmark": "MMMU",
+          "measure": "multimodal accuracy",
+          "value": "74.4%",
+          "locator": "Appendix > Model evaluation scores",
+          "excerpt": "MMMU: GPT-4.5 74.4%"
+        },
+        {
+          "model": "GPT-4.5",
+          "benchmark": "SWE-Lancer Diamond",
+          "measure": "coding score",
+          "value": "32.6%",
+          "locator": "Appendix > Model evaluation scores",
+          "excerpt": "SWE-Lancer Diamond: GPT-4.5 32.6%"
+        },
+        {
+          "model": "GPT-4.5",
+          "benchmark": "SWE-Lancer Diamond",
+          "measure": "dollars earned",
+          "value": "$186,125",
+          "locator": "Appendix > Model evaluation scores",
+          "excerpt": "SWE-Lancer Diamond: GPT-4.5 $186,125"
+        },
+        {
+          "model": "GPT-4.5",
+          "benchmark": "SWE-bench Verified",
+          "measure": "coding solve rate",
+          "value": "38.0%",
+          "locator": "Appendix > Model evaluation scores",
+          "excerpt": "SWE-bench Verified: GPT-4.5 38.0%"
+        }
+      ]
+    },
+    {
+      "url": "https://openai.com/index/gpt-4-1/",
+      "title": "Introducing GPT-4.1 in the API",
+      "date": "2025-04-14",
+      "models": [
+        "GPT-4.1",
+        "GPT-4.1 mini",
+        "GPT-4.1 nano"
+      ],
+      "scores": [
+        {
+          "model": "GPT-4.1",
+          "benchmark": "AIME 2024",
+          "measure": "accuracy",
+          "value": "48.1%",
+          "locator": "Appendix > Academic knowledge table",
+          "excerpt": "AIME 2024: GPT-4.1 48.1% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "AIME 2024",
+          "measure": "accuracy",
+          "value": "49.6%",
+          "locator": "Appendix > Academic knowledge table",
+          "excerpt": "AIME 2024: GPT-4.1 mini 49.6% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "AIME 2024",
+          "measure": "accuracy",
+          "value": "29.4%",
+          "locator": "Appendix > Academic knowledge table",
+          "excerpt": "AIME 2024: GPT-4.1 nano 29.4% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "GPQA Diamond",
+          "measure": "accuracy",
+          "value": "66.3%",
+          "locator": "Appendix > Academic knowledge table",
+          "excerpt": "GPQA Diamond: GPT-4.1 66.3% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "GPQA Diamond",
+          "measure": "accuracy",
+          "value": "65.0%",
+          "locator": "Appendix > Academic knowledge table",
+          "excerpt": "GPQA Diamond: GPT-4.1 mini 65.0% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "GPQA Diamond",
+          "measure": "accuracy",
+          "value": "50.3%",
+          "locator": "Appendix > Academic knowledge table",
+          "excerpt": "GPQA Diamond: GPT-4.1 nano 50.3% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "MMLU",
+          "measure": "accuracy",
+          "value": "90.2%",
+          "locator": "Appendix > Academic knowledge table",
+          "excerpt": "MMLU: GPT-4.1 90.2% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "MMLU",
+          "measure": "accuracy",
+          "value": "87.5%",
+          "locator": "Appendix > Academic knowledge table",
+          "excerpt": "MMLU: GPT-4.1 mini 87.5% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "MMLU",
+          "measure": "accuracy",
+          "value": "80.1%",
+          "locator": "Appendix > Academic knowledge table",
+          "excerpt": "MMLU: GPT-4.1 nano 80.1% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "Multilingual MMLU",
+          "measure": "accuracy",
+          "value": "87.3%",
+          "locator": "Appendix > Academic knowledge table",
+          "excerpt": "Multilingual MMLU: GPT-4.1 87.3% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "Multilingual MMLU",
+          "measure": "accuracy",
+          "value": "78.5%",
+          "locator": "Appendix > Academic knowledge table",
+          "excerpt": "Multilingual MMLU: GPT-4.1 mini 78.5% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "Multilingual MMLU",
+          "measure": "accuracy",
+          "value": "66.9%",
+          "locator": "Appendix > Academic knowledge table",
+          "excerpt": "Multilingual MMLU: GPT-4.1 nano 66.9% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "SWE-bench Verified",
+          "measure": "solve rate",
+          "value": "54.6%",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "SWE-bench Verified: GPT-4.1 54.6% (solve rate)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "SWE-bench Verified",
+          "measure": "solve rate",
+          "value": "23.6%",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "SWE-bench Verified: GPT-4.1 mini 23.6% (solve rate)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "SWE-Lancer",
+          "measure": "dollars earned",
+          "value": "$176K",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "SWE-Lancer: GPT-4.1 $176K (dollars earned)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "SWE-Lancer",
+          "measure": "dollars earned",
+          "value": "$165K",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "SWE-Lancer: GPT-4.1 mini $165K (dollars earned)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "SWE-Lancer",
+          "measure": "dollars earned",
+          "value": "$77K",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "SWE-Lancer: GPT-4.1 nano $77K (dollars earned)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "SWE-Lancer",
+          "measure": "percent",
+          "value": "35.1%",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "SWE-Lancer: GPT-4.1 35.1% (percent)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "SWE-Lancer",
+          "measure": "percent",
+          "value": "33.0%",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "SWE-Lancer: GPT-4.1 mini 33.0% (percent)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "SWE-Lancer",
+          "measure": "percent",
+          "value": "15.3%",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "SWE-Lancer: GPT-4.1 nano 15.3% (percent)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "SWE-Lancer IC-Diamond",
+          "measure": "dollars earned",
+          "value": "$34K",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "SWE-Lancer IC-Diamond: GPT-4.1 $34K (dollars earned)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "SWE-Lancer IC-Diamond",
+          "measure": "dollars earned",
+          "value": "$31K",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "SWE-Lancer IC-Diamond: GPT-4.1 mini $31K (dollars earned)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "SWE-Lancer IC-Diamond",
+          "measure": "dollars earned",
+          "value": "$9K",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "SWE-Lancer IC-Diamond: GPT-4.1 nano $9K (dollars earned)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "SWE-Lancer IC-Diamond",
+          "measure": "percent",
+          "value": "14.4%",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "SWE-Lancer IC-Diamond: GPT-4.1 14.4% (percent)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "SWE-Lancer IC-Diamond",
+          "measure": "percent",
+          "value": "13.1%",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "SWE-Lancer IC-Diamond: GPT-4.1 mini 13.1% (percent)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "SWE-Lancer IC-Diamond",
+          "measure": "percent",
+          "value": "3.7%",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "SWE-Lancer IC-Diamond: GPT-4.1 nano 3.7% (percent)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "Aider polyglot whole",
+          "measure": "solve rate",
+          "value": "51.6%",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "Aider polyglot whole: GPT-4.1 51.6% (solve rate)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "Aider polyglot whole",
+          "measure": "solve rate",
+          "value": "34.7%",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "Aider polyglot whole: GPT-4.1 mini 34.7% (solve rate)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "Aider polyglot whole",
+          "measure": "solve rate",
+          "value": "9.8%",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "Aider polyglot whole: GPT-4.1 nano 9.8% (solve rate)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "Aider polyglot diff",
+          "measure": "solve rate",
+          "value": "52.9%",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "Aider polyglot diff: GPT-4.1 52.9% (solve rate)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "Aider polyglot diff",
+          "measure": "solve rate",
+          "value": "31.6%",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "Aider polyglot diff: GPT-4.1 mini 31.6% (solve rate)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "Aider polyglot diff",
+          "measure": "solve rate",
+          "value": "6.2%",
+          "locator": "Appendix > Coding evals table",
+          "excerpt": "Aider polyglot diff: GPT-4.1 nano 6.2% (solve rate)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "Internal API instruction following hard",
+          "measure": "score",
+          "value": "49.1%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "Internal API instruction following hard: GPT-4.1 49.1% (score)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "Internal API instruction following hard",
+          "measure": "score",
+          "value": "45.1%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "Internal API instruction following hard: GPT-4.1 mini 45.1% (score)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "Internal API instruction following hard",
+          "measure": "score",
+          "value": "31.6%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "Internal API instruction following hard: GPT-4.1 nano 31.6% (score)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "MultiChallenge",
+          "measure": "score",
+          "value": "38.3%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "MultiChallenge: GPT-4.1 38.3% (score)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "MultiChallenge",
+          "measure": "score",
+          "value": "35.8%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "MultiChallenge: GPT-4.1 mini 35.8% (score)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "MultiChallenge",
+          "measure": "score",
+          "value": "15.0%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "MultiChallenge: GPT-4.1 nano 15.0% (score)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "MultiChallenge o3-mini grader",
+          "measure": "score",
+          "value": "46.2%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "MultiChallenge o3-mini grader: GPT-4.1 46.2% (score)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "MultiChallenge o3-mini grader",
+          "measure": "score",
+          "value": "42.2%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "MultiChallenge o3-mini grader: GPT-4.1 mini 42.2% (score)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "MultiChallenge o3-mini grader",
+          "measure": "score",
+          "value": "31.1%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "MultiChallenge o3-mini grader: GPT-4.1 nano 31.1% (score)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "COLLIE",
+          "measure": "score",
+          "value": "65.8%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "COLLIE: GPT-4.1 65.8% (score)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "COLLIE",
+          "measure": "score",
+          "value": "54.6%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "COLLIE: GPT-4.1 mini 54.6% (score)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "COLLIE",
+          "measure": "score",
+          "value": "42.5%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "COLLIE: GPT-4.1 nano 42.5% (score)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "IFEval",
+          "measure": "score",
+          "value": "87.4%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "IFEval: GPT-4.1 87.4% (score)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "IFEval",
+          "measure": "score",
+          "value": "84.1%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "IFEval: GPT-4.1 mini 84.1% (score)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "IFEval",
+          "measure": "score",
+          "value": "74.5%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "IFEval: GPT-4.1 nano 74.5% (score)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "Multi-IF",
+          "measure": "score",
+          "value": "70.8%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "Multi-IF: GPT-4.1 70.8% (score)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "Multi-IF",
+          "measure": "score",
+          "value": "67.0%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "Multi-IF: GPT-4.1 mini 67.0% (score)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "Multi-IF",
+          "measure": "score",
+          "value": "57.2%",
+          "locator": "Appendix > Instruction following table",
+          "excerpt": "Multi-IF: GPT-4.1 nano 57.2% (score)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "OpenAI-MRCR 2 needle 128k",
+          "measure": "accuracy",
+          "value": "57.2%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "OpenAI-MRCR 2 needle 128k: GPT-4.1 57.2% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "OpenAI-MRCR 2 needle 128k",
+          "measure": "accuracy",
+          "value": "47.2%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "OpenAI-MRCR 2 needle 128k: GPT-4.1 mini 47.2% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "OpenAI-MRCR 2 needle 128k",
+          "measure": "accuracy",
+          "value": "36.6%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "OpenAI-MRCR 2 needle 128k: GPT-4.1 nano 36.6% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "OpenAI-MRCR 2 needle 1M",
+          "measure": "accuracy",
+          "value": "46.3%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "OpenAI-MRCR 2 needle 1M: GPT-4.1 46.3% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "OpenAI-MRCR 2 needle 1M",
+          "measure": "accuracy",
+          "value": "33.3%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "OpenAI-MRCR 2 needle 1M: GPT-4.1 mini 33.3% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "OpenAI-MRCR 2 needle 1M",
+          "measure": "accuracy",
+          "value": "12.0%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "OpenAI-MRCR 2 needle 1M: GPT-4.1 nano 12.0% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "Graphwalks BFS <128k",
+          "measure": "accuracy",
+          "value": "61.7%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "Graphwalks BFS <128k: GPT-4.1 61.7% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "Graphwalks BFS <128k",
+          "measure": "accuracy",
+          "value": "61.7%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "Graphwalks BFS <128k: GPT-4.1 mini 61.7% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "Graphwalks BFS <128k",
+          "measure": "accuracy",
+          "value": "25.0%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "Graphwalks BFS <128k: GPT-4.1 nano 25.0% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "Graphwalks BFS >128k",
+          "measure": "accuracy",
+          "value": "19.0%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "Graphwalks BFS >128k: GPT-4.1 19.0% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "Graphwalks BFS >128k",
+          "measure": "accuracy",
+          "value": "15.0%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "Graphwalks BFS >128k: GPT-4.1 mini 15.0% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "Graphwalks BFS >128k",
+          "measure": "accuracy",
+          "value": "2.9%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "Graphwalks BFS >128k: GPT-4.1 nano 2.9% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "Graphwalks parents <128k",
+          "measure": "accuracy",
+          "value": "58.0%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "Graphwalks parents <128k: GPT-4.1 58.0% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "Graphwalks parents <128k",
+          "measure": "accuracy",
+          "value": "60.5%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "Graphwalks parents <128k: GPT-4.1 mini 60.5% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "Graphwalks parents <128k",
+          "measure": "accuracy",
+          "value": "9.4%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "Graphwalks parents <128k: GPT-4.1 nano 9.4% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "Graphwalks parents >128k",
+          "measure": "accuracy",
+          "value": "25.0%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "Graphwalks parents >128k: GPT-4.1 25.0% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "Graphwalks parents >128k",
+          "measure": "accuracy",
+          "value": "11.0%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "Graphwalks parents >128k: GPT-4.1 mini 11.0% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "Graphwalks parents >128k",
+          "measure": "accuracy",
+          "value": "5.6%",
+          "locator": "Appendix > Long context evals table",
+          "excerpt": "Graphwalks parents >128k: GPT-4.1 nano 5.6% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "MMMU",
+          "measure": "accuracy",
+          "value": "74.8%",
+          "locator": "Appendix > Vision table",
+          "excerpt": "MMMU: GPT-4.1 74.8% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "MMMU",
+          "measure": "accuracy",
+          "value": "72.7%",
+          "locator": "Appendix > Vision table",
+          "excerpt": "MMMU: GPT-4.1 mini 72.7% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "MMMU",
+          "measure": "accuracy",
+          "value": "55.4%",
+          "locator": "Appendix > Vision table",
+          "excerpt": "MMMU: GPT-4.1 nano 55.4% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "MathVista",
+          "measure": "accuracy",
+          "value": "72.2%",
+          "locator": "Appendix > Vision table",
+          "excerpt": "MathVista: GPT-4.1 72.2% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "MathVista",
+          "measure": "accuracy",
+          "value": "73.1%",
+          "locator": "Appendix > Vision table",
+          "excerpt": "MathVista: GPT-4.1 mini 73.1% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "MathVista",
+          "measure": "accuracy",
+          "value": "56.2%",
+          "locator": "Appendix > Vision table",
+          "excerpt": "MathVista: GPT-4.1 nano 56.2% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "CharXiv-R",
+          "measure": "accuracy",
+          "value": "56.7%",
+          "locator": "Appendix > Vision table",
+          "excerpt": "CharXiv-R: GPT-4.1 56.7% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "CharXiv-R",
+          "measure": "accuracy",
+          "value": "56.8%",
+          "locator": "Appendix > Vision table",
+          "excerpt": "CharXiv-R: GPT-4.1 mini 56.8% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "CharXiv-R",
+          "measure": "accuracy",
+          "value": "40.5%",
+          "locator": "Appendix > Vision table",
+          "excerpt": "CharXiv-R: GPT-4.1 nano 40.5% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "CharXiv-D",
+          "measure": "accuracy",
+          "value": "87.9%",
+          "locator": "Appendix > Vision table",
+          "excerpt": "CharXiv-D: GPT-4.1 87.9% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "CharXiv-D",
+          "measure": "accuracy",
+          "value": "88.4%",
+          "locator": "Appendix > Vision table",
+          "excerpt": "CharXiv-D: GPT-4.1 mini 88.4% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "CharXiv-D",
+          "measure": "accuracy",
+          "value": "73.9%",
+          "locator": "Appendix > Vision table",
+          "excerpt": "CharXiv-D: GPT-4.1 nano 73.9% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "Video-MME long without subtitles",
+          "measure": "accuracy",
+          "value": "72.0%",
+          "locator": "Appendix > Vision table",
+          "excerpt": "Video-MME long without subtitles: GPT-4.1 72.0% (accuracy)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "ComplexFuncBench",
+          "measure": "score",
+          "value": "65.5%",
+          "locator": "Appendix > Function calling table",
+          "excerpt": "ComplexFuncBench: GPT-4.1 65.5% (score)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "ComplexFuncBench",
+          "measure": "score",
+          "value": "49.3%",
+          "locator": "Appendix > Function calling table",
+          "excerpt": "ComplexFuncBench: GPT-4.1 mini 49.3% (score)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "ComplexFuncBench",
+          "measure": "score",
+          "value": "5.7%",
+          "locator": "Appendix > Function calling table",
+          "excerpt": "ComplexFuncBench: GPT-4.1 nano 5.7% (score)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "tau-bench airline",
+          "measure": "average over 5 runs",
+          "value": "49.4%",
+          "locator": "Appendix > Function calling table",
+          "excerpt": "tau-bench airline: GPT-4.1 49.4% (average over 5 runs)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "tau-bench airline",
+          "measure": "average over 5 runs",
+          "value": "36.0%",
+          "locator": "Appendix > Function calling table",
+          "excerpt": "tau-bench airline: GPT-4.1 mini 36.0% (average over 5 runs)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "tau-bench airline",
+          "measure": "average over 5 runs",
+          "value": "14.0%",
+          "locator": "Appendix > Function calling table",
+          "excerpt": "tau-bench airline: GPT-4.1 nano 14.0% (average over 5 runs)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "tau-bench retail",
+          "measure": "average over 5 runs",
+          "value": "68.0%",
+          "locator": "Appendix > Function calling table",
+          "excerpt": "tau-bench retail: GPT-4.1 68.0% (average over 5 runs)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "tau-bench retail",
+          "measure": "average over 5 runs",
+          "value": "55.8%",
+          "locator": "Appendix > Function calling table",
+          "excerpt": "tau-bench retail: GPT-4.1 mini 55.8% (average over 5 runs)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "tau-bench retail",
+          "measure": "average over 5 runs",
+          "value": "22.6%",
+          "locator": "Appendix > Function calling table",
+          "excerpt": "tau-bench retail: GPT-4.1 nano 22.6% (average over 5 runs)"
+        },
+        {
+          "model": "GPT-4.1",
+          "benchmark": "tau-bench retail GPT-4.1 user model",
+          "measure": "average over 5 runs",
+          "value": "73.6%",
+          "locator": "Appendix > Function calling table",
+          "excerpt": "tau-bench retail GPT-4.1 user model: GPT-4.1 73.6% (average over 5 runs)"
+        },
+        {
+          "model": "GPT-4.1 mini",
+          "benchmark": "tau-bench retail GPT-4.1 user model",
+          "measure": "average over 5 runs",
+          "value": "65.4%",
+          "locator": "Appendix > Function calling table",
+          "excerpt": "tau-bench retail GPT-4.1 user model: GPT-4.1 mini 65.4% (average over 5 runs)"
+        },
+        {
+          "model": "GPT-4.1 nano",
+          "benchmark": "tau-bench retail GPT-4.1 user model",
+          "measure": "average over 5 runs",
+          "value": "23.5%",
+          "locator": "Appendix > Function calling table",
+          "excerpt": "tau-bench retail GPT-4.1 user model: GPT-4.1 nano 23.5% (average over 5 runs)"
+        }
+      ]
+    },
+    {
+      "url": "https://openai.com/index/introducing-o3-and-o4-mini/",
+      "title": "Introducing OpenAI o3 and o4-mini",
+      "date": "2025-04-16",
+      "models": [
+        "OpenAI o3",
+        "OpenAI o4-mini"
+      ],
+      "scores": [
+        {
+          "model": "OpenAI o4-mini",
+          "benchmark": "AIME 2025",
+          "measure": "pass@1 with Python interpreter",
+          "value": "99.5%",
+          "locator": "What’s changed",
+          "excerpt": "AIME 2025: OpenAI o4-mini 99.5%"
+        },
+        {
+          "model": "OpenAI o4-mini",
+          "benchmark": "AIME 2025",
+          "measure": "consensus@8 with Python interpreter",
+          "value": "100%",
+          "locator": "What’s changed",
+          "excerpt": "AIME 2025: OpenAI o4-mini 100%"
+        },
+        {
+          "model": "OpenAI o3",
+          "benchmark": "AIME 2025",
+          "measure": "pass@1 with Python interpreter",
+          "value": "98.4%",
+          "locator": "What’s changed",
+          "excerpt": "AIME 2025: OpenAI o3 98.4%"
+        },
+        {
+          "model": "OpenAI o3",
+          "benchmark": "AIME 2025",
+          "measure": "consensus@8 with Python interpreter",
+          "value": "100%",
+          "locator": "What’s changed",
+          "excerpt": "AIME 2025: OpenAI o3 100%"
+        }
+      ]
+    },
+    {
+      "url": "https://openai.com/index/introducing-codex/",
+      "title": "Introducing Codex",
+      "date": "2025-05-16",
+      "models": [
+        "codex-1",
+        "codex-mini-latest"
+      ],
+      "scores": []
+    }
+  ],
+  "coverage_notes": [
+    "OpenAI o3-mini, o3/o4-mini, codex-1, and codex-mini-latest launch charts have no machine-readable numeric labels in article text; only prose values were transcribed.",
+    "Thinking with images states 95.7% on V* for the visual reasoning approach but does not identify whether that score belongs to o3 or o4-mini; omitted rather than misattribute.",
+    "GPT-4.1 appendix records only the newly launched GPT-4.1, mini, and nano columns; comparison-model columns were omitted.",
+    "The Codex launch names SWE-bench Verified and OpenAI Internal SWE tasks but exposes no numeric scores in article text.",
+    "This collection covers the major Jan–Jun 2025 launch posts found; it is not a proven exhaustive inventory of every OpenAI model update in the period."
+  ]
+}

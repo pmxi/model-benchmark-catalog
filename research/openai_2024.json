@@ -1,0 +1,448 @@
+{
+  "posts": [
+    {
+      "url": "https://openai.com/index/hello-gpt-4o/",
+      "title": "Hello GPT-4o",
+      "date": "2024-05-13",
+      "models": [
+        "GPT-4o"
+      ],
+      "scores": [],
+      "coverage_note": "Evaluation charts are image-based and their exact scores are not in accessible article text; omitted rather than guessed."
+    },
+    {
+      "url": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
+      "title": "GPT-4o mini: advancing cost-efficient intelligence",
+      "date": "2024-07-18",
+      "models": [
+        "GPT-4o mini"
+      ],
+      "scores": [
+        {
+          "model": "GPT-4o mini",
+          "benchmark": "MMLU",
+          "measure": "accuracy",
+          "value": "82.0%",
+          "locator": "A small model with superior textual intelligence and multimodal reasoning L30",
+          "excerpt": "scoring 82.0% on MMLU"
+        },
+        {
+          "model": "GPT-4o mini",
+          "benchmark": "MGSM",
+          "measure": "accuracy",
+          "value": "87.0%",
+          "locator": "A small model with superior textual intelligence and multimodal reasoning L31",
+          "excerpt": "On MGSM, measuring math reasoning, GPT-4o mini scored 87.0%"
+        },
+        {
+          "model": "GPT-4o mini",
+          "benchmark": "HumanEval",
+          "measure": "accuracy",
+          "value": "87.2%",
+          "locator": "A small model with superior textual intelligence and multimodal reasoning L31",
+          "excerpt": "GPT-4o mini scored 87.2% on HumanEval"
+        },
+        {
+          "model": "GPT-4o mini",
+          "benchmark": "MMMU",
+          "measure": "accuracy",
+          "value": "59.4%",
+          "locator": "A small model with superior textual intelligence and multimodal reasoning L32",
+          "excerpt": "scoring 59.4%"
+        }
+      ],
+      "coverage_note": null
+    },
+    {
+      "url": "https://openai.com/index/learning-to-reason-with-llms/",
+      "title": "Learning to reason with LLMs",
+      "date": "2024-09-12",
+      "models": [
+        "o1",
+        "o1-preview"
+      ],
+      "scores": [
+        {
+          "model": "o1-preview",
+          "benchmark": "AIME (2024)",
+          "measure": "cons@64",
+          "value": "56.7",
+          "locator": "Appendix A L109",
+          "excerpt": "AIME (2024) | cons@64 | 13.4 | 56.7 | 83.3"
+        },
+        {
+          "model": "o1",
+          "benchmark": "AIME (2024)",
+          "measure": "cons@64",
+          "value": "83.3",
+          "locator": "Appendix A L109",
+          "excerpt": "AIME (2024) | cons@64 | 13.4 | 56.7 | 83.3"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "AIME (2024)",
+          "measure": "pass@1",
+          "value": "44.6",
+          "locator": "Appendix A L110",
+          "excerpt": "AIME (2024) | pass@1 | 9.3 | 44.6 | 74.4"
+        },
+        {
+          "model": "o1",
+          "benchmark": "AIME (2024)",
+          "measure": "pass@1",
+          "value": "74.4",
+          "locator": "Appendix A L110",
+          "excerpt": "AIME (2024) | pass@1 | 9.3 | 44.6 | 74.4"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "CodeForces",
+          "measure": "Elo",
+          "value": "1,258",
+          "locator": "Appendix A L112",
+          "excerpt": "CodeForces | Elo | 808 | 1,258 | 1,673"
+        },
+        {
+          "model": "o1",
+          "benchmark": "CodeForces",
+          "measure": "Elo",
+          "value": "1,673",
+          "locator": "Appendix A L112",
+          "excerpt": "CodeForces | Elo | 808 | 1,258 | 1,673"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "CodeForces",
+          "measure": "Percentile",
+          "value": "62.0",
+          "locator": "Appendix A L113",
+          "excerpt": "CodeForces | Percentile | 11.0 | 62.0 | 89.0"
+        },
+        {
+          "model": "o1",
+          "benchmark": "CodeForces",
+          "measure": "Percentile",
+          "value": "89.0",
+          "locator": "Appendix A L113",
+          "excerpt": "CodeForces | Percentile | 11.0 | 62.0 | 89.0"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "GPQA Diamond",
+          "measure": "cons@64",
+          "value": "78.3",
+          "locator": "Appendix A L114",
+          "excerpt": "GPQA Diamond | cons@64 | 56.1 | 78.3 | 78.0"
+        },
+        {
+          "model": "o1",
+          "benchmark": "GPQA Diamond",
+          "measure": "cons@64",
+          "value": "78.0",
+          "locator": "Appendix A L114",
+          "excerpt": "GPQA Diamond | cons@64 | 56.1 | 78.3 | 78.0"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "GPQA Diamond",
+          "measure": "pass@1",
+          "value": "73.3",
+          "locator": "Appendix A L115",
+          "excerpt": "GPQA Diamond | pass@1 | 50.6 | 73.3 | 77.3"
+        },
+        {
+          "model": "o1",
+          "benchmark": "GPQA Diamond",
+          "measure": "pass@1",
+          "value": "77.3",
+          "locator": "Appendix A L115",
+          "excerpt": "GPQA Diamond | pass@1 | 50.6 | 73.3 | 77.3"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "GPQA Diamond Biology",
+          "measure": "cons@64",
+          "value": "73.7",
+          "locator": "Appendix A L116",
+          "excerpt": "GPQA Diamond Biology | cons@64 | 63.2 | 73.7 | 68.4"
+        },
+        {
+          "model": "o1",
+          "benchmark": "GPQA Diamond Biology",
+          "measure": "cons@64",
+          "value": "68.4",
+          "locator": "Appendix A L116",
+          "excerpt": "GPQA Diamond Biology | cons@64 | 63.2 | 73.7 | 68.4"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "GPQA Diamond Biology",
+          "measure": "pass@1",
+          "value": "65.9",
+          "locator": "Appendix A L117",
+          "excerpt": "GPQA Diamond Biology | pass@1 | 61.6 | 65.9 | 69.2"
+        },
+        {
+          "model": "o1",
+          "benchmark": "GPQA Diamond Biology",
+          "measure": "pass@1",
+          "value": "69.2",
+          "locator": "Appendix A L117",
+          "excerpt": "GPQA Diamond Biology | pass@1 | 61.6 | 65.9 | 69.2"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "GPQA Diamond Chemistry",
+          "measure": "cons@64",
+          "value": "60.2",
+          "locator": "Appendix A L118",
+          "excerpt": "GPQA Diamond Chemistry | cons@64 | 43.0 | 60.2 | 65.6"
+        },
+        {
+          "model": "o1",
+          "benchmark": "GPQA Diamond Chemistry",
+          "measure": "cons@64",
+          "value": "65.6",
+          "locator": "Appendix A L118",
+          "excerpt": "GPQA Diamond Chemistry | cons@64 | 43.0 | 60.2 | 65.6"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "GPQA Diamond Chemistry",
+          "measure": "pass@1",
+          "value": "59.9",
+          "locator": "Appendix A L119",
+          "excerpt": "GPQA Diamond Chemistry | pass@1 | 40.2 | 59.9 | 64.7"
+        },
+        {
+          "model": "o1",
+          "benchmark": "GPQA Diamond Chemistry",
+          "measure": "pass@1",
+          "value": "64.7",
+          "locator": "Appendix A L119",
+          "excerpt": "GPQA Diamond Chemistry | pass@1 | 40.2 | 59.9 | 64.7"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "GPQA Diamond Physics",
+          "measure": "cons@64",
+          "value": "89.5",
+          "locator": "Appendix A L120",
+          "excerpt": "GPQA Diamond Physics | cons@64 | 68.6 | 89.5 | 94.2"
+        },
+        {
+          "model": "o1",
+          "benchmark": "GPQA Diamond Physics",
+          "measure": "cons@64",
+          "value": "94.2",
+          "locator": "Appendix A L120",
+          "excerpt": "GPQA Diamond Physics | cons@64 | 68.6 | 89.5 | 94.2"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "GPQA Diamond Physics",
+          "measure": "pass@1",
+          "value": "89.4",
+          "locator": "Appendix A L121",
+          "excerpt": "GPQA Diamond Physics | pass@1 | 59.5 | 89.4 | 92.8"
+        },
+        {
+          "model": "o1",
+          "benchmark": "GPQA Diamond Physics",
+          "measure": "pass@1",
+          "value": "92.8",
+          "locator": "Appendix A L121",
+          "excerpt": "GPQA Diamond Physics | pass@1 | 59.5 | 89.4 | 92.8"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "MATH",
+          "measure": "pass@1",
+          "value": "85.5",
+          "locator": "Appendix A L122",
+          "excerpt": "MATH | pass@1 | 60.3 | 85.5 | 94.8"
+        },
+        {
+          "model": "o1",
+          "benchmark": "MATH",
+          "measure": "pass@1",
+          "value": "94.8",
+          "locator": "Appendix A L122",
+          "excerpt": "MATH | pass@1 | 60.3 | 85.5 | 94.8"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "MMLU",
+          "measure": "pass@1",
+          "value": "92.3",
+          "locator": "Appendix A L123",
+          "excerpt": "MMLU | pass@1 | 88.0 | 92.3 | 90.8"
+        },
+        {
+          "model": "o1",
+          "benchmark": "MMLU",
+          "measure": "pass@1",
+          "value": "90.8",
+          "locator": "Appendix A L123",
+          "excerpt": "MMLU | pass@1 | 88.0 | 92.3 | 90.8"
+        },
+        {
+          "model": "o1",
+          "benchmark": "MMMU (val)",
+          "measure": "pass@1",
+          "value": "78.2",
+          "locator": "Appendix A L124",
+          "excerpt": "MMMU (val) | pass@1 | 69.1 | n/a | 78.2"
+        },
+        {
+          "model": "o1",
+          "benchmark": "MathVista (testmini)",
+          "measure": "pass@1",
+          "value": "73.9",
+          "locator": "Appendix A L125",
+          "excerpt": "MathVista (testmini) | pass@1 | 63.8 | n/a | 73.9"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "Standard Refusal Evaluation",
+          "measure": "safe completion rate",
+          "value": "0.995",
+          "locator": "Safety table L80",
+          "excerpt": "Standard Refusal Evaluation | safe completion rate | 0.990 | 0.995"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "Challenging Refusal Evaluation",
+          "measure": "safe completion rate",
+          "value": "0.934",
+          "locator": "Safety table L82",
+          "excerpt": "Challenging Refusal Evaluation | safe completion rate | 0.714 | 0.934"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "StrongREJECT",
+          "measure": "goodness@0.1",
+          "value": "0.840",
+          "locator": "Safety table L90-91",
+          "excerpt": "StrongREJECT | goodness@0.1 | 0.220 | 0.840"
+        },
+        {
+          "model": "o1-preview",
+          "benchmark": "XSTest",
+          "measure": "benign compliance rate",
+          "value": "0.976",
+          "locator": "Safety table L95-97",
+          "excerpt": "XSTest | benign compliance rate | 0.924 | 0.976"
+        }
+      ],
+      "coverage_note": null
+    },
+    {
+      "url": "https://openai.com/index/o1-and-new-tools-for-developers/",
+      "title": "OpenAI o1 and new tools for developers",
+      "date": null,
+      "models": [
+        "o1-2024-12-17"
+      ],
+      "scores": [
+        {
+          "model": "o1-2024-12-17",
+          "benchmark": "GPQA diamond",
+          "measure": "accuracy",
+          "value": "75.7",
+          "locator": "OpenAI o1 in the API benchmark table L46",
+          "excerpt": "GPQA diamond | 75.7 | 73.3"
+        },
+        {
+          "model": "o1-2024-12-17",
+          "benchmark": "MMLU",
+          "measure": "pass@1",
+          "value": "91.8",
+          "locator": "OpenAI o1 in the API benchmark table L47",
+          "excerpt": "MMLU | 91.8 | 90.8"
+        },
+        {
+          "model": "o1-2024-12-17",
+          "benchmark": "SWE-bench Verified",
+          "measure": "score",
+          "value": "48.9",
+          "locator": "OpenAI o1 in the API benchmark table L48",
+          "excerpt": "SWE-bench Verified | 48.9 | 41.3"
+        },
+        {
+          "model": "o1-2024-12-17",
+          "benchmark": "LiveBench (Coding)",
+          "measure": "score",
+          "value": "76.6",
+          "locator": "OpenAI o1 in the API benchmark table L49",
+          "excerpt": "LiveBench (Coding) | 76.6 | 52.3"
+        },
+        {
+          "model": "o1-2024-12-17",
+          "benchmark": "MATH",
+          "measure": "pass@1",
+          "value": "96.4",
+          "locator": "OpenAI o1 in the API benchmark table L50",
+          "excerpt": "MATH | 96.4 | 85.5"
+        },
+        {
+          "model": "o1-2024-12-17",
+          "benchmark": "AIME 2024",
+          "measure": "pass@1",
+          "value": "79.2",
+          "locator": "OpenAI o1 in the API benchmark table L51",
+          "excerpt": "AIME 2024 | 79.2 | 42.0"
+        },
+        {
+          "model": "o1-2024-12-17",
+          "benchmark": "MGSM",
+          "measure": "pass@1",
+          "value": "89.3",
+          "locator": "OpenAI o1 in the API benchmark table L52",
+          "excerpt": "MGSM | 89.3 | 90.8"
+        },
+        {
+          "model": "o1-2024-12-17",
+          "benchmark": "MMMU",
+          "measure": "pass@1",
+          "value": "77.3",
+          "locator": "OpenAI o1 in the API benchmark table L53",
+          "excerpt": "MMMU | 77.3 | \u2014"
+        },
+        {
+          "model": "o1-2024-12-17",
+          "benchmark": "MathVista",
+          "measure": "pass@1",
+          "value": "71.0",
+          "locator": "OpenAI o1 in the API benchmark table L54",
+          "excerpt": "MathVista | 71.0 | \u2014"
+        },
+        {
+          "model": "o1-2024-12-17",
+          "benchmark": "SimpleQA",
+          "measure": "score",
+          "value": "42.6",
+          "locator": "OpenAI o1 in the API benchmark table L55",
+          "excerpt": "SimpleQA | 42.6 | 42.4"
+        },
+        {
+          "model": "o1-2024-12-17",
+          "benchmark": "TAU-bench (retail)",
+          "measure": "score",
+          "value": "73.5",
+          "locator": "OpenAI o1 in the API benchmark table L56",
+          "excerpt": "TAU-bench (retail) | 73.5 | \u2014"
+        },
+        {
+          "model": "o1-2024-12-17",
+          "benchmark": "TAU-bench (airline)",
+          "measure": "score",
+          "value": "54.2",
+          "locator": "OpenAI o1 in the API benchmark table L57",
+          "excerpt": "TAU-bench (airline) | 54.2 | \u2014"
+        }
+      ],
+      "coverage_note": "Publication date not exposed in current article text; snapshot identifier is 2024-12-17."
+    }
+  ]
+}

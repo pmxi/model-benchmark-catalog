@@ -1,0 +1,1659 @@
+{
+  "posts": [
+    {
+      "url": "https://openai.com/index/introducing-gpt-5-3-codex/",
+      "title": "Introducing GPT-5.3-Codex",
+      "date": "2026-02-05",
+      "models": [
+        "GPT-5.3-Codex"
+      ],
+      "scores": [
+        {
+          "model": "GPT-5.3-Codex",
+          "benchmark": "SWE-Bench Pro (Public)",
+          "measure": "percent",
+          "value": "56.8%",
+          "locator": "Appendix; xhigh reasoning effort",
+          "excerpt": "SWE-Bench Pro (Public): GPT-5.3-Codex (xhigh) 56.8%"
+        },
+        {
+          "model": "GPT-5.3-Codex",
+          "benchmark": "Terminal-Bench 2.0",
+          "measure": "percent",
+          "value": "77.3%",
+          "locator": "Appendix; xhigh reasoning effort",
+          "excerpt": "Terminal-Bench 2.0: GPT-5.3-Codex (xhigh) 77.3%"
+        },
+        {
+          "model": "GPT-5.3-Codex",
+          "benchmark": "OSWorld-Verified",
+          "measure": "percent",
+          "value": "64.7%",
+          "locator": "Appendix; xhigh reasoning effort",
+          "excerpt": "OSWorld-Verified: GPT-5.3-Codex (xhigh) 64.7%"
+        },
+        {
+          "model": "GPT-5.3-Codex",
+          "benchmark": "GDPval (wins or ties)",
+          "measure": "percent",
+          "value": "70.9%",
+          "locator": "Appendix; xhigh reasoning effort",
+          "excerpt": "GDPval (wins or ties): GPT-5.3-Codex (xhigh) 70.9%"
+        },
+        {
+          "model": "GPT-5.3-Codex",
+          "benchmark": "Cybersecurity Capture The Flag Challenges",
+          "measure": "percent",
+          "value": "77.6%",
+          "locator": "Appendix; xhigh reasoning effort",
+          "excerpt": "Cybersecurity Capture The Flag Challenges: GPT-5.3-Codex (xhigh) 77.6%"
+        },
+        {
+          "model": "GPT-5.3-Codex",
+          "benchmark": "SWE-Lancer IC Diamond",
+          "measure": "percent",
+          "value": "81.4%",
+          "locator": "Appendix; xhigh reasoning effort",
+          "excerpt": "SWE-Lancer IC Diamond: GPT-5.3-Codex (xhigh) 81.4%"
+        }
+      ]
+    },
+    {
+      "url": "https://openai.com/index/introducing-gpt-5-4/",
+      "title": "Introducing GPT-5.4",
+      "date": "2026-03-05",
+      "models": [
+        "GPT-5.4",
+        "GPT-5.4 Pro"
+      ],
+      "scores": [
+        {
+          "model": "GPT-5.4",
+          "benchmark": "GDPval",
+          "measure": "percent",
+          "value": "83.0%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "GDPval: GPT-5.4 83.0%"
+        },
+        {
+          "model": "GPT-5.4 Pro",
+          "benchmark": "GDPval",
+          "measure": "percent",
+          "value": "82.0%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "GDPval: GPT-5.4 Pro 82.0%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "FinanceAgent v1.1",
+          "measure": "percent",
+          "value": "56.0%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "FinanceAgent v1.1: GPT-5.4 56.0%"
+        },
+        {
+          "model": "GPT-5.4 Pro",
+          "benchmark": "FinanceAgent v1.1",
+          "measure": "percent",
+          "value": "61.5%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "FinanceAgent v1.1: GPT-5.4 Pro 61.5%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "Investment Banking Modeling Tasks (Internal)",
+          "measure": "percent",
+          "value": "87.3%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "Investment Banking Modeling Tasks (Internal): GPT-5.4 87.3%"
+        },
+        {
+          "model": "GPT-5.4 Pro",
+          "benchmark": "Investment Banking Modeling Tasks (Internal)",
+          "measure": "percent",
+          "value": "83.6%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "Investment Banking Modeling Tasks (Internal): GPT-5.4 Pro 83.6%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "OfficeQA",
+          "measure": "percent",
+          "value": "68.1%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "OfficeQA: GPT-5.4 68.1%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "SWE-Bench Pro (Public)",
+          "measure": "percent",
+          "value": "57.7%",
+          "locator": "Evaluations > Coding",
+          "excerpt": "SWE-Bench Pro (Public): GPT-5.4 57.7%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "Terminal-Bench 2.0",
+          "measure": "percent",
+          "value": "75.1%",
+          "locator": "Evaluations > Coding",
+          "excerpt": "Terminal-Bench 2.0: GPT-5.4 75.1%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "OSWorld-Verified",
+          "measure": "percent",
+          "value": "75.0%",
+          "locator": "Evaluations > Computer use and vision",
+          "excerpt": "OSWorld-Verified: GPT-5.4 75.0%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "MMMU Pro (no tools)",
+          "measure": "percent",
+          "value": "81.2%",
+          "locator": "Evaluations > Computer use and vision",
+          "excerpt": "MMMU Pro (no tools): GPT-5.4 81.2%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "MMMU Pro (with tools)",
+          "measure": "percent",
+          "value": "82.1%",
+          "locator": "Evaluations > Computer use and vision",
+          "excerpt": "MMMU Pro (with tools): GPT-5.4 82.1%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "BrowseComp",
+          "measure": "percent",
+          "value": "82.7%",
+          "locator": "Evaluations > Tool use",
+          "excerpt": "BrowseComp: GPT-5.4 82.7%"
+        },
+        {
+          "model": "GPT-5.4 Pro",
+          "benchmark": "BrowseComp",
+          "measure": "percent",
+          "value": "89.3%",
+          "locator": "Evaluations > Tool use",
+          "excerpt": "BrowseComp: GPT-5.4 Pro 89.3%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "MCP Atlas",
+          "measure": "percent",
+          "value": "67.2%",
+          "locator": "Evaluations > Tool use",
+          "excerpt": "MCP Atlas: GPT-5.4 67.2%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "Toolathlon",
+          "measure": "percent",
+          "value": "54.6%",
+          "locator": "Evaluations > Tool use",
+          "excerpt": "Toolathlon: GPT-5.4 54.6%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "Tau2-bench Telecom",
+          "measure": "percent",
+          "value": "98.9%",
+          "locator": "Evaluations > Tool use",
+          "excerpt": "Tau2-bench Telecom: GPT-5.4 98.9%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "Frontier Science Research",
+          "measure": "percent",
+          "value": "33.0%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "Frontier Science Research: GPT-5.4 33.0%"
+        },
+        {
+          "model": "GPT-5.4 Pro",
+          "benchmark": "Frontier Science Research",
+          "measure": "percent",
+          "value": "36.7%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "Frontier Science Research: GPT-5.4 Pro 36.7%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "FrontierMath Tier 1–3",
+          "measure": "percent",
+          "value": "47.6%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "FrontierMath Tier 1–3: GPT-5.4 47.6%"
+        },
+        {
+          "model": "GPT-5.4 Pro",
+          "benchmark": "FrontierMath Tier 1–3",
+          "measure": "percent",
+          "value": "50.0%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "FrontierMath Tier 1–3: GPT-5.4 Pro 50.0%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "FrontierMath Tier 4",
+          "measure": "percent",
+          "value": "27.1%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "FrontierMath Tier 4: GPT-5.4 27.1%"
+        },
+        {
+          "model": "GPT-5.4 Pro",
+          "benchmark": "FrontierMath Tier 4",
+          "measure": "percent",
+          "value": "38.0%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "FrontierMath Tier 4: GPT-5.4 Pro 38.0%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "GPQA Diamond",
+          "measure": "percent",
+          "value": "92.8%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "GPQA Diamond: GPT-5.4 92.8%"
+        },
+        {
+          "model": "GPT-5.4 Pro",
+          "benchmark": "GPQA Diamond",
+          "measure": "percent",
+          "value": "94.4%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "GPQA Diamond: GPT-5.4 Pro 94.4%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "Humanity’s Last Exam (no tools)",
+          "measure": "percent",
+          "value": "39.8%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "Humanity’s Last Exam (no tools): GPT-5.4 39.8%"
+        },
+        {
+          "model": "GPT-5.4 Pro",
+          "benchmark": "Humanity’s Last Exam (no tools)",
+          "measure": "percent",
+          "value": "42.7%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "Humanity’s Last Exam (no tools): GPT-5.4 Pro 42.7%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "Humanity’s Last Exam (with tools)",
+          "measure": "percent",
+          "value": "52.1%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "Humanity’s Last Exam (with tools): GPT-5.4 52.1%"
+        },
+        {
+          "model": "GPT-5.4 Pro",
+          "benchmark": "Humanity’s Last Exam (with tools)",
+          "measure": "percent",
+          "value": "58.7%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "Humanity’s Last Exam (with tools): GPT-5.4 Pro 58.7%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "ARC-AGI-1 (Verified)",
+          "measure": "percent",
+          "value": "93.7%",
+          "locator": "Evaluations > Abstract reasoning",
+          "excerpt": "ARC-AGI-1 (Verified): GPT-5.4 93.7%"
+        },
+        {
+          "model": "GPT-5.4 Pro",
+          "benchmark": "ARC-AGI-1 (Verified)",
+          "measure": "percent",
+          "value": "94.5%",
+          "locator": "Evaluations > Abstract reasoning",
+          "excerpt": "ARC-AGI-1 (Verified): GPT-5.4 Pro 94.5%"
+        },
+        {
+          "model": "GPT-5.4",
+          "benchmark": "ARC-AGI-2 (Verified)",
+          "measure": "percent",
+          "value": "73.3%",
+          "locator": "Evaluations > Abstract reasoning",
+          "excerpt": "ARC-AGI-2 (Verified): GPT-5.4 73.3%"
+        },
+        {
+          "model": "GPT-5.4 Pro",
+          "benchmark": "ARC-AGI-2 (Verified)",
+          "measure": "percent",
+          "value": "83.3%",
+          "locator": "Evaluations > Abstract reasoning",
+          "excerpt": "ARC-AGI-2 (Verified): GPT-5.4 Pro 83.3%"
+        }
+      ]
+    },
+    {
+      "url": "https://openai.com/index/introducing-gpt-5-4-mini-and-nano/",
+      "title": "Introducing GPT-5.4 mini and nano",
+      "date": "2026-03-17",
+      "models": [
+        "GPT-5.4 mini",
+        "GPT-5.4 nano"
+      ],
+      "scores": [
+        {
+          "model": "GPT-5.4 mini",
+          "benchmark": "SWE-Bench Pro (Public)",
+          "measure": "percent",
+          "value": "54.4%",
+          "locator": "Lead benchmark table",
+          "excerpt": "SWE-Bench Pro (Public): GPT-5.4 mini 54.4%"
+        },
+        {
+          "model": "GPT-5.4 nano",
+          "benchmark": "SWE-Bench Pro (Public)",
+          "measure": "percent",
+          "value": "52.4%",
+          "locator": "Lead benchmark table",
+          "excerpt": "SWE-Bench Pro (Public): GPT-5.4 nano 52.4%"
+        },
+        {
+          "model": "GPT-5.4 mini",
+          "benchmark": "Terminal-Bench 2.0",
+          "measure": "percent",
+          "value": "60.0%",
+          "locator": "Lead benchmark table",
+          "excerpt": "Terminal-Bench 2.0: GPT-5.4 mini 60.0%"
+        },
+        {
+          "model": "GPT-5.4 nano",
+          "benchmark": "Terminal-Bench 2.0",
+          "measure": "percent",
+          "value": "46.3%",
+          "locator": "Lead benchmark table",
+          "excerpt": "Terminal-Bench 2.0: GPT-5.4 nano 46.3%"
+        },
+        {
+          "model": "GPT-5.4 mini",
+          "benchmark": "Toolathlon",
+          "measure": "percent",
+          "value": "42.9%",
+          "locator": "Lead benchmark table",
+          "excerpt": "Toolathlon: GPT-5.4 mini 42.9%"
+        },
+        {
+          "model": "GPT-5.4 nano",
+          "benchmark": "Toolathlon",
+          "measure": "percent",
+          "value": "35.5%",
+          "locator": "Lead benchmark table",
+          "excerpt": "Toolathlon: GPT-5.4 nano 35.5%"
+        },
+        {
+          "model": "GPT-5.4 mini",
+          "benchmark": "GPQA Diamond",
+          "measure": "percent",
+          "value": "88.0%",
+          "locator": "Lead benchmark table",
+          "excerpt": "GPQA Diamond: GPT-5.4 mini 88.0%"
+        },
+        {
+          "model": "GPT-5.4 nano",
+          "benchmark": "GPQA Diamond",
+          "measure": "percent",
+          "value": "82.8%",
+          "locator": "Lead benchmark table",
+          "excerpt": "GPQA Diamond: GPT-5.4 nano 82.8%"
+        },
+        {
+          "model": "GPT-5.4 mini",
+          "benchmark": "OSWorld-Verified",
+          "measure": "percent",
+          "value": "72.1%",
+          "locator": "Lead benchmark table",
+          "excerpt": "OSWorld-Verified: GPT-5.4 mini 72.1%"
+        },
+        {
+          "model": "GPT-5.4 nano",
+          "benchmark": "OSWorld-Verified",
+          "measure": "percent",
+          "value": "39.0%",
+          "locator": "Lead benchmark table",
+          "excerpt": "OSWorld-Verified: GPT-5.4 nano 39.0%"
+        }
+      ]
+    },
+    {
+      "url": "https://openai.com/index/introducing-gpt-5-5/",
+      "title": "Introducing GPT-5.5",
+      "date": "2026-04-23",
+      "models": [
+        "GPT-5.5",
+        "GPT-5.5 Pro"
+      ],
+      "scores": [
+        {
+          "model": "GPT-5.5",
+          "benchmark": "SWE-Bench Pro (Public)",
+          "measure": "percent",
+          "value": "58.6%",
+          "locator": "Evaluations > Coding",
+          "excerpt": "SWE-Bench Pro (Public): GPT-5.5 58.6%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "Terminal-Bench 2.0",
+          "measure": "percent",
+          "value": "82.7%",
+          "locator": "Evaluations > Coding",
+          "excerpt": "Terminal-Bench 2.0: GPT-5.5 82.7%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "Expert-SWE (Internal)",
+          "measure": "percent",
+          "value": "73.1%",
+          "locator": "Evaluations > Coding",
+          "excerpt": "Expert-SWE (Internal): GPT-5.5 73.1%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "GDPval (wins or ties)",
+          "measure": "percent",
+          "value": "84.9%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "GDPval (wins or ties): GPT-5.5 84.9%"
+        },
+        {
+          "model": "GPT-5.5 Pro",
+          "benchmark": "GDPval (wins or ties)",
+          "measure": "percent",
+          "value": "82.3%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "GDPval (wins or ties): GPT-5.5 Pro 82.3%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "FinanceAgent v1.1",
+          "measure": "percent",
+          "value": "60.0%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "FinanceAgent v1.1: GPT-5.5 60.0%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "Investment Banking Modeling Tasks (Internal)",
+          "measure": "percent",
+          "value": "88.5%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "Investment Banking Modeling Tasks (Internal): GPT-5.5 88.5%"
+        },
+        {
+          "model": "GPT-5.5 Pro",
+          "benchmark": "Investment Banking Modeling Tasks (Internal)",
+          "measure": "percent",
+          "value": "88.6%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "Investment Banking Modeling Tasks (Internal): GPT-5.5 Pro 88.6%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "OfficeQA Pro",
+          "measure": "percent",
+          "value": "54.1%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "OfficeQA Pro: GPT-5.5 54.1%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "OSWorld-Verified",
+          "measure": "percent",
+          "value": "78.7%",
+          "locator": "Evaluations > Computer use and vision",
+          "excerpt": "OSWorld-Verified: GPT-5.5 78.7%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "MMMU Pro (no tools)",
+          "measure": "percent",
+          "value": "81.2%",
+          "locator": "Evaluations > Computer use and vision",
+          "excerpt": "MMMU Pro (no tools): GPT-5.5 81.2%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "MMMU Pro (with tools)",
+          "measure": "percent",
+          "value": "83.2%",
+          "locator": "Evaluations > Computer use and vision",
+          "excerpt": "MMMU Pro (with tools): GPT-5.5 83.2%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "BrowseComp",
+          "measure": "percent",
+          "value": "84.4%",
+          "locator": "Evaluations > Tool use",
+          "excerpt": "BrowseComp: GPT-5.5 84.4%"
+        },
+        {
+          "model": "GPT-5.5 Pro",
+          "benchmark": "BrowseComp",
+          "measure": "percent",
+          "value": "90.1%",
+          "locator": "Evaluations > Tool use",
+          "excerpt": "BrowseComp: GPT-5.5 Pro 90.1%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "MCP Atlas (April 2026 update)",
+          "measure": "percent",
+          "value": "75.3%",
+          "locator": "Evaluations > Tool use",
+          "excerpt": "MCP Atlas (April 2026 update): GPT-5.5 75.3%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "Toolathlon",
+          "measure": "percent",
+          "value": "55.6%",
+          "locator": "Evaluations > Tool use",
+          "excerpt": "Toolathlon: GPT-5.5 55.6%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "Tau2-bench Telecom (original prompts)",
+          "measure": "percent",
+          "value": "98.0%",
+          "locator": "Evaluations > Tool use",
+          "excerpt": "Tau2-bench Telecom (original prompts): GPT-5.5 98.0%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "GeneBench",
+          "measure": "percent",
+          "value": "25.0%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "GeneBench: GPT-5.5 25.0%"
+        },
+        {
+          "model": "GPT-5.5 Pro",
+          "benchmark": "GeneBench",
+          "measure": "percent",
+          "value": "33.2%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "GeneBench: GPT-5.5 Pro 33.2%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "FrontierMath Tier 1–3",
+          "measure": "percent",
+          "value": "51.7%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "FrontierMath Tier 1–3: GPT-5.5 51.7%"
+        },
+        {
+          "model": "GPT-5.5 Pro",
+          "benchmark": "FrontierMath Tier 1–3",
+          "measure": "percent",
+          "value": "52.4%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "FrontierMath Tier 1–3: GPT-5.5 Pro 52.4%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "FrontierMath Tier 4",
+          "measure": "percent",
+          "value": "35.4%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "FrontierMath Tier 4: GPT-5.5 35.4%"
+        },
+        {
+          "model": "GPT-5.5 Pro",
+          "benchmark": "FrontierMath Tier 4",
+          "measure": "percent",
+          "value": "39.6%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "FrontierMath Tier 4: GPT-5.5 Pro 39.6%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "BixBench",
+          "measure": "percent",
+          "value": "80.5%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "BixBench: GPT-5.5 80.5%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "GPQA Diamond",
+          "measure": "percent",
+          "value": "93.6%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "GPQA Diamond: GPT-5.5 93.6%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "Humanity’s Last Exam (no tools)",
+          "measure": "percent",
+          "value": "41.4%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "Humanity’s Last Exam (no tools): GPT-5.5 41.4%"
+        },
+        {
+          "model": "GPT-5.5 Pro",
+          "benchmark": "Humanity’s Last Exam (no tools)",
+          "measure": "percent",
+          "value": "43.1%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "Humanity’s Last Exam (no tools): GPT-5.5 Pro 43.1%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "Humanity’s Last Exam (with tools)",
+          "measure": "percent",
+          "value": "52.2%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "Humanity’s Last Exam (with tools): GPT-5.5 52.2%"
+        },
+        {
+          "model": "GPT-5.5 Pro",
+          "benchmark": "Humanity’s Last Exam (with tools)",
+          "measure": "percent",
+          "value": "57.2%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "Humanity’s Last Exam (with tools): GPT-5.5 Pro 57.2%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "Capture-the-Flags challenge tasks (Internal)",
+          "measure": "percent",
+          "value": "88.1%",
+          "locator": "Evaluations > Cybersecurity",
+          "excerpt": "Capture-the-Flags challenge tasks (Internal): GPT-5.5 88.1%"
+        },
+        {
+          "model": "GPT-5.5",
+          "benchmark": "CyberGym",
+          "measure": "percent",
+          "value": "81.8%",
+          "locator": "Evaluations > Cybersecurity",
+          "excerpt": "CyberGym: GPT-5.5 81.8%"
+        }
+      ]
+    },
+    {
+      "url": "https://openai.com/index/gpt-5-6/",
+      "title": "GPT-5.6: Frontier intelligence that scales with your ambition",
+      "date": "2026-07-09",
+      "models": [
+        "GPT-5.6 Sol",
+        "GPT-5.6 Terra",
+        "GPT-5.6 Luna"
+      ],
+      "scores": [
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "Agents’ Last Exam",
+          "measure": "percent",
+          "value": "52.7%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "Agents’ Last Exam: GPT-5.6 Sol 52.7%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "Agents’ Last Exam",
+          "measure": "percent",
+          "value": "50.4%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "Agents’ Last Exam: GPT-5.6 Terra 50.4%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "Agents’ Last Exam",
+          "measure": "percent",
+          "value": "50.3%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "Agents’ Last Exam: GPT-5.6 Luna 50.3%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "GDPval-AA v2",
+          "measure": "Elo",
+          "value": "1,747.8 Elo",
+          "locator": "Evaluations > Professional",
+          "excerpt": "GDPval-AA v2: GPT-5.6 Sol 1,747.8 Elo"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "GDPval-AA v2",
+          "measure": "Elo",
+          "value": "1,593 Elo",
+          "locator": "Evaluations > Professional",
+          "excerpt": "GDPval-AA v2: GPT-5.6 Terra 1,593 Elo"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "GDPval-AA v2",
+          "measure": "Elo",
+          "value": "1,591.8 Elo",
+          "locator": "Evaluations > Professional",
+          "excerpt": "GDPval-AA v2: GPT-5.6 Luna 1,591.8 Elo"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "Management Consulting Tasks (Internal)",
+          "measure": "percent",
+          "value": "43.2%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "Management Consulting Tasks (Internal): GPT-5.6 Sol 43.2%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "Management Consulting Tasks (Internal)",
+          "measure": "percent",
+          "value": "37.2%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "Management Consulting Tasks (Internal): GPT-5.6 Terra 37.2%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "Management Consulting Tasks (Internal)",
+          "measure": "percent",
+          "value": "35.4%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "Management Consulting Tasks (Internal): GPT-5.6 Luna 35.4%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "Big Finance Bench",
+          "measure": "percent",
+          "value": "53%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "Big Finance Bench: GPT-5.6 Sol 53%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "Big Finance Bench",
+          "measure": "percent",
+          "value": "51%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "Big Finance Bench: GPT-5.6 Terra 51%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "Big Finance Bench",
+          "measure": "percent",
+          "value": "36%",
+          "locator": "Evaluations > Professional",
+          "excerpt": "Big Finance Bench: GPT-5.6 Luna 36%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "Artificial Analysis Intelligence Index v4.1",
+          "measure": "score",
+          "value": "58.9 Index score",
+          "locator": "Evaluations > Professional",
+          "excerpt": "Artificial Analysis Intelligence Index v4.1: GPT-5.6 Sol 58.9 Index score"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "Artificial Analysis Intelligence Index v4.1",
+          "measure": "score",
+          "value": "55 Index score",
+          "locator": "Evaluations > Professional",
+          "excerpt": "Artificial Analysis Intelligence Index v4.1: GPT-5.6 Terra 55 Index score"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "Artificial Analysis Intelligence Index v4.1",
+          "measure": "score",
+          "value": "51.2 Index score",
+          "locator": "Evaluations > Professional",
+          "excerpt": "Artificial Analysis Intelligence Index v4.1: GPT-5.6 Luna 51.2 Index score"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "Artificial Analysis Coding Agent Index v1.1",
+          "measure": "score",
+          "value": "80 Index score",
+          "locator": "Evaluations > Coding",
+          "excerpt": "Artificial Analysis Coding Agent Index v1.1: GPT-5.6 Sol 80 Index score"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "Artificial Analysis Coding Agent Index v1.1",
+          "measure": "score",
+          "value": "77.4 Index score",
+          "locator": "Evaluations > Coding",
+          "excerpt": "Artificial Analysis Coding Agent Index v1.1: GPT-5.6 Terra 77.4 Index score"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "Artificial Analysis Coding Agent Index v1.1",
+          "measure": "score",
+          "value": "74.6 Index score",
+          "locator": "Evaluations > Coding",
+          "excerpt": "Artificial Analysis Coding Agent Index v1.1: GPT-5.6 Luna 74.6 Index score"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "SWE-Bench Pro",
+          "measure": "percent",
+          "value": "64.6%",
+          "locator": "Evaluations > Coding",
+          "excerpt": "SWE-Bench Pro: GPT-5.6 Sol 64.6%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "SWE-Bench Pro",
+          "measure": "percent",
+          "value": "63.4%",
+          "locator": "Evaluations > Coding",
+          "excerpt": "SWE-Bench Pro: GPT-5.6 Terra 63.4%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "SWE-Bench Pro",
+          "measure": "percent",
+          "value": "62.7%",
+          "locator": "Evaluations > Coding",
+          "excerpt": "SWE-Bench Pro: GPT-5.6 Luna 62.7%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "DeepSWE v1.1",
+          "measure": "percent",
+          "value": "72.7%",
+          "locator": "Evaluations > Coding",
+          "excerpt": "DeepSWE v1.1: GPT-5.6 Sol 72.7%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "DeepSWE v1.1",
+          "measure": "percent",
+          "value": "69.6%",
+          "locator": "Evaluations > Coding",
+          "excerpt": "DeepSWE v1.1: GPT-5.6 Terra 69.6%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "DeepSWE v1.1",
+          "measure": "percent",
+          "value": "67.2%",
+          "locator": "Evaluations > Coding",
+          "excerpt": "DeepSWE v1.1: GPT-5.6 Luna 67.2%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "Terminal-Bench 2.1",
+          "measure": "percent",
+          "value": "88.8%",
+          "locator": "Evaluations > Coding",
+          "excerpt": "Terminal-Bench 2.1: GPT-5.6 Sol 88.8%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "Terminal-Bench 2.1",
+          "measure": "percent",
+          "value": "87.4%",
+          "locator": "Evaluations > Coding",
+          "excerpt": "Terminal-Bench 2.1: GPT-5.6 Terra 87.4%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "Terminal-Bench 2.1",
+          "measure": "percent",
+          "value": "84.7%",
+          "locator": "Evaluations > Coding",
+          "excerpt": "Terminal-Bench 2.1: GPT-5.6 Luna 84.7%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "GeneBench Pro",
+          "measure": "percent",
+          "value": "28.7%",
+          "locator": "Evaluations > Science and health",
+          "excerpt": "GeneBench Pro: GPT-5.6 Sol 28.7%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "GeneBench Pro",
+          "measure": "percent",
+          "value": "23.3%",
+          "locator": "Evaluations > Science and health",
+          "excerpt": "GeneBench Pro: GPT-5.6 Terra 23.3%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "GeneBench Pro",
+          "measure": "percent",
+          "value": "10.8%",
+          "locator": "Evaluations > Science and health",
+          "excerpt": "GeneBench Pro: GPT-5.6 Luna 10.8%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "LifeSciBench",
+          "measure": "percent",
+          "value": "59.9%",
+          "locator": "Evaluations > Science and health",
+          "excerpt": "LifeSciBench: GPT-5.6 Sol 59.9%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "LifeSciBench",
+          "measure": "percent",
+          "value": "56%",
+          "locator": "Evaluations > Science and health",
+          "excerpt": "LifeSciBench: GPT-5.6 Terra 56%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "LifeSciBench",
+          "measure": "percent",
+          "value": "51.2%",
+          "locator": "Evaluations > Science and health",
+          "excerpt": "LifeSciBench: GPT-5.6 Luna 51.2%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "MedChemBench (Internal)",
+          "measure": "percent",
+          "value": "48.3%",
+          "locator": "Evaluations > Science and health",
+          "excerpt": "MedChemBench (Internal): GPT-5.6 Sol 48.3%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "MedChemBench (Internal)",
+          "measure": "percent",
+          "value": "35%",
+          "locator": "Evaluations > Science and health",
+          "excerpt": "MedChemBench (Internal): GPT-5.6 Terra 35%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "MedChemBench (Internal)",
+          "measure": "percent",
+          "value": "30.4%",
+          "locator": "Evaluations > Science and health",
+          "excerpt": "MedChemBench (Internal): GPT-5.6 Luna 30.4%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "HealthBench Professional",
+          "measure": "percent",
+          "value": "60.5%",
+          "locator": "Evaluations > Science and health",
+          "excerpt": "HealthBench Professional: GPT-5.6 Sol 60.5%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "HealthBench Professional",
+          "measure": "percent",
+          "value": "57.7%",
+          "locator": "Evaluations > Science and health",
+          "excerpt": "HealthBench Professional: GPT-5.6 Terra 57.7%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "HealthBench Professional",
+          "measure": "percent",
+          "value": "55.7%",
+          "locator": "Evaluations > Science and health",
+          "excerpt": "HealthBench Professional: GPT-5.6 Luna 55.7%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "OSWorld 2.0",
+          "measure": "percent",
+          "value": "62.6%",
+          "locator": "Evaluations > Computer use",
+          "excerpt": "OSWorld 2.0: GPT-5.6 Sol 62.6%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "OSWorld 2.0",
+          "measure": "percent",
+          "value": "50.2%",
+          "locator": "Evaluations > Computer use",
+          "excerpt": "OSWorld 2.0: GPT-5.6 Terra 50.2%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "OSWorld 2.0",
+          "measure": "percent",
+          "value": "45.6%",
+          "locator": "Evaluations > Computer use",
+          "excerpt": "OSWorld 2.0: GPT-5.6 Luna 45.6%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "BrowseComp",
+          "measure": "percent",
+          "value": "90.4%",
+          "locator": "Evaluations > Computer use",
+          "excerpt": "BrowseComp: GPT-5.6 Sol 90.4%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "BrowseComp",
+          "measure": "percent",
+          "value": "87.5%",
+          "locator": "Evaluations > Computer use",
+          "excerpt": "BrowseComp: GPT-5.6 Terra 87.5%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "BrowseComp",
+          "measure": "percent",
+          "value": "83.3%",
+          "locator": "Evaluations > Computer use",
+          "excerpt": "BrowseComp: GPT-5.6 Luna 83.3%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "BenchCAD",
+          "measure": "percent",
+          "value": "70.6%",
+          "locator": "Evaluations > Computer use",
+          "excerpt": "BenchCAD: GPT-5.6 Sol 70.6%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "BenchCAD",
+          "measure": "percent",
+          "value": "62.3%",
+          "locator": "Evaluations > Computer use",
+          "excerpt": "BenchCAD: GPT-5.6 Terra 62.3%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "BenchCAD",
+          "measure": "percent",
+          "value": "63.1%",
+          "locator": "Evaluations > Computer use",
+          "excerpt": "BenchCAD: GPT-5.6 Luna 63.1%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "BenchCAD (python tool)",
+          "measure": "percent",
+          "value": "83.4%",
+          "locator": "Evaluations > Computer use",
+          "excerpt": "BenchCAD (python tool): GPT-5.6 Sol 83.4%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "BenchCAD (python tool)",
+          "measure": "percent",
+          "value": "78.2%",
+          "locator": "Evaluations > Computer use",
+          "excerpt": "BenchCAD (python tool): GPT-5.6 Terra 78.2%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "BenchCAD (python tool)",
+          "measure": "percent",
+          "value": "73.9%",
+          "locator": "Evaluations > Computer use",
+          "excerpt": "BenchCAD (python tool): GPT-5.6 Luna 73.9%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "Capture-the-Flag Challenges",
+          "measure": "percent",
+          "value": "96.7%",
+          "locator": "Evaluations > Cybersecurity",
+          "excerpt": "Capture-the-Flag Challenges: GPT-5.6 Sol 96.7%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "Capture-the-Flag Challenges",
+          "measure": "percent",
+          "value": "91.8%",
+          "locator": "Evaluations > Cybersecurity",
+          "excerpt": "Capture-the-Flag Challenges: GPT-5.6 Terra 91.8%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "Capture-the-Flag Challenges",
+          "measure": "percent",
+          "value": "85.2%",
+          "locator": "Evaluations > Cybersecurity",
+          "excerpt": "Capture-the-Flag Challenges: GPT-5.6 Luna 85.2%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "SEC-Bench Pro",
+          "measure": "percent",
+          "value": "71.2%",
+          "locator": "Evaluations > Cybersecurity",
+          "excerpt": "SEC-Bench Pro: GPT-5.6 Sol 71.2%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "SEC-Bench Pro",
+          "measure": "percent",
+          "value": "57.7%",
+          "locator": "Evaluations > Cybersecurity",
+          "excerpt": "SEC-Bench Pro: GPT-5.6 Terra 57.7%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "SEC-Bench Pro",
+          "measure": "percent",
+          "value": "48.9%",
+          "locator": "Evaluations > Cybersecurity",
+          "excerpt": "SEC-Bench Pro: GPT-5.6 Luna 48.9%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "ExploitBench",
+          "measure": "percent",
+          "value": "73.5%",
+          "locator": "Evaluations > Cybersecurity",
+          "excerpt": "ExploitBench: GPT-5.6 Sol 73.5%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "ExploitBench",
+          "measure": "percent",
+          "value": "52.9%",
+          "locator": "Evaluations > Cybersecurity",
+          "excerpt": "ExploitBench: GPT-5.6 Terra 52.9%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "ExploitBench",
+          "measure": "percent",
+          "value": "33.2%",
+          "locator": "Evaluations > Cybersecurity",
+          "excerpt": "ExploitBench: GPT-5.6 Luna 33.2%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "ExploitGym",
+          "measure": "percent",
+          "value": "33.7%",
+          "locator": "Evaluations > Cybersecurity",
+          "excerpt": "ExploitGym: GPT-5.6 Sol 33.7%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "ExploitGym",
+          "measure": "percent",
+          "value": "23.2%",
+          "locator": "Evaluations > Cybersecurity",
+          "excerpt": "ExploitGym: GPT-5.6 Terra 23.2%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "ExploitGym",
+          "measure": "percent",
+          "value": "12.4%",
+          "locator": "Evaluations > Cybersecurity",
+          "excerpt": "ExploitGym: GPT-5.6 Luna 12.4%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "GPQA Diamond",
+          "measure": "percent",
+          "value": "94.6%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "GPQA Diamond: GPT-5.6 Sol 94.6%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "GPQA Diamond",
+          "measure": "percent",
+          "value": "92.9%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "GPQA Diamond: GPT-5.6 Terra 92.9%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "GPQA Diamond",
+          "measure": "percent",
+          "value": "92.3%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "GPQA Diamond: GPT-5.6 Luna 92.3%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "FrontierMath Tier 1-3 (v2)",
+          "measure": "percent",
+          "value": "89%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "FrontierMath Tier 1-3 (v2): GPT-5.6 Sol 89%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "FrontierMath Tier 1-3 (v2)",
+          "measure": "percent",
+          "value": "84.9%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "FrontierMath Tier 1-3 (v2): GPT-5.6 Terra 84.9%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "FrontierMath Tier 1-3 (v2)",
+          "measure": "percent",
+          "value": "78.6%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "FrontierMath Tier 1-3 (v2): GPT-5.6 Luna 78.6%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "FrontierMath Tier 4 (v2)",
+          "measure": "percent",
+          "value": "83%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "FrontierMath Tier 4 (v2): GPT-5.6 Sol 83%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "FrontierMath Tier 4 (v2)",
+          "measure": "percent",
+          "value": "68.3%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "FrontierMath Tier 4 (v2): GPT-5.6 Terra 68.3%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "FrontierMath Tier 4 (v2)",
+          "measure": "percent",
+          "value": "58.5%",
+          "locator": "Evaluations > Academic",
+          "excerpt": "FrontierMath Tier 4 (v2): GPT-5.6 Luna 58.5%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "AutomationBench",
+          "measure": "percent",
+          "value": "18.1%",
+          "locator": "Evaluations > Tool use",
+          "excerpt": "AutomationBench: GPT-5.6 Sol 18.1%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "AutomationBench",
+          "measure": "percent",
+          "value": "15.2%",
+          "locator": "Evaluations > Tool use",
+          "excerpt": "AutomationBench: GPT-5.6 Terra 15.2%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "AutomationBench",
+          "measure": "percent",
+          "value": "14.9%",
+          "locator": "Evaluations > Tool use",
+          "excerpt": "AutomationBench: GPT-5.6 Luna 14.9%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "Toolathlon",
+          "measure": "percent",
+          "value": "58%",
+          "locator": "Evaluations > Tool use",
+          "excerpt": "Toolathlon: GPT-5.6 Sol 58%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "Toolathlon",
+          "measure": "percent",
+          "value": "53.1%",
+          "locator": "Evaluations > Tool use",
+          "excerpt": "Toolathlon: GPT-5.6 Terra 53.1%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "Toolathlon",
+          "measure": "percent",
+          "value": "53.4%",
+          "locator": "Evaluations > Tool use",
+          "excerpt": "Toolathlon: GPT-5.6 Luna 53.4%"
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "benchmark": "ARC-AGI-3",
+          "measure": "percent",
+          "value": "7.78%",
+          "locator": "Evaluations > Abstract reasoning",
+          "excerpt": "ARC-AGI-3: GPT-5.6 Sol 7.78%"
+        },
+        {
+          "model": "GPT-5.6 Terra",
+          "benchmark": "ARC-AGI-3",
+          "measure": "percent",
+          "value": "0.8%",
+          "locator": "Evaluations > Abstract reasoning",
+          "excerpt": "ARC-AGI-3: GPT-5.6 Terra 0.8%"
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "benchmark": "ARC-AGI-3",
+          "measure": "percent",
+          "value": "0.18%",
+          "locator": "Evaluations > Abstract reasoning",
+          "excerpt": "ARC-AGI-3: GPT-5.6 Luna 0.18%"
+        }
+      ]
+    },
+    {
+      "url": "https://openai.com/index/gpt-6-astra/",
+      "title": "GPT-6 Astra: A new generation of intelligence",
+      "date": "2026-09-03",
+      "models": [
+        "GPT-6 Astra"
+      ],
+      "scores": [
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "Agents’ Last Exam",
+          "measure": "percent",
+          "value": "59.3%",
+          "locator": "Evaluation tables > Computer Use",
+          "excerpt": "Agents’ Last Exam: GPT-6 Astra 59.3%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "OSWorld 2.0 (v2026.08.08, offline set, partial score)",
+          "measure": "percent",
+          "value": "72.6%",
+          "locator": "Evaluation tables > Computer Use",
+          "excerpt": "OSWorld 2.0 (v2026.08.08, offline set, partial score): GPT-6 Astra 72.6%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "ScreenSpot-Pro (no tools)",
+          "measure": "percent",
+          "value": "92.7%",
+          "locator": "Evaluation tables > Computer Use",
+          "excerpt": "ScreenSpot-Pro (no tools): GPT-6 Astra 92.7%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "AutomationBench",
+          "measure": "percent",
+          "value": "41.4%",
+          "locator": "Evaluation tables > Professional",
+          "excerpt": "AutomationBench: GPT-6 Astra 41.4%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "BenchCAD",
+          "measure": "percent",
+          "value": "95.9%",
+          "locator": "Evaluation tables > Professional",
+          "excerpt": "BenchCAD: GPT-6 Astra 95.9%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "BrowseComp",
+          "measure": "percent",
+          "value": "91.5%",
+          "locator": "Evaluation tables > Professional",
+          "excerpt": "BrowseComp: GPT-6 Astra 91.5%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "OpenScore String Quartets (1 - OMR-NED)",
+          "measure": "score",
+          "value": "0.84",
+          "locator": "Evaluation tables > Professional",
+          "excerpt": "OpenScore String Quartets (1 - OMR-NED): GPT-6 Astra 0.84"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "Artificial Analysis Intelligence Index v4.1.1",
+          "measure": "score",
+          "value": "61.2",
+          "locator": "Evaluation tables > Professional",
+          "excerpt": "Artificial Analysis Intelligence Index v4.1.1: GPT-6 Astra 61.2"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "Terminal-Bench 4.0",
+          "measure": "percent",
+          "value": "57.9%",
+          "locator": "Evaluation tables > Coding",
+          "excerpt": "Terminal-Bench 4.0: GPT-6 Astra 57.9%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "DeepSWE v1.1",
+          "measure": "percent",
+          "value": "74.1%",
+          "locator": "Evaluation tables > Coding",
+          "excerpt": "DeepSWE v1.1: GPT-6 Astra 74.1%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "FrontierCode 1.1 Extended (score)",
+          "measure": "percent",
+          "value": "64.5%",
+          "locator": "Evaluation tables > Coding",
+          "excerpt": "FrontierCode 1.1 Extended (score): GPT-6 Astra 64.5%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "FrontierCode 1.1 Main (score)",
+          "measure": "percent",
+          "value": "53.3%",
+          "locator": "Evaluation tables > Coding",
+          "excerpt": "FrontierCode 1.1 Main (score): GPT-6 Astra 53.3%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "Artificial Analysis Coding Agent Index v1.4",
+          "measure": "score",
+          "value": "67.0",
+          "locator": "Evaluation tables > Coding",
+          "excerpt": "Artificial Analysis Coding Agent Index v1.4: GPT-6 Astra 67.0"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "Terminal-Bench Science 0.1",
+          "measure": "percent",
+          "value": "64.6%",
+          "locator": "Evaluation tables > Academic",
+          "excerpt": "Terminal-Bench Science 0.1: GPT-6 Astra 64.6%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "FrontierMath Tier 4 (v2)",
+          "measure": "percent",
+          "value": "97.6%",
+          "locator": "Evaluation tables > Academic",
+          "excerpt": "FrontierMath Tier 4 (v2): GPT-6 Astra 97.6%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "GPQA Diamond",
+          "measure": "percent",
+          "value": "96.0%",
+          "locator": "Evaluation tables > Academic",
+          "excerpt": "GPQA Diamond: GPT-6 Astra 96.0%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "Humanity’s Last Exam (with tools)",
+          "measure": "percent",
+          "value": "57.2%",
+          "locator": "Evaluation tables > Academic",
+          "excerpt": "Humanity’s Last Exam (with tools): GPT-6 Astra 57.2%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "GeneBench Pro",
+          "measure": "percent",
+          "value": "37.1%",
+          "locator": "Evaluation tables > Science and Health",
+          "excerpt": "GeneBench Pro: GPT-6 Astra 37.1%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "MedChemBench (Internal)",
+          "measure": "percent",
+          "value": "49.3%",
+          "locator": "Evaluation tables > Science and Health",
+          "excerpt": "MedChemBench (Internal): GPT-6 Astra 49.3%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "LifeSciBench",
+          "measure": "percent",
+          "value": "60.3%",
+          "locator": "Evaluation tables > Science and Health",
+          "excerpt": "LifeSciBench: GPT-6 Astra 60.3%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "HealthBench Professional (length-adjusted)",
+          "measure": "percent",
+          "value": "63.4%",
+          "locator": "Evaluation tables > Science and Health",
+          "excerpt": "HealthBench Professional (length-adjusted): GPT-6 Astra 63.4%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "ExploitBench",
+          "measure": "percent",
+          "value": "100.0%",
+          "locator": "Evaluation tables > Cybersecurity",
+          "excerpt": "ExploitBench: GPT-6 Astra 100.0%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "ExploitGym",
+          "measure": "percent",
+          "value": "42.4%",
+          "locator": "Evaluation tables > Cybersecurity",
+          "excerpt": "ExploitGym: GPT-6 Astra 42.4%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "ExploitBench (June-Aug 2026)",
+          "measure": "percent",
+          "value": "39.0%",
+          "locator": "Evaluation tables > Cybersecurity",
+          "excerpt": "ExploitBench (June-Aug 2026): GPT-6 Astra 39.0%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "SRE-Bench",
+          "measure": "percent",
+          "value": "88.0%",
+          "locator": "Evaluation tables > Cybersecurity",
+          "excerpt": "SRE-Bench: GPT-6 Astra 88.0%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "SEC-Bench Pro",
+          "measure": "percent",
+          "value": "85.4%",
+          "locator": "Evaluation tables > Cybersecurity",
+          "excerpt": "SEC-Bench Pro: GPT-6 Astra 85.4%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "OpenAI MRCR v2 8-needle 256K-512K",
+          "measure": "percent",
+          "value": "100.0%",
+          "locator": "Evaluation tables > Long Context",
+          "excerpt": "OpenAI MRCR v2 8-needle 256K-512K: GPT-6 Astra 100.0%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "OpenAI MRCR v2 8-needle 512K-1M",
+          "measure": "percent",
+          "value": "96.3%",
+          "locator": "Evaluation tables > Long Context",
+          "excerpt": "OpenAI MRCR v2 8-needle 512K-1M: GPT-6 Astra 96.3%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "ARC-AGI-3",
+          "measure": "percent",
+          "value": "99.9%",
+          "locator": "Evaluation tables > Abstract reasoning",
+          "excerpt": "ARC-AGI-3: GPT-6 Astra 99.9%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "ARC-AGI-2",
+          "measure": "percent",
+          "value": "95.0%",
+          "locator": "Evaluation tables > Abstract reasoning",
+          "excerpt": "ARC-AGI-2: GPT-6 Astra 95.0%"
+        },
+        {
+          "model": "GPT-6 Astra",
+          "benchmark": "ARC-AGI-1",
+          "measure": "percent",
+          "value": "98.5%",
+          "locator": "Evaluation tables > Abstract reasoning",
+          "excerpt": "ARC-AGI-1: GPT-6 Astra 98.5%"
+        }
+      ]
+    },
+    {
+      "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "title": "Introducing GPT-6 Sol and Luna",
+      "date": "2026-09-22",
+      "models": [
+        "GPT-6 Sol",
+        "GPT-6 Luna"
+      ],
+      "scores": [
+        {
+          "model": "GPT-6 Sol",
+          "benchmark": "DeepSWE v1.1 (max effort)",
+          "measure": "percent",
+          "value": "68.8%",
+          "locator": "Coding > DeepSWE v1.1 (narrative)",
+          "excerpt": "DeepSWE v1.1 (max effort): GPT-6 Sol 68.8%"
+        },
+        {
+          "model": "GPT-6 Luna",
+          "benchmark": "DeepSWE v1.1 (max effort)",
+          "measure": "percent",
+          "value": "66.6%",
+          "locator": "Coding > DeepSWE v1.1 (narrative)",
+          "excerpt": "DeepSWE v1.1 (max effort): GPT-6 Luna 66.6%"
+        },
+        {
+          "model": "GPT-6 Sol",
+          "benchmark": "OSWorld 2.0 offline (xhigh effort)",
+          "measure": "percent",
+          "value": "60.5%",
+          "locator": "Computer use > OSWorld 2.0 (narrative)",
+          "excerpt": "OSWorld 2.0 offline (xhigh effort): GPT-6 Sol 60.5%"
+        }
+      ]
+    },
+    {
+      "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "title": "Introducing GPT-6.1 Sol",
+      "date": "2026-09-29",
+      "models": [
+        "GPT-6.1 Sol"
+      ],
+      "scores": [
+        {
+          "model": "GPT-6.1 Sol",
+          "benchmark": "Factuality: responses containing a factual error (low effort)",
+          "measure": "percent",
+          "value": "7.7%",
+          "locator": "Factuality (narrative)",
+          "excerpt": "Factuality: responses containing a factual error (low effort): GPT-6.1 Sol 7.7%"
+        }
+      ]
+    }
+  ],
+  "coverage_note": "Curated exact launch-model score text from primary OpenAI launch posts, chiefly published tables. Comparative baseline model columns excluded. Chart-only scores and some 2026 launches remain untranscribed; 2026 GPT-5.3-Codex-Spark, GPT-Live, Rosalind, audio/image/video launches require separate coverage. GPT-6.1 Sol chart scores are inaccessible as text; only narrative exact score included."
+}
