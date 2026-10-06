@@ -26,6 +26,7 @@ Relation names are singular. This is a starting point for schema design, not a f
 | `benchmark_measure` | The specific quantity scored, including the task or subset, metric, unit, and aggregation rule. |
 | `source` | The identity of a document or page, which may have more than one URL. |
 | `source_retrieval` | A fetched instance of a source, with retrieval time, requested and final URLs, and a snapshot reference or content hash. |
+| `model_mention` | A model named in a source, including launch posts without scores. |
 | `benchmark_mention` | A benchmark named in a source even when no readable score was available. |
 | `score_observation` | What a source actually reports: model identity as given, measure, exact reported value, normalized numeric value when possible, source locator, and known conditions. |
 | `evaluation_configuration` | Reported prompting, tools, harness, sampling, reasoning budget, and other conditions, including partial information. |
@@ -46,7 +47,7 @@ Likewise, do not infer that matching scores came from the same evaluation. Linki
 
 ## Current data
 
-[model-benchmark-catalog/catalog.sqlite](catalog.sqlite) is a populated SQLite database built from the text research files in [model-benchmark-catalog/research/](research/). The current pass covers OpenAI and Anthropic launch material through October 6, 2026. It includes 89 source documents, 122 model records, 364 benchmark labels, 852 score observations, and 43 benchmark mentions without a score. These counts include a linked GPT-4 technical report and posts that have no transcribed numeric scores.
+[model-benchmark-catalog/catalog.sqlite](catalog.sqlite) is a populated SQLite database built from the text research files in [model-benchmark-catalog/research/](research/). The current pass covers OpenAI and Anthropic launch material through October 6, 2026. It includes 89 source documents, 122 model records, 132 source-to-model mentions, 364 benchmark labels, 852 score observations, and 43 benchmark mentions without a score. These counts include a linked GPT-4 technical report and posts that have no transcribed numeric scores.
 
 Each observation retains the exact reported value, model and benchmark wording, source location, source URL, and a retrieval timestamp. The [retrieval log](retrieval_log.json) records when each URL was checked. Many posts put benchmark results only in images; those values have been omitted unless they were read and verified. Source records carry coverage notes for known gaps. This is a substantial first pass, **not an exhaustive inventory** of every release or every chart cell.
 

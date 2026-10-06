@@ -107,6 +107,14 @@ def main() -> None:
                             "INSERT OR IGNORE INTO model(id, name, developer_id) VALUES (?, ?, ?)",
                             (model_id, name, company_id),
                         )
+                        db.execute(
+                            """INSERT OR IGNORE INTO model_mention
+                               (id, source_retrieval_id, reported_model_name, model_id)
+                               VALUES (?, ?, ?, ?)""",
+                            (
+                                stable_id("mmn", url, name), retrieval_id, name, model_id,
+                            ),
+                        )
                     for mention in post.get("benchmark_mentions", []):
                         benchmark_name = require_text(
                             mention.get("benchmark"), "mentioned benchmark"

@@ -85,6 +85,16 @@ CREATE TABLE source_retrieval (
     CHECK ((snapshot_location IS NULL) = (content_hash IS NULL))
 ) STRICT;
 
+-- Links a model name to a source that names it, including launch posts with no
+-- score. The relationship alone does not prove that every named model launched
+-- on the source's publication date; some articles include comparison models.
+CREATE TABLE model_mention (
+    id TEXT PRIMARY KEY NOT NULL,
+    source_retrieval_id TEXT NOT NULL REFERENCES source_retrieval(id),
+    reported_model_name TEXT NOT NULL CHECK (length(trim(reported_model_name)) > 0),
+    model_id TEXT REFERENCES model(id)
+) STRICT;
+
 -- A source may mention a benchmark without reporting a readable numeric score.
 -- Score observations themselves also establish benchmark use; this relation is
 -- for mentions that would otherwise be lost from the catalog.
@@ -221,6 +231,8 @@ CREATE INDEX benchmark_version_benchmark_idx ON benchmark_version(benchmark_id);
 CREATE INDEX benchmark_measure_benchmark_idx ON benchmark_measure(benchmark_id);
 CREATE INDEX source_publisher_idx ON source(publisher_id);
 CREATE INDEX source_retrieval_source_time_idx ON source_retrieval(source_id, fetched_at);
+CREATE INDEX model_mention_retrieval_idx ON model_mention(source_retrieval_id);
+CREATE INDEX model_mention_model_idx ON model_mention(model_id);
 CREATE INDEX benchmark_mention_retrieval_idx ON benchmark_mention(source_retrieval_id);
 CREATE INDEX benchmark_mention_benchmark_idx ON benchmark_mention(benchmark_id);
 CREATE INDEX score_observation_retrieval_idx ON score_observation(source_retrieval_id);
