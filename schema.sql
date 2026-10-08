@@ -69,28 +69,6 @@ CREATE TABLE source_retrieval (
     CHECK ((snapshot_location IS NULL) = (content_hash IS NULL))
 ) STRICT;
 
--- Links a model name to a source that names it, including launch posts with no
--- score. The relationship alone does not prove that every named model launched
--- on the source's publication date; some articles include comparison models.
-CREATE TABLE model_mention (
-    id TEXT PRIMARY KEY NOT NULL,
-    source_retrieval_id TEXT NOT NULL REFERENCES source_retrieval(id),
-    reported_model_name TEXT NOT NULL CHECK (length(trim(reported_model_name)) > 0),
-    model_id TEXT REFERENCES model(id)
-) STRICT;
-
--- A source may mention a benchmark without reporting a readable numeric score.
--- Score citations themselves also establish benchmark use; this relation is
--- for mentions that would otherwise be lost from the catalog.
-CREATE TABLE benchmark_mention (
-    id TEXT PRIMARY KEY NOT NULL,
-    source_retrieval_id TEXT NOT NULL REFERENCES source_retrieval(id),
-    reported_benchmark_name TEXT NOT NULL
-        CHECK (length(trim(reported_benchmark_name)) > 0),
-    source_locator TEXT NOT NULL CHECK (length(trim(source_locator)) > 0),
-    benchmark_id TEXT REFERENCES benchmark(id)
-) STRICT;
-
 -- A source-independent proposition about a model's result on a measure.
 -- Exactly one value representation is used: a number, or a text expression for
 -- bounds, ranges, combined results, and other values not yet parsed safely.
@@ -124,10 +102,6 @@ CREATE INDEX model_developer_idx ON model(developer_id);
 CREATE INDEX benchmark_measure_benchmark_idx ON benchmark_measure(benchmark_id);
 CREATE INDEX source_publisher_idx ON source(publisher_id);
 CREATE INDEX source_retrieval_source_time_idx ON source_retrieval(source_id, fetched_at);
-CREATE INDEX model_mention_retrieval_idx ON model_mention(source_retrieval_id);
-CREATE INDEX model_mention_model_idx ON model_mention(model_id);
-CREATE INDEX benchmark_mention_retrieval_idx ON benchmark_mention(source_retrieval_id);
-CREATE INDEX benchmark_mention_benchmark_idx ON benchmark_mention(benchmark_id);
 CREATE INDEX score_assertion_comparison_idx
     ON score_assertion(model_id, benchmark_measure_id);
 CREATE INDEX score_assertion_measure_idx ON score_assertion(benchmark_measure_id);
