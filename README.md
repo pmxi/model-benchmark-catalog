@@ -12,30 +12,27 @@ Every observation should identify the source, the location within it (such as a 
 
 A comparison matrix is a **view over observations**, not the primary data model. A cell may contain several reported results. If a view selects one, it should state its selection rule and let readers inspect the alternatives, provenance, and evaluation conditions.
 
-## Proposed conceptual relations
+## Current relations
 
-Relation names are singular. This is a starting point for schema design, not a finalized database definition.
+Relation names are singular. Keep the schema limited to structures the catalog uses; add relations when concrete data or queries require them.
 
 | Relation | Purpose |
 | --- | --- |
 | `organization` | Model developers, evaluators, publishers, and benchmark maintainers. |
-| `model` | A named model release. |
-| `model_version` | An identifiable checkpoint or API snapshot, when known. Mutable API aliases need mapping history rather than being treated as fixed versions. |
-| `benchmark` | A benchmark's identity. |
-| `benchmark_version` | A known release of its dataset or evaluation specification; it may be unknown for a reported result. |
+| `model` | A model identity based on the recorded name, which may include a snapshot identifier. |
+| `benchmark` | A benchmark identity based on the recorded name, which may include a version. |
 | `benchmark_measure` | The specific quantity scored, including the task or subset, metric, unit, and aggregation rule. |
 | `source` | The identity of a document or page, which may have more than one URL. |
 | `source_retrieval` | A fetched instance of a source, with retrieval time, requested and final URLs, and a snapshot reference or content hash. |
 | `model_mention` | A model named in a source, including launch posts without scores. |
 | `benchmark_mention` | A benchmark named in a source even when no readable score was available. |
 | `score_observation` | What a source actually reports: model identity as given, measure, exact reported value, normalized numeric value when possible, source locator, and known conditions. |
-| `evaluation_configuration` | Reported prompting, tools, harness, sampling, reasoning budget, and other conditions, including partial information. |
-| `evaluation` | An optional record for an identifiable underlying evaluation when evidence supports one. |
-| `observation_derivation` | A supported relationship showing that one report derives from another. |
+
+Versions and evaluation conditions currently remain in recorded names and observation text. Separate version, configuration, experiment, and report-derivation tables can be introduced when there is a concrete need to populate and query them.
 
 The schema should keep the source's original model name and score text even when they are mapped to normalized model IDs and numeric values. Unknown details must remain unknown; two observations with missing settings are not thereby known to have equivalent configurations. Distinguish unknown settings from settings explicitly marked inapplicable.
 
-Likewise, do not infer that matching scores came from the same evaluation. Linking observations to one evaluation or marking one report as derived from another is a revisable, evidence-backed judgment. Statistical uncertainty, rounding precision, and confidence in extraction are different concepts and should not be collapsed into one field.
+Likewise, do not infer that matching scores came from the same evaluation. Statistical uncertainty, rounding precision, and confidence in extraction are different concepts and should not be collapsed into one field.
 
 ## Data quality principles
 
