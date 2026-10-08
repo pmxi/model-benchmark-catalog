@@ -38,8 +38,7 @@ CREATE TABLE benchmark_measure (
     metric TEXT NOT NULL CHECK (length(trim(metric)) > 0),
     aggregation_rule TEXT,
     unit TEXT CHECK (unit IS NULL OR length(trim(unit)) > 0),
-    higher_is_better INTEGER CHECK (higher_is_better IN (0, 1)),
-    UNIQUE (id, benchmark_id)
+    higher_is_better INTEGER CHECK (higher_is_better IN (0, 1))
 ) STRICT;
 
 -- A source identifies a document, not a URL. One URL can change over time and
@@ -81,7 +80,7 @@ CREATE TABLE model_mention (
 ) STRICT;
 
 -- A source may mention a benchmark without reporting a readable numeric score.
--- Score observations themselves also establish benchmark use; this relation is
+-- Score citations themselves also establish benchmark use; this relation is
 -- for mentions that would otherwise be lost from the catalog.
 CREATE TABLE benchmark_mention (
     id TEXT PRIMARY KEY NOT NULL,
@@ -92,31 +91,33 @@ CREATE TABLE benchmark_mention (
     benchmark_id TEXT REFERENCES benchmark(id)
 ) STRICT;
 
--- One row is one score as reported by one retrieved source. Never deduplicate
--- by model/measure/value. Preserve raw wording even after resolving IDs.
--- A NULL normalized ID means the identity has not been resolved. The composite
--- foreign key ensures the measure belongs to the named benchmark.
-CREATE TABLE score_observation (
+-- A source-independent proposition about a model's result on a measure.
+-- Exactly one value representation is used: a number, or a text expression for
+-- bounds, ranges, combined results, and other values not yet parsed safely.
+-- unit describes the stored value's scale (e.g. percent). conditions preserves
+-- qualifications that affect the claim. Unknown conditions imply no guarantee
+-- of comparable setups or a shared underlying experiment.
+CREATE TABLE score_assertion (
     id TEXT PRIMARY KEY NOT NULL,
-    source_retrieval_id TEXT NOT NULL REFERENCES source_retrieval(id),
-    source_locator TEXT NOT NULL CHECK (length(trim(source_locator)) > 0),
-    source_excerpt TEXT,
-    reported_model_name TEXT NOT NULL CHECK (length(trim(reported_model_name)) > 0),
-    reported_benchmark_name TEXT NOT NULL CHECK (length(trim(reported_benchmark_name)) > 0),
-    reported_measure_name TEXT NOT NULL CHECK (length(trim(reported_measure_name)) > 0),
-    reported_value_text TEXT NOT NULL CHECK (length(trim(reported_value_text)) > 0),
-    model_id TEXT REFERENCES model(id),
-    benchmark_id TEXT REFERENCES benchmark(id),
-    benchmark_measure_id TEXT,
+    model_id TEXT NOT NULL REFERENCES model(id),
+    benchmark_measure_id TEXT NOT NULL REFERENCES benchmark_measure(id),
     value_numeric REAL,
-    reported_configuration_text TEXT,
-    reported_evaluator_name TEXT,
-    reported_evaluation_date TEXT,
-    qualifier_text TEXT,
-    extraction_note TEXT,
-    CHECK (benchmark_measure_id IS NULL OR benchmark_id IS NOT NULL),
-    FOREIGN KEY (benchmark_measure_id, benchmark_id)
-        REFERENCES benchmark_measure(id, benchmark_id)
+    value_text TEXT CHECK (value_text IS NULL OR length(trim(value_text)) > 0),
+    unit TEXT CHECK (unit IS NULL OR length(trim(unit)) > 0),
+    conditions TEXT CHECK (conditions IS NULL OR length(trim(conditions)) > 0),
+    CHECK ((value_numeric IS NULL) <> (value_text IS NULL))
+) STRICT;
+
+-- One occurrence of an assertion in a retrieved source. Multiple citations can
+-- support the same assertion. excerpt can hold a labeled table transcription
+-- and the original source excerpt; note holds extraction commentary.
+CREATE TABLE score_citation (
+    id TEXT PRIMARY KEY NOT NULL,
+    score_assertion_id TEXT NOT NULL REFERENCES score_assertion(id),
+    source_retrieval_id TEXT NOT NULL REFERENCES source_retrieval(id),
+    locator TEXT NOT NULL CHECK (length(trim(locator)) > 0),
+    excerpt TEXT,
+    note TEXT
 ) STRICT;
 
 CREATE INDEX model_developer_idx ON model(developer_id);
@@ -127,7 +128,9 @@ CREATE INDEX model_mention_retrieval_idx ON model_mention(source_retrieval_id);
 CREATE INDEX model_mention_model_idx ON model_mention(model_id);
 CREATE INDEX benchmark_mention_retrieval_idx ON benchmark_mention(source_retrieval_id);
 CREATE INDEX benchmark_mention_benchmark_idx ON benchmark_mention(benchmark_id);
-CREATE INDEX score_observation_retrieval_idx ON score_observation(source_retrieval_id);
-CREATE INDEX score_observation_comparison_idx
-    ON score_observation(model_id, benchmark_measure_id);
+CREATE INDEX score_assertion_comparison_idx
+    ON score_assertion(model_id, benchmark_measure_id);
+CREATE INDEX score_assertion_measure_idx ON score_assertion(benchmark_measure_id);
+CREATE INDEX score_citation_assertion_idx ON score_citation(score_assertion_id);
+CREATE INDEX score_citation_retrieval_idx ON score_citation(source_retrieval_id);
 COMMIT;

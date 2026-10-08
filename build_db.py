@@ -51,6 +51,76 @@ def require_text(value: object, label: str) -> str:
     return value.strip()
 
 
+def add_score_evidence(
+    db: sqlite3.Connection,
+    score: dict,
+    model_id: str,
+    measure_id: str,
+    retrieval_id: str,
+) -> None:
+    """Store a proposition once and attach each source occurrence separately."""
+    name = require_text(score.get("model"), "score model")
+    benchmark = require_text(score.get("benchmark"), "benchmark")
+    measure = require_text(score.get("measure"), "measure")
+    value = score.get("value")
+    raw_value = require_text(str(value) if value is not None else None, "score value")
+    locator = require_text(score.get("locator"), "source locator")
+    number = parsed_number(raw_value)
+    value_text = raw_value if number is None else None
+    unit = score.get("unit")
+    if unit == "%":
+        unit = "percent"
+    if number is not None and raw_value.endswith("%"):
+        if unit not in (None, "percent"):
+            raise ValueError(f"Conflicting score unit {unit!r}: {raw_value}")
+        unit = "percent"
+    conditions = "\n".join(
+        f"{label}: {score[key]}"
+        for key, label in (("configuration", "Configuration"), ("qualifier", "Qualifier"))
+        if score.get(key)
+    ) or None
+    # Equal recorded propositions can share citations, without establishing
+    # that their underlying evaluations or omitted settings are identical.
+    proposition = (model_id, measure_id, number, value_text, unit, conditions)
+    assertion_id = stable_id(
+        "ast", json.dumps(proposition, ensure_ascii=False, separators=(",", ":"))
+    )
+    db.execute(
+        """INSERT INTO score_assertion
+           (id, model_id, benchmark_measure_id, value_numeric, value_text, unit, conditions)
+           VALUES (?, ?, ?, ?, ?, ?, ?)
+           ON CONFLICT(id) DO NOTHING""",
+        (assertion_id, *proposition),
+    )
+    # Preserve the source labels and exact score spelling as one readable
+    # transcription instead of dedicated reported_* columns. This is labeled
+    # as a transcription, not presented as a contiguous verbatim quotation.
+    transcription = [
+        "Reported row (transcription):",
+        f"Model: {name}",
+        f"Benchmark: {benchmark}",
+        f"Measure: {measure}",
+        f"Value: {raw_value}",
+    ]
+    if score.get("unit"):
+        transcription.append(f"Unit: {score['unit']}")
+    if conditions:
+        transcription.append(conditions)
+    if score.get("excerpt"):
+        transcription.extend(("", "Source excerpt:", str(score["excerpt"])))
+    citation_id = stable_id(
+        "cit", assertion_id, retrieval_id, name, benchmark, measure, raw_value, locator
+    )
+    db.execute(
+        """INSERT INTO score_citation
+           (id, score_assertion_id, source_retrieval_id, locator, excerpt, note)
+           VALUES (?, ?, ?, ?, ?, ?)
+           ON CONFLICT(id) DO NOTHING""",
+        (citation_id, assertion_id, retrieval_id, locator,
+         "\n".join(transcription), score.get("note")),
+    )
+
+
 def main() -> None:
     if DB_PATH.exists():
         raise SystemExit(f"Refusing to replace existing {DB_PATH}")
@@ -142,9 +212,6 @@ def main() -> None:
                         )
                         benchmark_name = require_text(score.get("benchmark"), "benchmark")
                         measure_name = require_text(score.get("measure"), "measure")
-                        value = score.get("value")
-                        raw_value = require_text(str(value) if value is not None else None, "score value")
-                        locator = require_text(score.get("locator"), "source locator")
                         model_id = stable_id("mod", company_id, canonical_name.casefold())
                         benchmark_id = stable_id("ben", benchmark_name.casefold())
                         measure_id = stable_id("mea", benchmark_id, measure_name.casefold())
@@ -173,32 +240,11 @@ def main() -> None:
                                 "UPDATE benchmark_measure SET unit = ? WHERE id = ? AND unit IS NULL",
                                 (score["unit"], measure_id),
                             )
-                        observation_id = stable_id(
-                            "obs", url, name, benchmark_name, measure_name, raw_value, locator
-                        )
-                        excerpt = score.get("excerpt")
-                        db.execute(
-                            """INSERT OR IGNORE INTO score_observation
-                               (id, source_retrieval_id, source_locator, source_excerpt,
-                                reported_model_name, reported_benchmark_name,
-                                reported_measure_name, reported_value_text,
-                                reported_configuration_text, qualifier_text,
-                                extraction_note,
-                                model_id, benchmark_id, benchmark_measure_id, value_numeric)
-                               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-                            (
-                                observation_id, retrieval_id, locator,
-                                str(excerpt)[:200] if excerpt else None,
-                                name, benchmark_name, measure_name, raw_value,
-                                score.get("configuration"),
-                                score.get("qualifier"), score.get("note"),
-                                model_id, benchmark_id, measure_id, parsed_number(raw_value),
-                            ),
-                        )
+                        add_score_evidence(db, score, model_id, measure_id, retrieval_id)
         problems = db.execute("PRAGMA foreign_key_check").fetchall()
         if problems:
             raise RuntimeError(f"Foreign key errors: {problems[:5]}")
-        for table in ("model", "benchmark", "source", "score_observation"):
+        for table in ("model", "benchmark", "source", "score_assertion", "score_citation"):
             count = db.execute(f"SELECT count(*) FROM {table}").fetchone()[0]
             print(f"{table}: {count}")
         print(f"Wrote {DB_PATH}")
