@@ -1,11 +1,11 @@
 -- AI model and benchmark catalog: SQLite schema.
--- Apply to a new database with: sqlite3 catalog.sqlite < schema.sql
+-- Create an empty database with: sqlite3 new_catalog.sqlite < schema.sql
 -- Enable foreign keys on EVERY SQLite connection; the PRAGMA is connection-local.
 PRAGMA foreign_keys = ON;
 
 BEGIN;
 
--- IDs are stable, opaque TEXT values supplied by the importer. Relation names are
+-- IDs are stable, opaque TEXT values supplied by the writer. Relation names are
 -- singular. Identity records contain only the minimum fields needed to match a
 -- report; sourced metadata attributes can be added as typed relations later.
 CREATE TABLE organization (

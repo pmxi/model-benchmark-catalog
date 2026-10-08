@@ -53,17 +53,47 @@ Likewise, do not infer that matching scores came from the same evaluation. Stati
 
 ## Current data
 
-[model-benchmark-catalog/catalog.sqlite](catalog.sqlite) is a populated SQLite database built from the text research files in [model-benchmark-catalog/research/](research/). The current pass covers OpenAI and Anthropic launch material through October 6, 2026. It includes 89 source documents, 122 model records, 364 benchmark labels, and 851 score assertions supported by 852 citations. These counts include a linked GPT-4 technical report and posts that have no transcribed numeric scores.
+[model-benchmark-catalog/catalog.sqlite](catalog.sqlite) is the source of truth. Read and write catalog data directly in SQLite. The current pass covers OpenAI and Anthropic launch material through October 6, 2026. It includes 89 source documents, 122 model records, 364 benchmark labels, and 851 score assertions supported by 852 citations. These counts include a linked GPT-4 technical report and posts that have no transcribed numeric scores.
 
-Each citation retains the exact reported value, model and benchmark wording, and source location, and links to the source URL and retrieval timestamp. The [retrieval log](retrieval_log.json) records when each URL was checked. Many posts put benchmark results only in images; those values have been omitted unless they were read and verified. Source records carry coverage notes for known gaps. This is a substantial first pass, **not an exhaustive inventory** of every release or every chart cell.
+Each citation retains the exact reported value, model and benchmark wording, and source location, and links to the source URL and retrieval timestamp in `source_retrieval`. Many posts put benchmark results only in images; those values have been omitted unless they were read and verified. Source records carry coverage notes for known gaps. This is a substantial first pass, **not an exhaustive inventory** of every release or every chart cell.
 
-The importer shares an assertion when model, measure, parsed value, unit, and recorded conditions match. GPT-5's 88% AIME 2025 result currently has two citations. All 71 results that cannot be represented by a single number remain textual assertions.
+Reuse an assertion when model, measure, value, unit, and recorded conditions match. GPT-5's 88% AIME 2025 result currently has two citations. All 71 results that cannot be represented by a single number remain textual assertions.
 
 The normalized model and benchmark IDs are provisional exact-name groupings. Matching IDs do not establish that evaluation configurations, benchmark versions, or score units are comparable. Where a unit or configuration was not recorded, it remains unknown. The database does not yet contain source snapshots; the URL, locator, excerpt, and retrieval time remain available, and snapshot fields are null.
 
-## Use and rebuild
+## Write directly to SQLite
 
-See [model-benchmark-catalog/schema.sql](schema.sql) for the SQLite schema and [model-benchmark-catalog/build_db.py](build_db.py) for the importer. The research JSON files are the editable data source; `catalog.sqlite` is a generated query artifact. To rebuild, move the existing database aside and run `uv run python build_db.py`. The importer refuses to overwrite an existing database.
+Each researcher or agent can open its own connection to the same local database. Enable foreign keys and a busy timeout on every connection:
+
+```sql
+PRAGMA foreign_keys = ON;
+PRAGMA busy_timeout = 10000;
+```
+
+Collect evidence before starting a transaction. Then use `BEGIN IMMEDIATE` to acquire the write lock, look up existing identities and assertions, insert the needed rows and citations, and `COMMIT`. Use `ROLLBACK` on failure. Keep transactions short; if a lock timeout occurs, roll back and retry the whole transaction. The lookup and insert must be in the same transaction to avoid competing writers creating duplicates.
+
+When recording a score:
+
+1. Find or add its model, benchmark, and benchmark measure.
+2. Find or add its source document and record the actual retrieval time and URLs.
+3. Find or add the assertion, retaining its unit and known conditions. Store a number or a text value, never both.
+4. Add a citation to that assertion and retrieval, preserving the locator and original wording. Reuse an existing citation when the same evidence is already recorded.
+
+Use parameterized SQL in scripts. The current schema requires explicit unique text IDs for new rows; reuse IDs from lookup results when referring to existing rows.
+
+## Schema and backups
+
+[model-benchmark-catalog/schema.sql](schema.sql) defines an empty database. It cannot reconstruct the collected data. Apply future schema changes to the existing database through SQL migrations and keep the schema definition in sync.
+
+Before a migration, create a consistent backup using SQLite's backup command:
+
+```sh
+sqlite3 catalog.sqlite ".backup 'catalog.backup.sqlite'"
+```
+
+Keep working in the existing database as records are added or corrected. The earlier collection files are available in Git history.
+
+## Query
 
 For example, inspect a reported score and its provenance with:
 
@@ -84,4 +114,10 @@ sqlite3 -header -column catalog.sqlite '
 
 This query returns one row per citation. For leaderboards, rank assertions before joining their citations so repeated support does not duplicate a result.
 
-Run the importer behavior checks with `uv run python -m unittest test_build_db.py`.
+Check database consistency with:
+
+```sh
+sqlite3 catalog.sqlite 'PRAGMA integrity_check; PRAGMA foreign_key_check;'
+```
+
+The expected output is `ok`, with no foreign-key violations.
