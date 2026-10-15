@@ -5,23 +5,23 @@ PRAGMA foreign_keys = ON;
 
 BEGIN;
 
--- IDs are stable, opaque TEXT values supplied by the writer. Relation names are
--- singular. Identity records contain only the minimum fields needed to match a
--- report; sourced metadata attributes can be added as typed relations later.
+-- IDs are database-local integers assigned by SQLite when omitted on INSERT.
+-- Relation names are singular. Identity records contain only the minimum fields
+-- needed to match a report; sourced metadata attributes can be added later.
 CREATE TABLE organization (
-    id TEXT PRIMARY KEY NOT NULL,
+    id INTEGER PRIMARY KEY,
     name TEXT NOT NULL CHECK (length(trim(name)) > 0),
     url TEXT NOT NULL CHECK (length(trim(url)) > 0)
 ) STRICT;
 
 CREATE TABLE model (
-    id TEXT PRIMARY KEY NOT NULL,
+    id INTEGER PRIMARY KEY,
     name TEXT NOT NULL CHECK (length(trim(name)) > 0),
-    developer_id TEXT REFERENCES organization(id)
+    developer_id INTEGER REFERENCES organization(id)
 ) STRICT;
 
 CREATE TABLE benchmark (
-    id TEXT PRIMARY KEY NOT NULL,
+    id INTEGER PRIMARY KEY,
     name TEXT NOT NULL CHECK (length(trim(name)) > 0)
 ) STRICT;
 
@@ -30,8 +30,8 @@ CREATE TABLE benchmark (
 -- benchmark versions remain in recorded labels. NULL higher_is_better means
 -- not established.
 CREATE TABLE benchmark_measure (
-    id TEXT PRIMARY KEY NOT NULL,
-    benchmark_id TEXT NOT NULL REFERENCES benchmark(id),
+    id INTEGER PRIMARY KEY,
+    benchmark_id INTEGER NOT NULL REFERENCES benchmark(id),
     name TEXT NOT NULL CHECK (length(trim(name)) > 0),
     task TEXT,
     subset TEXT,
@@ -44,9 +44,9 @@ CREATE TABLE benchmark_measure (
 -- A source identifies a document, not a URL. One URL can change over time and
 -- one document can have multiple URLs. Publication date may be date-only.
 CREATE TABLE source (
-    id TEXT PRIMARY KEY NOT NULL,
+    id INTEGER PRIMARY KEY,
     title TEXT NOT NULL CHECK (length(trim(title)) > 0),
-    publisher_id TEXT REFERENCES organization(id),
+    publisher_id INTEGER REFERENCES organization(id),
     published_at TEXT,
     coverage_note TEXT
 ) STRICT;
@@ -56,8 +56,8 @@ CREATE TABLE source (
 -- archiving; leave BOTH fields NULL rather than claiming a snapshot exists.
 -- fetched_at uses UTC ISO 8601 with whole seconds, e.g. 2026-10-06T20:00:00Z.
 CREATE TABLE source_retrieval (
-    id TEXT PRIMARY KEY NOT NULL,
-    source_id TEXT NOT NULL REFERENCES source(id),
+    id INTEGER PRIMARY KEY,
+    source_id INTEGER NOT NULL REFERENCES source(id),
     fetched_at TEXT NOT NULL
         CHECK (fetched_at GLOB '????-??-??T??:??:??Z'),
     requested_url TEXT NOT NULL CHECK (length(trim(requested_url)) > 0),
@@ -76,9 +76,9 @@ CREATE TABLE source_retrieval (
 -- qualifications that affect the claim. Unknown conditions imply no guarantee
 -- of comparable setups or a shared underlying experiment.
 CREATE TABLE score_assertion (
-    id TEXT PRIMARY KEY NOT NULL,
-    model_id TEXT NOT NULL REFERENCES model(id),
-    benchmark_measure_id TEXT NOT NULL REFERENCES benchmark_measure(id),
+    id INTEGER PRIMARY KEY,
+    model_id INTEGER NOT NULL REFERENCES model(id),
+    benchmark_measure_id INTEGER NOT NULL REFERENCES benchmark_measure(id),
     value_numeric REAL,
     value_text TEXT CHECK (value_text IS NULL OR length(trim(value_text)) > 0),
     unit TEXT CHECK (unit IS NULL OR length(trim(unit)) > 0),
@@ -90,9 +90,9 @@ CREATE TABLE score_assertion (
 -- support the same assertion. excerpt can hold a labeled table transcription
 -- and the original source excerpt; note holds extraction commentary.
 CREATE TABLE score_citation (
-    id TEXT PRIMARY KEY NOT NULL,
-    score_assertion_id TEXT NOT NULL REFERENCES score_assertion(id),
-    source_retrieval_id TEXT NOT NULL REFERENCES source_retrieval(id),
+    id INTEGER PRIMARY KEY,
+    score_assertion_id INTEGER NOT NULL REFERENCES score_assertion(id),
+    source_retrieval_id INTEGER NOT NULL REFERENCES source_retrieval(id),
     locator TEXT NOT NULL CHECK (length(trim(locator)) > 0),
     excerpt TEXT,
     note TEXT

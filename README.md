@@ -79,7 +79,7 @@ When recording a score:
 3. Find or add the assertion, retaining its unit and known conditions. Store a number or a text value, never both.
 4. Add a citation to that assertion and retrieval, preserving the locator and original wording. Reuse an existing citation when the same evidence is already recorded.
 
-Use parameterized SQL in scripts. The current schema requires explicit unique text IDs for new rows; reuse IDs from lookup results when referring to existing rows.
+Use parameterized SQL in scripts. Every table uses `id INTEGER PRIMARY KEY`, with integer foreign keys. Omit `id` when inserting a new row and use `INSERT ... RETURNING id` (or the connection's last-insert ID) to obtain the generated ID. Reuse IDs from lookup results when referring to existing rows. IDs are local to this database; do not generate them from names or assume they match IDs in another database. Duplicate detection still requires the lookups described above.
 
 ## Schema and backups
 
@@ -92,6 +92,26 @@ sqlite3 catalog.sqlite ".backup 'catalog.backup.sqlite'"
 ```
 
 Keep working in the existing database as records are added or corrected. The earlier collection files are available in Git history.
+
+### Integer ID migration
+
+The checked-in database already uses integer IDs. To upgrade an older copy with text IDs, first create the backup above, then run from `model-benchmark-catalog/`:
+
+```sh
+sqlite3 -bail catalog.sqlite < migrations/001_integer_ids.sql
+```
+
+[model-benchmark-catalog/migrations/001_integer_ids.sql](migrations/001_integer_ids.sql) rebuilds the eight catalog tables in one transaction, preserving each old row's internal SQLite `rowid` as its new public ID and translating every foreign key. All other fields, constraints, and named indexes are preserved. Foreign-key enforcement stays enabled. The migration checks for the original text primary keys and valid references before copying, and checks integrity before committing. It rejects a second application.
+
+Use a fresh connection and stop on the first error (`-bail` does this for the CLI). Closing a failed CLI connection rolls back the transaction; programmatic callers must roll back on error. The migration does not retain the old text IDs in the live schema; keep the backup if external references need translating. The backup's `id` and `rowid` columns provide that mapping. Restore the backup to undo the migration before making further edits.
+
+The rebuild leaves freed pages available for reuse. Optionally run `sqlite3 catalog.sqlite 'VACUUM;'` after migration to reclaim that space.
+
+Run the migration regression tests with:
+
+```sh
+uv run --no-project python -m unittest discover -s tests -v
+```
 
 ## Query
 
