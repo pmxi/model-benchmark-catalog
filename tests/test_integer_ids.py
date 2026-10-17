@@ -9,7 +9,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 OLD_SCHEMA = (ROOT / "tests/fixtures/text_ids.sql").read_text()
-SCHEMA = (ROOT / "schema.sql").read_text()
+SCHEMA = (ROOT / "tests/fixtures/integer_ids_with_retrieval.sql").read_text()
 MIGRATION = (ROOT / "migrations/001_integer_ids.sql").read_text()
 TABLES = (
     "organization", "model", "benchmark", "benchmark_measure", "source",
