@@ -26,7 +26,7 @@ Relation names are singular. Keep the schema limited to structures the catalog u
 | --- | --- |
 | `organization` | Model developers, evaluators, publishers, and benchmark maintainers. |
 | `model` | A model identity based on the recorded name, which may include a snapshot identifier. |
-| `benchmark` | A benchmark identity based on the recorded name, which may include a version. |
+| `benchmark` | A benchmark identity based on the recorded name, which may include a version, and an optional URL. |
 | `benchmark_measure` | The specific quantity scored, including the task or subset, metric, unit, and aggregation rule. |
 | `source` | A document or page, with its URL, publisher, publication date, and coverage note. |
 | `score_assertion` | A model, benchmark measure, numeric or textual value, value unit, and known conditions, independent of its supporting sources. |
@@ -92,38 +92,15 @@ When recording a score:
 
 Use parameterized SQL in scripts. Every table uses `id INTEGER PRIMARY KEY`, with integer foreign keys. Omit `id` when inserting a new row and use `INSERT ... RETURNING id` (or the connection's last-insert ID) to obtain the generated ID. Reuse IDs from lookup results when referring to existing rows. IDs are local to this database; do not generate them from names or assume they match IDs in another database. Duplicate detection still requires the lookups described above.
 
-## Schema and backups
+## Schema changes and version history
 
-[model-benchmark-catalog/schema.sql](schema.sql) defines an empty database. It cannot reconstruct the collected data. Apply future schema changes to the existing database through SQL migrations and keep the schema definition in sync.
+[model-benchmark-catalog/catalog.sqlite](catalog.sqlite) and [model-benchmark-catalog/schema.sql](schema.sql) are tracked together in Git. Apply schema changes directly to the existing database and update `schema.sql` in the same change. Do not maintain migration scripts; previous database versions are available in Git history.
 
-Before a migration, create a consistent backup using SQLite's backup command:
+`schema.sql` defines an empty database and cannot reconstruct the collected data. Preserve existing records when changing the database, and check its integrity and foreign-key relationships afterward.
 
-```sh
-sqlite3 catalog.sqlite ".backup 'catalog.backup.sqlite'"
-```
+Benchmark URLs are optional: use `NULL` when unknown and a nonempty string when recorded.
 
-Keep working in the existing database as records are added or corrected. The earlier collection files are available in Git history.
-
-### Integer ID migration
-
-The checked-in database already includes both migrations. To upgrade an older copy with text IDs, first create the backup above, then run from `model-benchmark-catalog/`:
-
-```sh
-sqlite3 -bail catalog.sqlite < migrations/001_integer_ids.sql
-sqlite3 -bail catalog.sqlite < migrations/002_source_url.sql
-```
-
-[model-benchmark-catalog/migrations/001_integer_ids.sql](migrations/001_integer_ids.sql) rebuilds the eight catalog tables in one transaction, preserving each old row's internal SQLite `rowid` as its new public ID and translating every foreign key. All other fields, constraints, and named indexes are preserved. Foreign-key enforcement stays enabled. The migration checks for the original text primary keys and valid references before copying, and checks integrity before committing. It rejects a second application.
-
-Use a fresh connection and stop on the first error (`-bail` does this for the CLI). Closing a failed CLI connection rolls back the transaction; programmatic callers must roll back on error. The migration does not retain the old text IDs in the live schema; keep the backup if external references need translating. The backup's `id` and `rowid` columns provide that mapping. Restore the backup to undo the migration before making further edits.
-
-The rebuild leaves freed pages available for reuse. Optionally run `sqlite3 catalog.sqlite 'VACUUM;'` after migration to reclaim that space.
-
-### Source URL migration
-
-For a copy that already has integer IDs but still has `source_retrieval`, apply only [model-benchmark-catalog/migrations/002_source_url.sql](migrations/002_source_url.sql). It copies each retrieval's `final_url` to `source.url`, replaces `score_citation.source_retrieval_id` with `source_id`, and drops the retrieval table and its metadata. Existing source and citation IDs remain unchanged. The migration requires exactly one retrieval per source, rejects a rerun, and runs in a single transaction with foreign keys enabled. Back up before applying it, as described above.
-
-Run the migration, local API, and graph-data regression tests with:
+Run the schema, local API, and graph-data regression tests with:
 
 ```sh
 uv run --no-project python -m unittest discover -s tests -v
