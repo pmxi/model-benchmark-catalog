@@ -37,7 +37,7 @@ def load_catalog(database):
         db.execute("PRAGMA query_only = ON")
         db.execute("BEGIN")
         if "url" not in {row[1] for row in db.execute("PRAGMA table_info(source)")}:
-            raise ValueError("Apply migrations/002_source_url.sql before starting the viewer.")
+            raise ValueError("Unsupported catalog schema: source.url is missing. Use the current catalog.sqlite.")
         catalog = {name: [dict(row) for row in db.execute(f"SELECT * FROM {table} ORDER BY id")]
                    for name, table in TABLES.items()}
         catalog["generated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
