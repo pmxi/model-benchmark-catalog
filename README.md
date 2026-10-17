@@ -60,6 +60,18 @@ Reuse an assertion when model, measure, value, unit, and recorded conditions mat
 
 The normalized model and benchmark IDs are provisional exact-name groupings. Matching IDs do not establish that evaluation configurations, benchmark versions, or score units are comparable. Where a unit or configuration was not recorded, it remains unknown. Source URLs, citation locators, and excerpts provide the preserved evidence; there are no snapshot or content-hash columns.
 
+## Local website
+
+Run the viewer from `model-benchmark-catalog/`:
+
+```sh
+uv run --no-project python website/server.py
+```
+
+Open [the local catalog viewer](http://127.0.0.1:8765). [model-benchmark-catalog/website/server.py](website/server.py) uses Python's standard library and reads the current SQLite database in read-only mode. The interface is plain HTML, CSS, and JavaScript, with no build step, third-party packages, external assets, or hosting integration. Use the refresh button to read database edits; no data export or rebuild is necessary. An alternate database or port can be selected with `--db /absolute/path/catalog.sqlite --port 8766`.
+
+The viewer provides benchmark coverage and source-publication graphs, a score explorer, searchable result/model/source lists, source evidence dialogs, and CSV export of the filtered results. Score graphs use one benchmark measure and unit at a time, preserve multiple assertions for the same model, and exclude textual values from numeric bars. Matching measure labels do not prove that evaluation conditions are comparable. Missing units and conditions remain visibly unknown.
+
 ## Write directly to SQLite
 
 Each researcher or agent can open its own connection to the same local database. Enable foreign keys and a busy timeout on every connection:
@@ -111,10 +123,11 @@ The rebuild leaves freed pages available for reuse. Optionally run `sqlite3 cata
 
 For a copy that already has integer IDs but still has `source_retrieval`, apply only [model-benchmark-catalog/migrations/002_source_url.sql](migrations/002_source_url.sql). It copies each retrieval's `final_url` to `source.url`, replaces `score_citation.source_retrieval_id` with `source_id`, and drops the retrieval table and its metadata. Existing source and citation IDs remain unchanged. The migration requires exactly one retrieval per source, rejects a rerun, and runs in a single transaction with foreign keys enabled. Back up before applying it, as described above.
 
-Run the migration regression tests with:
+Run the migration, local API, and graph-data regression tests with:
 
 ```sh
 uv run --no-project python -m unittest discover -s tests -v
+node --test tests/test_viewer.mjs
 ```
 
 ## Query
