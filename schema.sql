@@ -1,8 +1,6 @@
 -- SQLite schema for the AI model and benchmark catalog.
--- Create an empty database with: sqlite3 new_catalog.sqlite < schema.sql
--- Enable foreign keys on EVERY SQLite connection; the PRAGMA is connection-local.
-PRAGMA foreign_keys = ON;
 
+PRAGMA foreign_keys = ON;
 BEGIN;
 
 CREATE TABLE organization (
@@ -19,7 +17,8 @@ CREATE TABLE model (
 
 CREATE TABLE benchmark (
     id INTEGER PRIMARY KEY,
-    name TEXT NOT NULL CHECK (length(trim(name)) > 0)
+    name TEXT NOT NULL CHECK (length(trim(name)) > 0),
+    url TEXT CHECK (length(trim(url)) > 0)
 ) STRICT;
 
 CREATE TABLE benchmark_measure (
