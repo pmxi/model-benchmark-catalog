@@ -62,7 +62,7 @@ class SchemaTests(unittest.TestCase):
         with self.assertRaises(sqlite3.IntegrityError):
             self.db.execute("UPDATE score_assertion SET value = NULL WHERE id = 1")
 
-    def test_hle_uses_two_canonical_variants_with_consistent_measures(self):
+    def test_hle_uses_canonical_variants_preserving_real_subsets(self):
         catalog = sqlite3.connect((ROOT / "catalog.sqlite").as_uri() + "?mode=ro", uri=True)
         self.addCleanup(catalog.close)
         variants = catalog.execute("""
@@ -71,8 +71,10 @@ class SchemaTests(unittest.TestCase):
         """).fetchall()
         self.assertEqual({name for _, name in variants}, {
             "Humanity’s Last Exam (no tools)", "Humanity’s Last Exam (with tools)",
+            "Humanity’s Last Exam (text-only, no tools)",
+            "Humanity’s Last Exam (text-only, with tools)",
         })
-        self.assertEqual(len(variants), 2)
+        self.assertEqual(len(variants), 4)
         for benchmark_id, _ in variants:
             measures = catalog.execute("""
                 SELECT id, name, unit, higher_is_better FROM benchmark_measure
