@@ -70,7 +70,7 @@ uv run --no-project python website/server.py
 
 Open [the local catalog viewer](http://127.0.0.1:8765). [model-benchmark-catalog/website/server.py](website/server.py) uses Python's standard library and reads the current SQLite database in read-only mode. The interface is plain HTML, CSS, and JavaScript, with no build step, third-party packages, external assets, or hosting integration. Use the refresh button to read database edits; no data export or rebuild is necessary. An alternate database or port can be selected with `--db /absolute/path/catalog.sqlite --port 8766`.
 
-The viewer provides benchmark coverage and source-publication graphs, a score explorer, searchable result/model/source lists, source evidence dialogs, and CSV export of the filtered results. Score graphs use one benchmark measure and unit at a time, preserve multiple assertions for the same model, and exclude results without an exact numeric score from bars. Matching measure labels do not prove that evaluation conditions are comparable. Missing units and conditions remain visibly unknown.
+The viewer provides compact tables of results, models, and sources, with filters, sortable result columns, source evidence dialogs, and CSV export. All matching results remain available without paging. The benchmark explorer narrows results to one benchmark measure. Units come from that measure; missing scores remain evidence-only entries. Sorting values across different measures does not establish comparability. The interface uses system fonts and a neutral palette.
 
 ## Write directly to SQLite
 
