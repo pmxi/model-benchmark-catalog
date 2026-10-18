@@ -1,5 +1,7 @@
 # Data collection guidance
 
+Read all images (do not skip them).
+
 - Prioritize established benchmarks with clearly reported numeric results. Exhaustive collection of every launch-post claim is unnecessary.
 - Verify the evaluation setup. A modified benchmark is a distinct variant, even when the source uses a familiar name. Do not group its results with the standard benchmark.
 - Custom variants and one-off internal evaluations are optional, lower-priority additions. Name them clearly and preserve their defining context if included.
