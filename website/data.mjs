@@ -12,7 +12,7 @@ export function prepareCatalog(raw) {
     evidence.get(citation.score_assertion_id).push({...citation, source: sources.get(citation.source_id)});
   }
   const results = raw.assertions.map(assertion => {
-    if (typeof assertion.value_numeric !== 'number' || !Number.isFinite(assertion.value_numeric)) {
+    if (typeof assertion.value !== 'number' || !Number.isFinite(assertion.value)) {
       throw new Error(`Assertion ${assertion.id} requires a finite numeric score.`);
     }
     const model = models.get(assertion.model_id);
@@ -62,14 +62,14 @@ export function sourceTimeline(sources, organizations) {
 }
 
 export function scoreLabel(row) {
-  const number = new Intl.NumberFormat('en-US', {maximumFractionDigits: 6}).format(row.value_numeric);
+  const number = new Intl.NumberFormat('en-US', {maximumFractionDigits: 6}).format(row.value);
   return row.measure.unit === 'percent' ? `${number}%` : row.measure.unit ? `${number} ${row.measure.unit}` : number;
 }
 
 export function numericSeries(results, {benchmark, measure, unit, organization = '', query = ''}) {
   // One bar per assertion, never "best score per model" or a citation-expanded join.
   return filterResults(results, {benchmark, measure, unit, organization, query})
-    .sort((a, b) => b.value_numeric - a.value_numeric || a.model.name.localeCompare(b.model.name));
+    .sort((a, b) => b.value - a.value || a.model.name.localeCompare(b.model.name));
 }
 
 export function csvForResults(results) {
@@ -78,9 +78,9 @@ export function csvForResults(results) {
     if (/^[=+@\-\t\r]/.test(text)) text = `'${text}`;
     return `"${text.replaceAll('"', '""')}"`;
   };
-  return [['assertion_id', 'model', 'developer', 'benchmark', 'measure', 'value_numeric', 'unit', 'conditions', 'source_urls', 'source_excerpts'],
+  return [['assertion_id', 'model', 'developer', 'benchmark', 'measure', 'value', 'unit', 'conditions', 'source_urls', 'source_excerpts'],
     ...results.map(row => [row.id, row.model.name, row.developer?.name, row.benchmark.name, row.measure.name,
-      row.value_numeric, row.measure.unit, row.conditions, [...new Set(row.citations.map(c => c.source.url))].join(' | '),
+      row.value, row.measure.unit, row.conditions, [...new Set(row.citations.map(c => c.source.url))].join(' | '),
       row.citations.map(c => c.excerpt ?? '').join('\n\n')])]
     .map(row => row.map(escape).join(',')).join('\r\n');
 }

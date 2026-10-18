@@ -43,7 +43,7 @@ CREATE TABLE score_assertion (
     id INTEGER PRIMARY KEY,
     model_id INTEGER NOT NULL REFERENCES model(id),
     benchmark_measure_id INTEGER NOT NULL REFERENCES benchmark_measure(id),
-    value_numeric REAL NOT NULL,
+    value REAL NOT NULL,
     conditions TEXT CHECK (conditions IS NULL OR length(trim(conditions)) > 0)
 ) STRICT;
 

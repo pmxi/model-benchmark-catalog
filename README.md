@@ -34,7 +34,7 @@ Relation names are singular. Keep the schema limited to structures the catalog u
 
 Versions currently remain in recorded names; evaluation conditions remain in assertion text. Separate version, configuration, experiment, and report-derivation tables can be introduced when there is a concrete need to populate and query them.
 
-An assertion requires an exact score in `value_numeric` (`REAL NOT NULL`). Extract numeric scores separately from configuration labels and annotations, and split paired evaluations into separate assertions. Claims without a single exact value are excluded from the score table and preserved in source coverage notes and `data/excluded_score_claims.json`. The benchmark and unit are reached through `benchmark_measure_id`, so neither is repeated on the assertion.
+An assertion requires an exact score in `value` (`REAL NOT NULL`). Extract numeric scores separately from configuration labels and annotations, and split paired evaluations into separate assertions. Claims without a single exact value are excluded from the score table and preserved in source coverage notes and `data/excluded_score_claims.json`. The benchmark and unit are reached through `benchmark_measure_id`, so neither is repeated on the assertion.
 
 Original model, benchmark, measure, and score wording lives in the citation's `excerpt`, as a labeled row transcription followed by the original source excerpt when available. The transcription is not presented as a contiguous verbatim quotation. Dedicated `reported_*` columns are unnecessary on the assertion.
 
@@ -114,7 +114,7 @@ For example, inspect a reported score and its provenance with:
 ```sh
 sqlite3 -header -column catalog.sqlite '
   SELECT m.name AS model, b.name AS benchmark, bm.name AS measure,
-         a.value_numeric, bm.unit, a.conditions,
+         a.value, bm.unit, a.conditions,
          s.title AS source, s.url, c.locator
   FROM score_assertion AS a
   JOIN model AS m ON m.id = a.model_id

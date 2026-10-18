@@ -5,7 +5,7 @@
       "id": 31,
       "model_id": 1,
       "benchmark_measure_id": 11,
-      "value_numeric": null,
+      "value": null,
       "conditions": null,
       "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
       "model": {
@@ -48,7 +48,7 @@
       "id": 191,
       "model_id": 29,
       "benchmark_measure_id": 112,
-      "value_numeric": null,
+      "value": null,
       "conditions": null,
       "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
       "model": {
@@ -91,7 +91,7 @@
       "id": 192,
       "model_id": 29,
       "benchmark_measure_id": 113,
-      "value_numeric": null,
+      "value": null,
       "conditions": null,
       "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
       "model": {
@@ -134,7 +134,7 @@
       "id": 193,
       "model_id": 29,
       "benchmark_measure_id": 114,
-      "value_numeric": null,
+      "value": null,
       "conditions": null,
       "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
       "model": {
@@ -177,7 +177,7 @@
       "id": 196,
       "model_id": 29,
       "benchmark_measure_id": 117,
-      "value_numeric": null,
+      "value": null,
       "conditions": null,
       "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
       "model": {
@@ -220,7 +220,7 @@
       "id": 199,
       "model_id": 31,
       "benchmark_measure_id": 119,
-      "value_numeric": null,
+      "value": null,
       "conditions": null,
       "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
       "model": {
@@ -263,7 +263,7 @@
       "id": 201,
       "model_id": 31,
       "benchmark_measure_id": 121,
-      "value_numeric": null,
+      "value": null,
       "conditions": null,
       "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
       "model": {
@@ -306,7 +306,7 @@
       "id": 386,
       "model_id": 58,
       "benchmark_measure_id": 219,
-      "value_numeric": null,
+      "value": null,
       "conditions": null,
       "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
       "model": {
@@ -349,7 +349,7 @@
       "id": 387,
       "model_id": 58,
       "benchmark_measure_id": 220,
-      "value_numeric": null,
+      "value": null,
       "conditions": null,
       "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
       "model": {
@@ -392,7 +392,7 @@
       "id": 826,
       "model_id": 89,
       "benchmark_measure_id": 441,
-      "value_numeric": null,
+      "value": null,
       "conditions": null,
       "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
       "model": {
@@ -435,7 +435,7 @@
       "id": 850,
       "model_id": 90,
       "benchmark_measure_id": 465,
-      "value_numeric": null,
+      "value": null,
       "conditions": null,
       "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
       "model": {

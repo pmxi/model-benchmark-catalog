@@ -153,7 +153,7 @@ const resultValue = (row, key) =>
     model: row.model.name,
     benchmark: row.benchmark.name,
     measure: row.measure.name,
-    value: row.value_numeric,
+    value: row.value,
     unit: row.measure.unit,
     conditions: row.conditions,
     citations: row.citations.length,
@@ -182,7 +182,7 @@ function resultRows(rows) {
     <td class="numeric">${row.id}</td>
     <td><a class="table-link" href="#model/${row.model.id}" title="${h(row.model.name)}">${h(row.model.name)}</a></td>
     <td><button class="table-link" data-benchmark="${row.benchmark.id}" title="${h(row.benchmark.name)}">${h(row.benchmark.name)}</button></td>
-    <td class="numeric"><button class="table-link" data-result="${row.id}">${n(row.value_numeric)}</button></td>
+    <td class="numeric"><button class="table-link" data-result="${row.id}">${n(row.value)}</button></td>
     <td>${h(row.measure.unit ?? "Unknown")}</td>
     <td title="${h(row.measure.name)}">${h(row.measure.name)}</td>
     <td title="${h(row.conditions ?? "")}">${h(row.conditions ?? "Unknown")}</td>

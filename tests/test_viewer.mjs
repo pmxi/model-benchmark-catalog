@@ -9,12 +9,12 @@ const raw = {
   measures: [{id: 1, name: 'accuracy', benchmark_id: 1, unit: 'percent'}, {id: 2, name: 'pass@5', benchmark_id: 1, unit: 'percent'}, {id: 3, name: 'accuracy', benchmark_id: 2, unit: 'percent'}, {id: 4, name: 'Unspecified score', benchmark_id: 1, unit: null}],
   sources: [{id: 1, title: 'Release A', url: 'https://example.test/a', publisher_id: 1, published_at: '2025-02-01'}, {id: 2, title: 'Release B', url: 'https://example.test/b', publisher_id: 2, published_at: null}],
   assertions: [
-    {id: 1, model_id: 1, benchmark_measure_id: 1, value_numeric: 80, conditions: '5-shot'},
-    {id: 2, model_id: 1, benchmark_measure_id: 1, value_numeric: 85, conditions: '10-shot'},
-    {id: 3, model_id: 2, benchmark_measure_id: 4, value_numeric: .9, conditions: null},
-    {id: 4, model_id: 2, benchmark_measure_id: 1, value_numeric: 0, conditions: null},
-    {id: 5, model_id: 2, benchmark_measure_id: 2, value_numeric: 99, conditions: null},
-    {id: 6, model_id: 1, benchmark_measure_id: 3, value_numeric: 98, conditions: null},
+    {id: 1, model_id: 1, benchmark_measure_id: 1, value: 80, conditions: '5-shot'},
+    {id: 2, model_id: 1, benchmark_measure_id: 1, value: 85, conditions: '10-shot'},
+    {id: 3, model_id: 2, benchmark_measure_id: 4, value: .9, conditions: null},
+    {id: 4, model_id: 2, benchmark_measure_id: 1, value: 0, conditions: null},
+    {id: 5, model_id: 2, benchmark_measure_id: 2, value: 99, conditions: null},
+    {id: 6, model_id: 1, benchmark_measure_id: 3, value: 98, conditions: null},
   ],
   citations: [{id: 1, score_assertion_id: 1, source_id: 1}, {id: 2, score_assertion_id: 1, source_id: 2}, {id: 3, score_assertion_id: 4, source_id: 1, excerpt: '0% (high effort)'}],
 };
@@ -47,7 +47,7 @@ test('unknown publication dates are not invented for the source chart', () => {
 
 test('zero scores display correctly and CSV retains source URLs', () => {
   assert.equal(scoreLabel(catalog.results[3]), '0%');
-  assert.equal(scoreLabel({...catalog.results[0], value_numeric: 0}), '0%');
+  assert.equal(scoreLabel({...catalog.results[0], value: 0}), '0%');
   assert.equal(scoreLabel(catalog.results[0]), '80%');
   const csv = csvForResults([catalog.results[0]]);
   assert.equal(csv.split('\r\n').length, 2);
@@ -73,7 +73,7 @@ test('score labels, filters, and CSV take the unit from the referenced measure',
 });
 
 test('catalog rejects missing and nonfinite numeric scores', () => {
-  for (const value_numeric of [null, undefined, NaN, Infinity, '54.2']) {
-    assert.throws(() => prepareCatalog({...raw, assertions: [{...raw.assertions[0], value_numeric}]}), /requires a finite numeric score/);
+  for (const value of [null, undefined, NaN, Infinity, '54.2']) {
+    assert.throws(() => prepareCatalog({...raw, assertions: [{...raw.assertions[0], value}]}), /requires a finite numeric score/);
   }
 });
