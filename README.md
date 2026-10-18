@@ -52,11 +52,11 @@ Likewise, do not infer that matching scores came from the same evaluation. Stati
 
 ## Current data
 
-[model-benchmark-catalog/catalog.sqlite](catalog.sqlite) is the source of truth. Read and write catalog data directly in SQLite. The current pass covers OpenAI and Anthropic launch material through October 6, 2026. It includes 89 source documents, 122 model records, 364 benchmark labels, and 851 score assertions supported by 852 citations. These counts include a linked GPT-4 technical report and posts that have no transcribed numeric scores.
+[model-benchmark-catalog/catalog.sqlite](catalog.sqlite) is the source of truth. Read and write catalog data directly in SQLite. As checked Saturday, October 17, 2026 at 11:26 PM EDT, the catalog contains 128 source documents, 213 model records, 377 benchmarks, 499 measures, and 1,385 numeric score assertions supported by 1,388 citations, across 12 organizations. It includes the earlier OpenAI/Anthropic collection and the completed Google, xAI, Meta, DeepSeek, Alibaba/Qwen, Moonshot/Kimi, Z.ai/GLM, MiniMax, Baidu, and ByteDance batches. The latest batch added 542 scores across 91 distinct model records. Coverage is selective and some source documents have no transcribed score.
 
 Each citation retains the exact reported value, model and benchmark wording, and source location, and links directly to the document and its URL in `source`. Many posts put benchmark results only in images; those values have been omitted unless they were read and verified. Source records carry coverage notes for known gaps. This is a substantial first pass, **not an exhaustive inventory** of every release or every chart cell.
 
-Reuse an assertion when model, measure, value, and recorded conditions match. GPT-5's stored 88% Aider Polyglot assertion currently has two citations. Results without an extracted exact numeric score remain available through their citations.
+Reuse an assertion when model, measure, value, and recorded conditions match. GPT-5's stored 88% Aider Polyglot assertion currently has two citations. Claims without an extracted exact numeric score are excluded from score_assertion and retained with their evidence in source coverage notes and data/excluded_score_claims.json.
 
 The normalized model and benchmark IDs are provisional exact-name groupings. Matching IDs do not establish that evaluation configurations, benchmark versions, or score units are comparable. Where a unit or configuration was not recorded, it remains unknown. Source URLs, citation locators, and excerpts provide the preserved evidence; there are no snapshot or content-hash columns.
 
@@ -70,7 +70,7 @@ uv run --no-project python website/server.py
 
 Open [the local catalog viewer](http://127.0.0.1:8765). [model-benchmark-catalog/website/server.py](website/server.py) uses Python's standard library and reads the current SQLite database in read-only mode. The interface is plain HTML, CSS, and JavaScript, with no build step, third-party packages, external assets, or hosting integration. Use the refresh button to read database edits; no data export or rebuild is necessary. An alternate database or port can be selected with `--db /absolute/path/catalog.sqlite --port 8766`.
 
-The viewer provides compact tables of results, models, and sources, with filters, sortable result columns, source evidence dialogs, and CSV export. All matching results remain available without paging. The benchmark explorer narrows results to one benchmark measure. Units come from that measure; missing scores remain evidence-only entries. Sorting values across different measures does not establish comparability. The interface uses system fonts and a neutral palette.
+The viewer provides compact tables of results, models, and sources, with filters, sortable result columns, source evidence dialogs, and CSV export. All matching results remain available without paging. The benchmark explorer narrows results to one benchmark measure. Units come from that measure. Every displayed assertion has a required numeric value; excluded claims remain in the evidence archive rather than the result table. Sorting values across different measures does not establish comparability. The interface uses system fonts and a neutral palette.
 
 ## Write directly to SQLite
 
