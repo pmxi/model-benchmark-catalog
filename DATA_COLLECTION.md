@@ -33,3 +33,11 @@ This fragmented one benchmark family across nine dropdown entries, hid comparabl
 The corrected catalog uses exactly two canonical records for these collected evaluations: **Humanity’s Last Exam (no tools)** and **Humanity’s Last Exam (with tools)**. Both use the measure `accuracy`, unit `percent`, and higher-is-better direction. The formerly bare full-name record was split using its recorded measure setup, not guessed from its name. Search/Python and browsing/Python details remain in assertion conditions; original labels remain in citations. Consolidation preserved all 29 assertions, their numeric values, model associations, and citations. Grouping the tool-assisted results does not establish identical tool environments.
 
 Before completing a collection batch, inspect the resulting benchmark list as a user would. Check aliases and empty records, reconcile equivalent measures, and verify that consolidation has not lost assertions or citations. A populated table and valid foreign keys alone do not establish data quality.
+
+### Bad example: ARC-AGI-2 versus ARC-AGI-2 (Verified)
+
+The catalog incorrectly treated `ARC-AGI-2` and `ARC-AGI-2 (Verified)` as separate benchmarks. It also stored `Verified accuracy`, `accuracy`, `reported score`, and `percent` as separate measures for these results. Verification status is a property of a reported result, not a new benchmark version or metric.
+
+The correction uses one **ARC-AGI-2** benchmark with measure `accuracy`, unit `percent`, and higher-is-better direction. All ten existing assertions and their citations were retained. Results explicitly labeled Verified retain that qualification in `score_assertion.conditions`; unlabeled results are not automatically classified as unverified.
+
+Preserve the evaluation split separately from verification status. ARC Prize's [official testing policy](https://arcprize.org/policy) distinguishes public, semi-private, and private evaluation sets; its verified frontier-model leaderboard uses the semi-private set. Do not infer an individual score's split solely from a copied “Verified” label. In this correction, the split remains explicitly unrecorded until supported by the score's source. Actual differences in evaluation sets must remain distinguishable when comparing results.

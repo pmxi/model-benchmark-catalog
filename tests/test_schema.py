@@ -71,6 +71,26 @@ class SchemaTests(unittest.TestCase):
                 (measures[0][0],),
             ).fetchone()[0], 0)
 
+    def test_arc_agi_2_verification_does_not_create_benchmark_or_measure_aliases(self):
+        catalog = sqlite3.connect((ROOT / "catalog.sqlite").as_uri() + "?mode=ro", uri=True)
+        self.addCleanup(catalog.close)
+        variants = catalog.execute(
+            "SELECT id, name FROM benchmark WHERE name LIKE 'ARC-AGI-2%'"
+        ).fetchall()
+        self.assertEqual([name for _, name in variants], ["ARC-AGI-2"])
+        measures = catalog.execute(
+            "SELECT name, unit, higher_is_better FROM benchmark_measure WHERE benchmark_id = ?",
+            (variants[0][0],),
+        ).fetchall()
+        self.assertEqual(measures, [("accuracy", "percent", 1)])
+        # Original verified labels must survive consolidation at assertion level.
+        for assertion_id in (134, 269, 573, 574, 615, 616):
+            conditions = catalog.execute(
+                "SELECT conditions FROM score_assertion WHERE id = ?", (assertion_id,),
+            ).fetchone()[0]
+            self.assertIn("source labels this result Verified", conditions)
+            self.assertIn("evaluation split not recorded", conditions)
+
     def test_foreign_keys_reject_missing_benchmarks_and_referenced_deletions(self):
         with self.assertRaises(sqlite3.IntegrityError):
             self.db.execute(
