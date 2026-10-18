@@ -26,8 +26,8 @@ export function filterResults(results, {organization = '', query = '', benchmark
     (!organization || row.model.developer_id === Number(organization)) &&
     (!benchmark || row.benchmark.id === Number(benchmark)) &&
     (!measure || row.measure.id === Number(measure)) &&
-    (!unit || (row.unit ?? '__unknown__') === unit) &&
-    (!kind || (kind === 'numeric' ? row.value_numeric !== null : row.value_text !== null)) &&
+    (!unit || (row.measure.unit ?? '__unknown__') === unit) &&
+    (!kind || (kind === 'numeric' ? row.value_numeric !== null : row.value_numeric === null)) &&
     (!needle || [row.model.name, row.benchmark.name, row.measure.name, row.developer?.name,
       row.conditions, ...row.citations.map(c => c.source?.title)].join(' ').toLocaleLowerCase().includes(needle))
   );
@@ -60,9 +60,9 @@ export function sourceTimeline(sources, organizations) {
 }
 
 export function scoreLabel(row) {
-  if (row.value_text !== null) return row.value_text;
+  if (row.value_numeric === null) return 'See evidence';
   const number = new Intl.NumberFormat('en-US', {maximumFractionDigits: 6}).format(row.value_numeric);
-  return row.unit === 'percent' ? `${number}%` : row.unit ? `${number} ${row.unit}` : number;
+  return row.measure.unit === 'percent' ? `${number}%` : row.measure.unit ? `${number} ${row.measure.unit}` : number;
 }
 
 export function numericSeries(results, {benchmark, measure, unit, organization = '', query = ''}) {
@@ -77,8 +77,9 @@ export function csvForResults(results) {
     if (/^[=+@\-\t\r]/.test(text)) text = `'${text}`;
     return `"${text.replaceAll('"', '""')}"`;
   };
-  return [['assertion_id', 'model', 'developer', 'benchmark', 'measure', 'value_numeric', 'value_text', 'unit', 'conditions', 'source_urls'],
+  return [['assertion_id', 'model', 'developer', 'benchmark', 'measure', 'value_numeric', 'unit', 'conditions', 'source_urls', 'source_excerpts'],
     ...results.map(row => [row.id, row.model.name, row.developer?.name, row.benchmark.name, row.measure.name,
-      row.value_numeric, row.value_text, row.unit, row.conditions, [...new Set(row.citations.map(c => c.source.url))].join(' | ')])]
+      row.value_numeric, row.measure.unit, row.conditions, [...new Set(row.citations.map(c => c.source.url))].join(' | '),
+      row.citations.map(c => c.excerpt ?? '').join('\n\n')])]
     .map(row => row.map(escape).join(',')).join('\r\n');
 }

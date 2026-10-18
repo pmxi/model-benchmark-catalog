@@ -15,21 +15,18 @@ CREATE TABLE model (
     developer_id INTEGER REFERENCES organization(id)
 ) STRICT;
 
+-- Versions of a benchmark, such as TerminalBench 2.1 and 4.0 should be different benchmark records.
 CREATE TABLE benchmark (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL CHECK (length(trim(name)) > 0),
-    url TEXT CHECK (length(trim(url)) > 0)
+    url TEXT NOT NULL CHECK (length(trim(url)) > 0)
 ) STRICT;
 
 CREATE TABLE benchmark_measure (
     id INTEGER PRIMARY KEY,
     benchmark_id INTEGER NOT NULL REFERENCES benchmark(id),
     name TEXT NOT NULL CHECK (length(trim(name)) > 0),
-    task TEXT,
-    subset TEXT,
-    metric TEXT NOT NULL CHECK (length(trim(metric)) > 0),
-    aggregation_rule TEXT,
-    unit TEXT CHECK (unit IS NULL OR length(trim(unit)) > 0),
+    unit TEXT CHECK (unit IS NULL OR length(trim(unit)) > 0), -- I have considered dropping this field.
     higher_is_better INTEGER CHECK (higher_is_better IN (0, 1))
 ) STRICT;
 
@@ -39,7 +36,7 @@ CREATE TABLE source (
     url TEXT NOT NULL CHECK (length(trim(url)) > 0),
     publisher_id INTEGER REFERENCES organization(id),
     published_at TEXT,
-    coverage_note TEXT
+    coverage_note TEXT -- Reconsider this later.
 ) STRICT;
 
 CREATE TABLE score_assertion (
@@ -47,10 +44,7 @@ CREATE TABLE score_assertion (
     model_id INTEGER NOT NULL REFERENCES model(id),
     benchmark_measure_id INTEGER NOT NULL REFERENCES benchmark_measure(id),
     value_numeric REAL,
-    value_text TEXT CHECK (value_text IS NULL OR length(trim(value_text)) > 0),
-    unit TEXT CHECK (unit IS NULL OR length(trim(unit)) > 0),
-    conditions TEXT CHECK (conditions IS NULL OR length(trim(conditions)) > 0),
-    CHECK ((value_numeric IS NULL) <> (value_text IS NULL))
+    conditions TEXT CHECK (conditions IS NULL OR length(trim(conditions)) > 0)
 ) STRICT;
 
 CREATE TABLE score_citation (

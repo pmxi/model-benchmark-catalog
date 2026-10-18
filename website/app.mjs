@@ -64,7 +64,7 @@ function resultRows(rows, compact = false) {
   return `<div class="table-wrap"><table><thead><tr><th>MODEL</th><th>BENCHMARK${compact ? '' : ' / MEASURE'}</th><th>REPORTED SCORE</th>${compact ? '' : '<th>CONDITIONS</th>'}<th>EVIDENCE</th></tr></thead><tbody>${rows.map(row => `<tr>
     <td><button class="table-link" data-result="${row.id}" title="${h(row.model.name)}">${h(row.model.name)}</button><small>${orgLabel(row.developer)}</small></td>
     <td><button class="table-link" data-benchmark="${row.benchmark.id}" title="${h(row.benchmark.name)}">${h(row.benchmark.name)}</button>${compact ? '' : `<small title="${h(row.measure.name)}">${h(row.measure.name)}</small>`}</td>
-    <td class="score">${h(scoreLabel(row))}${row.value_text !== null ? '<small>Text expression</small>' : !row.unit ? '<small>Unit not recorded</small>' : ''}</td>
+    <td class="score">${h(scoreLabel(row))}${row.value_numeric === null ? '<small>No exact numeric score</small>' : !row.measure.unit ? '<small>Unit not recorded</small>' : ''}</td>
     ${compact ? '' : `<td><span class="pill ${row.conditions ? 'green' : ''}" title="${h(row.conditions ?? '')}">${row.conditions ? 'Recorded' : 'Not recorded'}</span></td>`}
     <td><button class="text-button" data-result="${row.id}">${n(row.citations.length)} citation${row.citations.length === 1 ? '' : 's'} <span aria-hidden="true">↗</span></button></td>
   </tr>`).join('')}</tbody></table></div>`;
@@ -110,7 +110,7 @@ function overview() {
   const stats = [
     ['Models', data.models.length, `${new Set(data.results.map(r => r.model_id)).size} with reported results`, '◇'],
     ['Benchmarks', data.benchmarks.length, `${new Set(data.results.map(r => r.benchmark.id)).size} with reported results`, '▥'],
-    ['Reported results', data.results.length, `${n(numeric)} numeric · ${n(data.results.length - numeric)} text`, '↗'],
+    ['Reported results', data.results.length, `${n(numeric)} numeric · ${n(data.results.length - numeric)} evidence only`, '↗'],
     ['Source documents', data.sources.length, `${n(cited)} supporting citations`, '▤'],
   ];
   const recent = [...data.results].sort((a, b) => newestSource(b).localeCompare(newestSource(a)) || b.id - a.id).slice(0, 5);
@@ -135,14 +135,13 @@ function explorer() {
   measures.sort((a, b) => counts.get(b.id) - counts.get(a.id) || a.name.localeCompare(b.name));
   if (!measures.some(m => m.id === Number(state.measure))) state.measure = String(measures[0]?.id ?? '');
   const measure = catalog.indexes.measures.get(Number(state.measure));
-  const candidates = catalog.results.filter(r => r.benchmark_measure_id === Number(state.measure));
-  const units = [...new Set(candidates.map(r => r.unit ?? '__unknown__'))].sort((a, b) => (a === 'percent' ? -1 : b === 'percent' ? 1 : a.localeCompare(b)));
-  if (!units.includes(state.unit)) state.unit = units[0] ?? '';
+  const units = measure ? [measure.unit ?? '__unknown__'] : [];
+  state.unit = units[0] ?? '';
   let series = measure ? numericSeries(catalog.results, state) : [];
   if (state.sort === 'low') series = [...series].reverse();
   if (state.sort === 'name') series = [...series].sort((a, b) => a.model.name.localeCompare(b.model.name) || b.value_numeric - a.value_numeric);
   const matching = filterResults(catalog.results, {...state, kind: ''});
-  const textual = matching.filter(r => r.value_text !== null);
+  const evidenceOnly = matching.filter(r => r.value_numeric === null);
   downloadRows = matching;
   const allCoverage = new Map(benchmarkCoverage(catalog.results).map(row => [row.id, row.results]));
   const min = Math.min(0, ...series.map(r => r.value_numeric));
@@ -153,7 +152,7 @@ function explorer() {
   return `<div class="explorer-controls">
     <label class="select-field">BENCHMARK<select id="benchmark-select">${[...catalog.benchmarks].sort((a, b) => a.name.localeCompare(b.name)).map(b => selectedOption(b.id, `${b.name} (${allCoverage.get(b.id) ?? 0})`, state.benchmark)).join('')}</select></label>
     <label class="select-field">MEASURE<select id="measure-select"${!measures.length ? ' disabled' : ''}>${measures.length ? measures.map(m => selectedOption(m.id, m.name, state.measure)).join('') : '<option>No measures recorded</option>'}</select></label>
-    <label class="select-field">SCORE UNIT<select id="unit-select"${!units.length ? ' disabled' : ''}>${units.length ? units.map(unit => selectedOption(unit, unit === '__unknown__' ? 'Unknown unit' : unit, state.unit)).join('') : '<option>No scores</option>'}</select></label>
+    <label class="select-field">SCORE UNIT<select disabled aria-label="Unit defined by the measure">${units.length ? units.map(unit => selectedOption(unit, unit === '__unknown__' ? 'Unknown unit' : unit, state.unit)).join('') : '<option>No scores</option>'}</select></label>
     <label class="select-field">ORDER BY<select id="sort-select">${[['high', 'Value: high to low'], ['low', 'Value: low to high'], ['name', 'Model name']].map(([v, l]) => selectedOption(v, l, state.sort)).join('')}</select></label>
     </div>
     <div class="comparison-note"><span aria-hidden="true">ⓘ</span><div><strong>Reported scores, with their context.</strong> Each bar is one assertion on the selected measure and unit. Different evaluation settings may still apply. Repeated models are separate reports.${state.unit === '__unknown__' ? ' Units are unknown here; matching scale is not established.' : ''}</div></div>
@@ -161,9 +160,9 @@ function explorer() {
     ${series.length ? `<div class="score-chart"><div class="axis-row"><span>MODEL / CONDITIONS</span><div class="axis-ticks">${Array.from({length: 5}, (_, i) => `<span>${n(Math.round((min + extent * i / 4) * 10) / 10)}${state.unit === 'percent' ? '%' : ''}</span>`).join('')}</div><span style="text-align:right">SCORE</span></div>${series.map(row => {
       const location = (row.value_numeric - min) / extent * 100;
       return `<button class="score-row" data-result="${row.id}" aria-label="${h(row.model.name)}, ${h(scoreLabel(row))}. Inspect evidence" title="${h(row.conditions ?? 'Conditions not recorded')}"><span class="model-name"><span class="org-dot ${orgClass(row.developer)}"></span>${h(row.model.name)}<small>${h(row.conditions ?? 'Conditions not recorded')}</small></span><span class="score-track"><span class="zero-line" style="left:${zero}%"></span><span class="score-fill ${orgClass(row.developer)}" style="left:${Math.min(location, zero)}%;width:${Math.abs(location - zero)}%"></span></span><span class="value">${h(scoreLabel(row))}</span></button>`;
-    }).join('')}</div>` : empty('No numeric scores in this selection', 'Choose another measure, unit, or organization. Text expressions appear below.')}
-    <div class="text-results-note">${textual.length ? `${n(textual.length)} text expression${textual.length === 1 ? '' : 's'} shown below; not plotted as numbers.` : 'Select any bar to inspect its conditions, source links, and excerpts.'}</div></section>
-    ${textual.length ? `<section class="panel section-gap">${panelHead('Textual results', 'Bounds, ranges, and combined values are kept as reported.')}${resultRows(textual)}</section>` : ''}`;
+    }).join('')}</div>` : empty('No numeric scores in this selection', 'Choose another measure, unit, or organization. Results without an exact numeric score appear below.')}
+    <div class="text-results-note">${evidenceOnly.length ? `${n(evidenceOnly.length)} result${evidenceOnly.length === 1 ? '' : 's'} without an exact numeric score; see evidence below.` : 'Select any bar to inspect its conditions, source links, and excerpts.'}</div></section>
+    ${evidenceOnly.length ? `<section class="panel section-gap">${panelHead('Results requiring source context', 'Open the evidence for bounds, ranges, and combined results.')}${resultRows(evidenceOnly)}</section>` : ''}`;
 }
 
 function pageRows(rows, size = 25) {
@@ -178,7 +177,7 @@ function resultsView() {
   results = [...results].sort((a, b) => a.model.name.localeCompare(b.model.name) || a.benchmark.name.localeCompare(b.benchmark.name) || a.id - b.id);
   downloadRows = results;
   const page = pageRows(results);
-  return `<section class="panel">${panelHead('Results catalog', `${n(results.length)} assertions · each result appears once`, `<label class="select-field">VALUE TYPE<select id="kind-select">${[['', 'All values'], ['numeric', 'Numeric values'], ['text', 'Text expressions']].map(([v, l]) => selectedOption(v, l, state.kind)).join('')}</select></label>`)}${resultRows(page.rows)}${page.footer}<div class="result-summary">Several citations can support one assertion. Open its evidence to see every source.</div></section>`;
+  return `<section class="panel">${panelHead('Results catalog', `${n(results.length)} assertions · each result appears once`, `<label class="select-field">VALUE TYPE<select id="kind-select">${[['', 'All values'], ['numeric', 'Numeric values'], ['evidence', 'Evidence only']].map(([v, l]) => selectedOption(v, l, state.kind)).join('')}</select></label>`)}${resultRows(page.rows)}${page.footer}<div class="result-summary">Several citations can support one assertion. Open its evidence to see every source.</div></section>`;
 }
 
 function modelsView() {
@@ -231,7 +230,7 @@ function showDialog(html) {
 function showResult(id) {
   const row = catalog.results.find(r => r.id === Number(id));
   if (!row) return;
-  showDialog(`<h2 id="detail-title">${h(row.model.name)}</h2><p class="detail-subtitle">${h(row.benchmark.name)} · ${h(row.measure.name)}</p><div class="detail-score">${h(scoreLabel(row))}</div><dl class="detail-info"><div><dt>DEVELOPER</dt><dd>${h(row.developer?.name ?? 'Not recorded')}</dd></div><div><dt>SCORE UNIT</dt><dd>${h(row.unit ?? 'Not recorded')}</dd></div><div><dt>METRIC</dt><dd>${h(row.measure.metric)}</dd></div><div><dt>ASSERTION ID</dt><dd>${row.id}</dd></div><div class="wide"><dt>EVALUATION CONDITIONS</dt><dd>${h(row.conditions ?? 'Not recorded. Equivalent evaluation settings are not established.')}</dd></div></dl><div class="evidence-heading">Supporting evidence · ${row.citations.length} citation${row.citations.length === 1 ? '' : 's'}</div>${row.citations.map(c => `<article class="evidence"><h3><a href="${h(safeUrl(c.source.url))}" target="_blank" rel="noopener noreferrer">${h(c.source.title)} ↗</a></h3><p class="locator">${dateLabel(c.source.published_at)} · ${h(c.locator)}</p>${c.excerpt ? `<blockquote>${h(c.excerpt)}</blockquote>` : '<p class="extraction-note">No excerpt recorded.</p>'}${c.note ? `<p class="extraction-note">Extraction note: ${h(c.note)}</p>` : ''}<button class="text-button" data-source="${c.source_id}">View source coverage note ↗</button></article>`).join('') || '<p class="source-detail-note">No citations recorded.</p>'}`);
+  showDialog(`<h2 id="detail-title">${h(row.model.name)}</h2><p class="detail-subtitle">${h(row.benchmark.name)} · ${h(row.measure.name)}</p><div class="detail-score">${h(scoreLabel(row))}</div><dl class="detail-info"><div><dt>DEVELOPER</dt><dd>${h(row.developer?.name ?? 'Not recorded')}</dd></div><div><dt>SCORE UNIT</dt><dd>${h(row.measure.unit ?? 'Not recorded')}</dd></div><div><dt>ASSERTION ID</dt><dd>${row.id}</dd></div><div class="wide"><dt>EVALUATION CONDITIONS</dt><dd>${h(row.conditions ?? 'Not recorded. Equivalent evaluation settings are not established.')}</dd></div></dl><div class="evidence-heading">Supporting evidence · ${row.citations.length} citation${row.citations.length === 1 ? '' : 's'}</div>${row.citations.map(c => `<article class="evidence"><h3><a href="${h(safeUrl(c.source.url))}" target="_blank" rel="noopener noreferrer">${h(c.source.title)} ↗</a></h3><p class="locator">${dateLabel(c.source.published_at)} · ${h(c.locator)}</p>${c.excerpt ? `<blockquote>${h(c.excerpt)}</blockquote>` : '<p class="extraction-note">No excerpt recorded.</p>'}${c.note ? `<p class="extraction-note">Extraction note: ${h(c.note)}</p>` : ''}<button class="text-button" data-source="${c.source_id}">View source coverage note ↗</button></article>`).join('') || '<p class="source-detail-note">No citations recorded.</p>'}`);
 }
 
 function showSource(id) {
@@ -281,7 +280,7 @@ document.addEventListener('click', event => {
 
 $('#view').addEventListener('change', event => {
   const controlId = event.target.id;
-  const field = {'benchmark-select': 'benchmark', 'measure-select': 'measure', 'unit-select': 'unit', 'sort-select': 'sort', 'kind-select': 'kind'}[event.target.id];
+  const field = {'benchmark-select': 'benchmark', 'measure-select': 'measure', 'sort-select': 'sort', 'kind-select': 'kind'}[event.target.id];
   if (!field) return;
   state[field] = event.target.value;
   if (field === 'benchmark') { state.measure = ''; state.unit = ''; }
