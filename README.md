@@ -26,7 +26,7 @@ Relation names are singular. Keep the schema limited to structures the catalog u
 | --- | --- |
 | `organization` | Model developers, evaluators, publishers, and benchmark maintainers. |
 | `model` | A model identity based on the recorded name, which may include a snapshot identifier. |
-| `benchmark` | A benchmark identity based on the recorded name, which may include a version, and an optional URL. |
+| `benchmark` | A benchmark identity based on the recorded name, which may include a version, and a required defining URL. |
 | `benchmark_measure` | A named measure within a benchmark, with an optional unit and score direction. |
 | `source` | A document or page, with its URL, publisher, publication date, and coverage note. |
 | `score_assertion` | A model, benchmark measure, optional numeric value and known conditions, independent of its supporting sources. |
@@ -98,7 +98,7 @@ Use parameterized SQL in scripts. Every table uses `id INTEGER PRIMARY KEY`, wit
 
 `schema.sql` defines an empty database and cannot reconstruct the collected data. Preserve existing records when changing the database, and check its integrity and foreign-key relationships afterward.
 
-Benchmark URLs are optional: use `NULL` when unknown and a nonempty string when recorded.
+Benchmark URLs are required. Prefer the official benchmark project, dataset, repository, or paper, using a version-specific page when available. For a custom variant or internal evaluation without a dedicated page, use the source document describing that evaluation. A shared URL does not make different variants or evaluation settings comparable.
 
 Run the schema, local API, and graph-data regression tests with:
 
