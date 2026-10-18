@@ -54,6 +54,7 @@ const views = {
     description:
       "Search individual results, evaluation conditions, and citations.",
   },
+  model: { title: "Model", description: "All recorded scores for this model." },
   models: {
     title: "Models",
     description: "Recorded model identities and their reported results.",
@@ -180,7 +181,7 @@ function resultRows(rows) {
     .map(
       (row) => `<tr>
     <td class="numeric">${row.id}</td>
-    <td><button class="table-link" data-model="${row.model.id}" title="${h(row.model.name)}">${h(row.model.name)}</button></td>
+    <td><a class="table-link" href="#model/${row.model.id}" title="${h(row.model.name)}">${h(row.model.name)}</a></td>
     <td><button class="table-link" data-benchmark="${row.benchmark.id}" title="${h(row.benchmark.name)}">${h(row.benchmark.name)}</button></td>
     <td class="numeric"><button class="table-link" data-result="${row.id}">${row.value_numeric === null ? "See evidence" : n(row.value_numeric)}</button></td>
     <td>${h(row.measure.unit ?? "Unknown")}</td>
@@ -288,7 +289,7 @@ function modelsView() {
             const results = catalog.results.filter(
               (r) => r.model_id === model.id,
             );
-            return `<tr><td><strong>${h(model.name)}</strong></td><td>${orgLabel(catalog.indexes.organizations.get(model.developer_id))}</td><td>${n(new Set(results.map((r) => r.benchmark.id)).size)}</td><td>${n(results.length)}</td><td><button class="text-button" data-model="${model.id}">Inspect model</button></td></tr>`;
+            return `<tr><td><a class="table-link" href="#model/${model.id}">${h(model.name)}</a></td><td>${orgLabel(catalog.indexes.organizations.get(model.developer_id))}</td><td>${n(new Set(results.map((r) => r.benchmark.id)).size)}</td><td>${n(results.length)}</td><td><a class="text-button" href="#model/${model.id}">All scores</a></td></tr>`;
           })
           .join("")}</tbody></table></div>`
       : empty("No matching models")
@@ -307,12 +308,19 @@ function sourcesView() {
 
 function render() {
   if (!catalog) return;
-  const { title, description } = views[state.view];
+  const metadata = views[state.view];
+  const title =
+    state.view === "model"
+      ? (catalog.indexes.models.get(state.model)?.name ?? "Model not found")
+      : metadata.title;
+  const description = metadata.description;
+  $(".filterbar").hidden = state.view === "model";
   $("#page-title").textContent = title;
   $("#page-description").textContent = description;
   document.title = `${title} — Model benchmark catalog`;
   document.querySelectorAll("[data-nav]").forEach((link) => {
-    const active = link.dataset.nav === state.view;
+    const active =
+      link.dataset.nav === (state.view === "model" ? "models" : state.view);
     link.classList.toggle("active", active);
     if (active) link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
@@ -323,6 +331,7 @@ function render() {
     explorer,
     results: resultsView,
     models: modelsView,
+    model: modelView,
     sources: sourcesView,
   }[state.view]();
   $("#export").disabled = !downloadRows.length;
@@ -355,14 +364,16 @@ function showSource(id) {
   );
 }
 
-function showModel(id) {
-  activeDetail = () => showModel(id);
-  const model = catalog.indexes.models.get(Number(id));
-  if (!model) return;
+function modelView() {
+  const model = catalog.indexes.models.get(state.model);
+  if (!model) {
+    downloadRows = [];
+    return '<p>Model not found. <a href="#models">Browse models</a></p>';
+  }
   const results = catalog.results.filter((r) => r.model_id === model.id);
-  showDialog(
-    `<h2 id="detail-title">${h(model.name)}</h2><p class="detail-subtitle">${h(catalog.indexes.organizations.get(model.developer_id)?.name ?? "Unknown developer")} · ${n(results.length)} reported results · ${n(new Set(results.map((r) => r.benchmark.id)).size)} benchmarks</p><p class="source-detail-note">This is a recorded model identity. Results may use different settings or configurations.</p><div class="dialog-table">${results.length ? resultRows(results) : '<div class="empty"><p>No score assertions have been recorded for this model.</p></div>'}</div>`,
-  );
+  downloadRows = sortResultRows(results);
+  const numeric = results.filter((r) => r.value_numeric !== null).length;
+  return `<div class="table-status"><a href="#models">All models</a><span>${h(catalog.indexes.organizations.get(model.developer_id)?.name ?? "Unknown developer")}</span><span>${n(results.length)} results · ${n(new Set(results.map((r) => r.benchmark.id)).size)} benchmarks · ${n(numeric)} numeric · ${n(results.length - numeric)} evidence only</span></div><p class="model-note">All recorded results for this model identity, across sources and evaluation settings.</p>${results.length ? resultRows(results) : "<p>No score assertions have been recorded for this model.</p>"}`;
 }
 
 function clearFilters() {
@@ -376,8 +387,13 @@ function clearFilters() {
 
 function setView() {
   const requested = location.hash.slice(1);
-  state.view =
-    Object.hasOwn(views, requested) && requested !== "overview"
+  const modelRoute = /^model\/(\d+)$/.exec(requested);
+  state.model = modelRoute ? Number(modelRoute[1]) : null;
+  if ($("#detail").open) $("#detail").close();
+  state.view = modelRoute
+    ? "model"
+    : Object.hasOwn(views, requested) &&
+        !["overview", "model"].includes(requested)
       ? requested
       : "results";
   state.page = 1;
@@ -400,12 +416,10 @@ document.addEventListener("click", (event) => {
   }
   const result = event.target.closest("[data-result]");
   const source = event.target.closest("[data-source]");
-  const model = event.target.closest("[data-model]");
   const benchmark = event.target.closest("[data-benchmark]");
   const page = event.target.closest("[data-page]");
   if (result) showResult(result.dataset.result);
   else if (source) showSource(source.dataset.source);
-  else if (model) showModel(model.dataset.model);
   else if (benchmark) {
     state.benchmark = benchmark.dataset.benchmark;
     state.measure = "";
@@ -476,7 +490,7 @@ $("#export").addEventListener("click", () => {
   );
   const link = document.createElement("a");
   link.href = url;
-  link.download = `catalog-${state.view}-results.csv`;
+  link.download = `catalog-${state.view}${state.view === "model" ? `-${state.model}` : ""}-results.csv`;
   link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
   toast(`Exported ${n(downloadRows.length)} results with source URLs.`);
