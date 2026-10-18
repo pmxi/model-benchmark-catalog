@@ -49,6 +49,28 @@ class SchemaTests(unittest.TestCase):
             with self.assertRaises(sqlite3.IntegrityError):
                 self.db.execute("INSERT INTO benchmark(name, url) VALUES (?, ?)", ("Benchmark", url))
 
+    def test_hle_uses_two_canonical_variants_with_consistent_measures(self):
+        catalog = sqlite3.connect((ROOT / "catalog.sqlite").as_uri() + "?mode=ro", uri=True)
+        self.addCleanup(catalog.close)
+        variants = catalog.execute("""
+            SELECT id, name FROM benchmark
+            WHERE lower(name) LIKE '%humanity%' OR lower(name) LIKE '%hle%'
+        """).fetchall()
+        self.assertEqual({name for _, name in variants}, {
+            "Humanity’s Last Exam (no tools)", "Humanity’s Last Exam (with tools)",
+        })
+        self.assertEqual(len(variants), 2)
+        for benchmark_id, _ in variants:
+            measures = catalog.execute("""
+                SELECT id, name, unit, higher_is_better FROM benchmark_measure
+                WHERE benchmark_id = ?
+            """, (benchmark_id,)).fetchall()
+            self.assertEqual([row[1:] for row in measures], [("accuracy", "percent", 1)])
+            self.assertGreater(catalog.execute(
+                "SELECT count(*) FROM score_assertion WHERE benchmark_measure_id = ?",
+                (measures[0][0],),
+            ).fetchone()[0], 0)
+
     def test_foreign_keys_reject_missing_benchmarks_and_referenced_deletions(self):
         with self.assertRaises(sqlite3.IntegrityError):
             self.db.execute(
