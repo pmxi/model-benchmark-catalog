@@ -106,6 +106,31 @@ class SchemaTests(unittest.TestCase):
             self.assertIn("source labels this result Verified", conditions)
             self.assertIn("evaluation split not recorded", conditions)
 
+    def test_mmlu_shot_protocols_are_measures(self):
+        catalog = sqlite3.connect((ROOT / "catalog.sqlite").as_uri() + "?mode=ro", uri=True)
+        self.addCleanup(catalog.close)
+        rows = catalog.execute("""
+            SELECT a.id, bm.name, bm.unit, bm.higher_is_better, a.value, a.conditions
+            FROM score_assertion a
+            JOIN benchmark_measure bm ON bm.id = a.benchmark_measure_id
+            JOIN benchmark b ON b.id = bm.benchmark_id WHERE b.name = 'MMLU'
+        """).fetchall()
+        self.assertEqual(len(rows), 53)
+        by_id = {r[0]: r[1:] for r in rows}
+        # GPT-4 and five-shot Llama must be visible in the same comparison;
+        # the same Llama's zero-shot evaluation must remain separate.
+        self.assertEqual(by_id[819][:4], ('5-shot accuracy', 'percent', 1, 86.4))
+        self.assertEqual(by_id[1039][0], '5-shot accuracy')
+        self.assertEqual(by_id[1044][0], '0-shot accuracy')
+        self.assertIn('chain-of-thought', by_id[1044][4])
+        self.assertIn('chain-of-thought', by_id[35][4])
+        self.assertIn('chain-of-thought', by_id[36][4])
+        self.assertEqual(by_id[336][0], 'accuracy (shot count unspecified)')
+        for _, measure, _, _, _, conditions in rows:
+            self.assertNotRegex(conditions or '', r'\b[05]-shot\b')
+            self.assertNotIn('Instruction tuned', conditions or '')
+            self.assertNotIn('Base pretrained', conditions or '')
+
     def test_foreign_keys_reject_missing_benchmarks_and_referenced_deletions(self):
         with self.assertRaises(sqlite3.IntegrityError):
             self.db.execute(

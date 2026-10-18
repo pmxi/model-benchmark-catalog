@@ -12,7 +12,7 @@
 
 Search the existing catalog for the full name, abbreviation, spelling variants, and evaluation setup before creating a benchmark or measure. Reuse a canonical record when these refer to the same evaluation. Punctuation, abbreviations, source-specific wording, and “no tools” versus “without tools” do not create new benchmarks. A genuinely different version, dataset, or evaluation protocol still needs a distinct record.
 
-Use one consistent measure name and scale for the same metric. “Percent” is a unit, not a metric; “reported score” should not become a separate measure when the source establishes that it is accuracy. Keep specific tools, scaffolds, and other execution details in `score_assertion.conditions`, and retain original source wording in citations. Do not infer an unspecified setup from a bare benchmark name; inspect the source and its images first.
+Use one consistent measure name and scale for the same metric. “Percent” is a unit, not a metric; “reported score” should not become a separate measure when the source establishes that it is accuracy. Encode the reported shot count in the measure name (for example, `0-shot accuracy` and `5-shot accuracy`); it defines the comparison group, not an assertion condition. Keep specific tools, scaffolds, chain-of-thought prompting, and other execution details in `score_assertion.conditions`, and retain original source wording in citations. Do not infer an unspecified setup from a bare benchmark name; inspect the source and its images first.
 
 ### Bad example: nine HLE entries for two variants
 
@@ -45,3 +45,15 @@ Preserve the evaluation split separately from verification status. ARC Prize's [
 ### Required numeric scores
 
 Every score assertion must have a real numeric value. Extract exact numbers separately from effort labels, footnote markers, denominators, and percentile annotations; these do not justify a missing score. For example, `54.2% (high)` is value `54.2`, unit `percent`, with high reasoning effort in conditions. Split paired scores into assertions with their respective evaluation settings; preserve genuine subset differences. Store raw exam points with their scale instead of substituting an approximate percentile. Relative changes must have explicitly relative measures and units, never be presented as absolute accuracy. Bounds, ranges, and qualitative claims belong in source coverage notes or the excluded-claims archive, not in score assertions.
+
+### Bad example: MMLU shot counts hidden in conditions
+
+GPT-4's MMLU result was stored as `accuracy, 5-shot`, while Llama and Grok results used `accuracy` with `5-shot` or `0-shot` in conditions. Selecting `accuracy` hid GPT-4 and mixed different shot protocols in the same comparison. Moving all of them into plain `accuracy` would preserve that mistake.
+
+Use **`0-shot accuracy`** and **`5-shot accuracy`**, unit `percent`, higher-is-better, as distinct MMLU measures. GPT-4's 86.4% belongs to `5-shot accuracy`, alongside other explicitly five-shot results. Move the shot count out of conditions; retain chain-of-thought, precision, token budgets, and other execution details there. Preserve original metric wording and supporting evidence in citations. A shared shot count alone does not imply identical evaluation protocols.
+
+Do not guess missing shot counts. The correction classified 35 MMLU assertions with recorded shot counts (26 five-shot and 9 zero-shot); 15 accuracy assertions remain under `accuracy (shot count unspecified)` pending evidence. Three separately reported `pass@1` assertions retain their measure. All 53 scores and their citations were preserved.
+
+`Instruction tuned`, `Base pretrained`, and `Post-trained chat model` describe the model, not the evaluation run. Do not repeat these labels in conditions; distinguish the corresponding models by their model records and retain source wording in citations. Runtime settings such as bf16 precision or thinking mode still belong in conditions.
+
+Before completing a batch, inspect both measure names and conditions for shot counts. Results with the same reported shot protocol must use the same canonical measure; results with different or unknown shot counts must not be silently combined.
