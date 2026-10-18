@@ -72,7 +72,6 @@ let state = {
   benchmark: "",
   measure: "",
   unit: "",
-  kind: "",
   page: 1,
 };
 let downloadRows = [];
@@ -183,7 +182,7 @@ function resultRows(rows) {
     <td class="numeric">${row.id}</td>
     <td><a class="table-link" href="#model/${row.model.id}" title="${h(row.model.name)}">${h(row.model.name)}</a></td>
     <td><button class="table-link" data-benchmark="${row.benchmark.id}" title="${h(row.benchmark.name)}">${h(row.benchmark.name)}</button></td>
-    <td class="numeric"><button class="table-link" data-result="${row.id}">${row.value_numeric === null ? "See evidence" : n(row.value_numeric)}</button></td>
+    <td class="numeric"><button class="table-link" data-result="${row.id}">${n(row.value_numeric)}</button></td>
     <td>${h(row.measure.unit ?? "Unknown")}</td>
     <td title="${h(row.measure.name)}">${h(row.measure.name)}</td>
     <td title="${h(row.conditions ?? "")}">${h(row.conditions ?? "Unknown")}</td>
@@ -211,9 +210,7 @@ function explorer() {
   const counts = new Map(
     measures.map((m) => [
       m.id,
-      catalog.results.filter(
-        (r) => r.measure.id === m.id && r.value_numeric !== null,
-      ).length,
+      catalog.results.filter((r) => r.measure.id === m.id).length,
     ]),
   );
   measures.sort(
@@ -224,9 +221,7 @@ function explorer() {
     state.measure = String(measures[0]?.id ?? "");
   const measure = catalog.indexes.measures.get(Number(state.measure));
   state.unit = measure?.unit ?? "__unknown__";
-  const series = filterResults(catalog.results, { ...state, kind: "numeric" });
-  const matching = filterResults(catalog.results, { ...state, kind: "" });
-  const evidenceOnly = matching.filter((r) => r.value_numeric === null);
+  const matching = filterResults(catalog.results, state);
   downloadRows = sortResultRows(matching);
   const allCoverage = new Map(
     benchmarkCoverage(catalog.results).map((row) => [row.id, row.results]),
@@ -246,7 +241,7 @@ function explorer() {
       .join("")}</select></label>
     <label class="select-field">Measure<select id="measure-select"${!measures.length ? " disabled" : ""}>${measures.length ? measures.map((m) => selectedOption(m.id, m.name, state.measure)).join("") : "<option>No measures</option>"}</select></label>
     <div class="select-field">Unit<output>${h(measure?.unit ?? "Unknown")}</output></div>
-  </div><div class="table-status">${matching.length} results · ${series.length} numeric · ${evidenceOnly.length} evidence only · ${measure?.higher_is_better == null ? "Direction unknown" : measure.higher_is_better ? "Higher is better" : "Lower is better"}</div>${resultRows(matching)}`;
+  </div><div class="table-status">${matching.length} results · ${measure?.higher_is_better == null ? "Direction unknown" : measure.higher_is_better ? "Higher is better" : "Lower is better"}</div>${resultRows(matching)}`;
 }
 
 function pageRows(rows, size = 100) {
@@ -263,18 +258,9 @@ function resultsView() {
   const results = filterResults(catalog.results, {
     organization: state.organization,
     query: state.query,
-    kind: state.kind,
   });
   downloadRows = sortResultRows(results);
-  return `<div class="table-toolbar"><span>${n(results.length)} of ${n(catalog.results.length)} results</span><label>Values <select id="kind-select">${[
-    ["", "All"],
-    ["numeric", "Numeric"],
-    ["evidence", "Evidence only"],
-  ]
-    .map(([v, l]) => selectedOption(v, l, state.kind))
-    .join(
-      "",
-    )}</select></label><span>Click column headings to sort. Open citations for context.</span></div>${resultRows(results)}`;
+  return `<div class="table-toolbar"><span>${n(results.length)} of ${n(catalog.results.length)} results</span><span>Click column headings to sort. Open citations for context.</span></div>${resultRows(results)}`;
 }
 
 function modelsView() {
@@ -372,8 +358,7 @@ function modelView() {
   }
   const results = catalog.results.filter((r) => r.model_id === model.id);
   downloadRows = sortResultRows(results);
-  const numeric = results.filter((r) => r.value_numeric !== null).length;
-  return `<div class="table-status"><a href="#models">All models</a><span>${h(catalog.indexes.organizations.get(model.developer_id)?.name ?? "Unknown developer")}</span><span>${n(results.length)} results · ${n(new Set(results.map((r) => r.benchmark.id)).size)} benchmarks · ${n(numeric)} numeric · ${n(results.length - numeric)} evidence only</span></div><p class="model-note">All recorded results for this model identity, across sources and evaluation settings.</p>${results.length ? resultRows(results) : "<p>No score assertions have been recorded for this model.</p>"}`;
+  return `<div class="table-status"><a href="#models">All models</a><span>${h(catalog.indexes.organizations.get(model.developer_id)?.name ?? "Unknown developer")}</span><span>${n(results.length)} results · ${n(new Set(results.map((r) => r.benchmark.id)).size)} benchmarks</span></div><p class="model-note">All recorded results for this model identity, across sources and evaluation settings.</p>${results.length ? resultRows(results) : "<p>No score assertions have been recorded for this model.</p>"}`;
 }
 
 function clearFilters() {
@@ -439,7 +424,6 @@ $("#view").addEventListener("change", (event) => {
   const field = {
     "benchmark-select": "benchmark",
     "measure-select": "measure",
-    "kind-select": "kind",
   }[event.target.id];
   if (!field) return;
   state[field] = event.target.value;

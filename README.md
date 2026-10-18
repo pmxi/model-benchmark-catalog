@@ -29,12 +29,12 @@ Relation names are singular. Keep the schema limited to structures the catalog u
 | `benchmark` | A benchmark identity based on the recorded name, which may include a version, and a required defining URL. |
 | `benchmark_measure` | A named measure within a benchmark, with an optional unit and score direction. |
 | `source` | A document or page, with its URL, publisher, publication date, and coverage note. |
-| `score_assertion` | A model, benchmark measure, optional numeric value and known conditions, independent of its supporting sources. |
+| `score_assertion` | A model, benchmark measure, required numeric value and known conditions, independent of its supporting sources. |
 | `score_citation` | Evidence linking an assertion directly to a source, including locator, original wording, and extraction commentary. |
 
 Versions currently remain in recorded names; evaluation conditions remain in assertion text. Separate version, configuration, experiment, and report-derivation tables can be introduced when there is a concrete need to populate and query them.
 
-An assertion stores an exact score in `value_numeric` when one can be extracted. Otherwise it remains `NULL`, with the original result and its qualifications preserved in citation excerpts. Bounds and unresolved composite results are not plotted as exact scores. The benchmark and unit are reached through `benchmark_measure_id`, so neither is repeated on the assertion.
+An assertion requires an exact score in `value_numeric` (`REAL NOT NULL`). Extract numeric scores separately from configuration labels and annotations, and split paired evaluations into separate assertions. Claims without a single exact value are excluded from the score table and preserved in source coverage notes and `data/excluded_score_claims.json`. The benchmark and unit are reached through `benchmark_measure_id`, so neither is repeated on the assertion.
 
 Original model, benchmark, measure, and score wording lives in the citation's `excerpt`, as a labeled row transcription followed by the original source excerpt when available. The transcription is not presented as a contiguous verbatim quotation. Dedicated `reported_*` columns are unnecessary on the assertion.
 
@@ -87,7 +87,7 @@ When recording a score:
 
 1. Find or add its model, benchmark, and benchmark measure. Record the unit on the measure; scores must use that scale.
 2. Find or add its source document with its URL and known publication date.
-3. Find or add the assertion, retaining its known conditions. Store an exact number when available; otherwise leave `value_numeric` null and preserve the reported wording in the citation.
+3. Find or add the assertion, retaining its known conditions. Store an exact number. If none is available, preserve the claim in source coverage notes or the excluded-claims archive instead of inserting an assertion.
 4. Add a citation to that assertion and source, preserving the locator and original wording. Reuse an existing citation when the same evidence is already recorded.
 
 Use parameterized SQL in scripts. Every table uses `id INTEGER PRIMARY KEY`, with integer foreign keys. Omit `id` when inserting a new row and use `INSERT ... RETURNING id` (or the connection's last-insert ID) to obtain the generated ID. Reuse IDs from lookup results when referring to existing rows. IDs are local to this database; do not generate them from names or assume they match IDs in another database. Duplicate detection still requires the lookups described above.

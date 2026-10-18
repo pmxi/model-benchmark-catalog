@@ -12,6 +12,9 @@ export function prepareCatalog(raw) {
     evidence.get(citation.score_assertion_id).push({...citation, source: sources.get(citation.source_id)});
   }
   const results = raw.assertions.map(assertion => {
+    if (typeof assertion.value_numeric !== 'number' || !Number.isFinite(assertion.value_numeric)) {
+      throw new Error(`Assertion ${assertion.id} requires a finite numeric score.`);
+    }
     const model = models.get(assertion.model_id);
     const measure = measures.get(assertion.benchmark_measure_id);
     return {...assertion, model, measure, benchmark: benchmarks.get(measure.benchmark_id),
@@ -20,14 +23,13 @@ export function prepareCatalog(raw) {
   return {...raw, results, indexes: {organizations, models, benchmarks, measures, sources}};
 }
 
-export function filterResults(results, {organization = '', query = '', benchmark = '', measure = '', unit = '', kind = ''} = {}) {
+export function filterResults(results, {organization = '', query = '', benchmark = '', measure = '', unit = ''} = {}) {
   const needle = query.trim().toLocaleLowerCase();
   return results.filter(row =>
     (!organization || row.model.developer_id === Number(organization)) &&
     (!benchmark || row.benchmark.id === Number(benchmark)) &&
     (!measure || row.measure.id === Number(measure)) &&
     (!unit || (row.measure.unit ?? '__unknown__') === unit) &&
-    (!kind || (kind === 'numeric' ? row.value_numeric !== null : row.value_numeric === null)) &&
     (!needle || [row.model.name, row.benchmark.name, row.measure.name, row.developer?.name,
       row.conditions, ...row.citations.map(c => c.source?.title)].join(' ').toLocaleLowerCase().includes(needle))
   );
@@ -60,14 +62,13 @@ export function sourceTimeline(sources, organizations) {
 }
 
 export function scoreLabel(row) {
-  if (row.value_numeric === null) return 'See evidence';
   const number = new Intl.NumberFormat('en-US', {maximumFractionDigits: 6}).format(row.value_numeric);
   return row.measure.unit === 'percent' ? `${number}%` : row.measure.unit ? `${number} ${row.measure.unit}` : number;
 }
 
 export function numericSeries(results, {benchmark, measure, unit, organization = '', query = ''}) {
   // One bar per assertion, never "best score per model" or a citation-expanded join.
-  return filterResults(results, {benchmark, measure, unit, organization, query, kind: 'numeric'})
+  return filterResults(results, {benchmark, measure, unit, organization, query})
     .sort((a, b) => b.value_numeric - a.value_numeric || a.model.name.localeCompare(b.model.name));
 }
 

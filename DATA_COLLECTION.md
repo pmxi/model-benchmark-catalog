@@ -4,7 +4,7 @@
 - Verify the evaluation setup. A modified benchmark is a distinct variant, even when the source uses a familiar name. Do not group its results with the standard benchmark.
 - Custom variants and one-off internal evaluations are optional, lower-priority additions. Name them clearly and preserve their defining context if included.
 - Record exact scores when provided. Do not invent precision for bounds, approximations, or qualitative claims, or let rare exceptions drive schema complexity.
-- Preserve qualifications such as “surpassing 99%” or “less than 40%” in `score_citation.excerpt`; use `locator` to identify the relevant passage or chart and `note` for interpretation. Leave `value_numeric` null when no single exact score can be extracted; a numeric threshold is not an exact score.
+- Preserve qualifications such as “surpassing 99%” or “less than 40%” in `score_citation.excerpt`; use `locator` to identify the relevant passage or chart and `note` for interpretation. `value_numeric` is required (`REAL NOT NULL`). Do not create a score assertion when no single exact score can be extracted; a numeric threshold is not an exact score. Preserve excluded claims in source coverage notes and `data/excluded_score_claims.json`.
 - Keep model configurations and benchmark versions distinguishable. Shared names alone do not establish comparable evaluations.
 - Store the unit on `benchmark_measure`. Scores referencing it must use the same scale; document any conversion in the citation note.
 
@@ -41,3 +41,7 @@ The catalog incorrectly treated `ARC-AGI-2` and `ARC-AGI-2 (Verified)` as separa
 The correction uses one **ARC-AGI-2** benchmark with measure `accuracy`, unit `percent`, and higher-is-better direction. All ten existing assertions and their citations were retained. Results explicitly labeled Verified retain that qualification in `score_assertion.conditions`; unlabeled results are not automatically classified as unverified.
 
 Preserve the evaluation split separately from verification status. ARC Prize's [official testing policy](https://arcprize.org/policy) distinguishes public, semi-private, and private evaluation sets; its verified frontier-model leaderboard uses the semi-private set. Do not infer an individual score's split solely from a copied “Verified” label. In this correction, the split remains explicitly unrecorded until supported by the score's source. Actual differences in evaluation sets must remain distinguishable when comparing results.
+
+### Required numeric scores
+
+Every score assertion must have a real numeric value. Extract exact numbers separately from effort labels, footnote markers, denominators, and percentile annotations; these do not justify a missing score. For example, `54.2% (high)` is value `54.2`, unit `percent`, with high reasoning effort in conditions. Split paired scores into assertions with their respective evaluation settings; preserve genuine subset differences. Store raw exam points with their scale instead of substituting an approximate percentile. Relative changes must have explicitly relative measures and units, never be presented as absolute accuracy. Bounds, ranges, and qualitative claims belong in source coverage notes or the excluded-claims archive, not in score assertions.

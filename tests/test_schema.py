@@ -49,6 +49,19 @@ class SchemaTests(unittest.TestCase):
             with self.assertRaises(sqlite3.IntegrityError):
                 self.db.execute("INSERT INTO benchmark(name, url) VALUES (?, ?)", ("Benchmark", url))
 
+    def test_score_requires_a_real_value_on_insert_and_update(self):
+        self.db.execute("INSERT INTO model(id, name) VALUES (1, 'Model')")
+        self.db.execute("INSERT INTO benchmark(id, name, url) VALUES (1, 'Test', 'https://example.test')")
+        self.db.execute("INSERT INTO benchmark_measure(id, benchmark_id, name) VALUES (1, 1, 'accuracy')")
+        for value in (None, 'not a score'):
+            with self.assertRaises(sqlite3.IntegrityError):
+                self.db.execute("INSERT INTO score_assertion(model_id, benchmark_measure_id, value_numeric) VALUES (1, 1, ?)", (value,))
+        with self.assertRaises(sqlite3.IntegrityError):
+            self.db.execute("INSERT INTO score_assertion(model_id, benchmark_measure_id) VALUES (1, 1)")
+        self.db.execute("INSERT INTO score_assertion(id, model_id, benchmark_measure_id, value_numeric) VALUES (1, 1, 1, 0)")
+        with self.assertRaises(sqlite3.IntegrityError):
+            self.db.execute("UPDATE score_assertion SET value_numeric = NULL WHERE id = 1")
+
     def test_hle_uses_two_canonical_variants_with_consistent_measures(self):
         catalog = sqlite3.connect((ROOT / "catalog.sqlite").as_uri() + "?mode=ro", uri=True)
         self.addCleanup(catalog.close)

@@ -34,10 +34,7 @@ class CatalogServerTests(unittest.TestCase):
         self.assertTrue(all("value_text" not in row and "unit" not in row for row in data["assertions"]))
         self.assertTrue(all("unit" in row for row in data["measures"]))
         for row in data["assertions"]:
-            if row["value_numeric"] is None:
-                evidence = [c for c in data["citations"] if c["score_assertion_id"] == row["id"]]
-                self.assertTrue(evidence)
-                self.assertTrue(all(c["excerpt"] for c in evidence))
+            self.assertIsInstance(row["value_numeric"], (int, float))
         self.assertEqual(before, self.path.read_bytes())
 
     def test_missing_database_is_not_created(self):

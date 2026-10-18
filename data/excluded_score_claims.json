@@ -1,0 +1,478 @@
+{
+  "description": "Evidence preserved from claims excluded from numeric score assertions; not numeric benchmark results.",
+  "claims": [
+    {
+      "id": 31,
+      "model_id": 1,
+      "benchmark_measure_id": 11,
+      "value_numeric": null,
+      "conditions": null,
+      "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
+      "model": {
+        "id": 1,
+        "name": "Claude 3 Opus",
+        "developer_id": 1
+      },
+      "measure": {
+        "id": 11,
+        "benchmark_id": 11,
+        "name": "recall accuracy",
+        "unit": null,
+        "higher_is_better": null
+      },
+      "benchmark": {
+        "id": 11,
+        "name": "Needle In A Haystack",
+        "url": "https://www.anthropic.com/news/claude-3-family"
+      },
+      "citations": [
+        {
+          "id": 31,
+          "score_assertion_id": 31,
+          "source_id": 1,
+          "locator": "Long context and near-perfect recall",
+          "excerpt": "Reported row (transcription):\nModel: Claude 3 Opus\nBenchmark: Needle In A Haystack\nMeasure: recall accuracy\nValue: >99%\n\nSource excerpt:\nClaude 3 Opus ... surpassing 99% accuracy",
+          "note": null,
+          "source": {
+            "id": 1,
+            "title": "Introducing the next generation of Claude",
+            "url": "https://www.anthropic.com/news/claude-3-family",
+            "publisher_id": 1,
+            "published_at": "2024-03-04",
+            "coverage_note": null
+          }
+        }
+      ]
+    },
+    {
+      "id": 191,
+      "model_id": 29,
+      "benchmark_measure_id": 112,
+      "value_numeric": null,
+      "conditions": null,
+      "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
+      "model": {
+        "id": 29,
+        "name": "Claude 2",
+        "developer_id": 1
+      },
+      "measure": {
+        "id": 112,
+        "benchmark_id": 75,
+        "name": "percentile",
+        "unit": null,
+        "higher_is_better": null
+      },
+      "benchmark": {
+        "id": 75,
+        "name": "GRE reading",
+        "url": "https://www.ets.org/gre/score-users/about/general-test/content-structure.html"
+      },
+      "citations": [
+        {
+          "id": 191,
+          "score_assertion_id": 191,
+          "source_id": 22,
+          "locator": "opening paragraph",
+          "excerpt": "Reported row (transcription):\nModel: Claude 2\nBenchmark: GRE reading\nMeasure: percentile\nValue: above the 90th percentile\n\nSource excerpt:\nClaude 2 scores above the 90th percentile on the GRE reading and writing exams",
+          "note": null,
+          "source": {
+            "id": 22,
+            "title": "Claude 2",
+            "url": "https://www.anthropic.com/news/claude-2",
+            "publisher_id": 1,
+            "published_at": "2023-07-11",
+            "coverage_note": null
+          }
+        }
+      ]
+    },
+    {
+      "id": 192,
+      "model_id": 29,
+      "benchmark_measure_id": 113,
+      "value_numeric": null,
+      "conditions": null,
+      "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
+      "model": {
+        "id": 29,
+        "name": "Claude 2",
+        "developer_id": 1
+      },
+      "measure": {
+        "id": 113,
+        "benchmark_id": 76,
+        "name": "percentile",
+        "unit": null,
+        "higher_is_better": null
+      },
+      "benchmark": {
+        "id": 76,
+        "name": "GRE writing",
+        "url": "https://www.ets.org/gre/score-users/about/general-test/content-structure.html"
+      },
+      "citations": [
+        {
+          "id": 192,
+          "score_assertion_id": 192,
+          "source_id": 22,
+          "locator": "opening paragraph",
+          "excerpt": "Reported row (transcription):\nModel: Claude 2\nBenchmark: GRE writing\nMeasure: percentile\nValue: above the 90th percentile\n\nSource excerpt:\nClaude 2 scores above the 90th percentile on the GRE reading and writing exams",
+          "note": null,
+          "source": {
+            "id": 22,
+            "title": "Claude 2",
+            "url": "https://www.anthropic.com/news/claude-2",
+            "publisher_id": 1,
+            "published_at": "2023-07-11",
+            "coverage_note": "Excluded nonnumeric claim (former assertion 191; opening paragraph):\nReported row (transcription):\nModel: Claude 2\nBenchmark: GRE reading\nMeasure: percentile\nValue: above the 90th percentile\n\nSource excerpt:\nClaude 2 scores above the 90th percentile on the GRE reading and writing exams"
+          }
+        }
+      ]
+    },
+    {
+      "id": 193,
+      "model_id": 29,
+      "benchmark_measure_id": 114,
+      "value_numeric": null,
+      "conditions": null,
+      "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
+      "model": {
+        "id": 29,
+        "name": "Claude 2",
+        "developer_id": 1
+      },
+      "measure": {
+        "id": 114,
+        "benchmark_id": 77,
+        "name": "percentile",
+        "unit": null,
+        "higher_is_better": null
+      },
+      "benchmark": {
+        "id": 77,
+        "name": "GRE quantitative reasoning",
+        "url": "https://www.ets.org/gre/score-users/about/general-test/content-structure.html"
+      },
+      "citations": [
+        {
+          "id": 193,
+          "score_assertion_id": 193,
+          "source_id": 22,
+          "locator": "opening paragraph",
+          "excerpt": "Reported row (transcription):\nModel: Claude 2\nBenchmark: GRE quantitative reasoning\nMeasure: percentile\nValue: similarly to the median applicant\n\nSource excerpt:\nsimilarly to the median applicant on quantitative reasoning",
+          "note": null,
+          "source": {
+            "id": 22,
+            "title": "Claude 2",
+            "url": "https://www.anthropic.com/news/claude-2",
+            "publisher_id": 1,
+            "published_at": "2023-07-11",
+            "coverage_note": "Excluded nonnumeric claim (former assertion 191; opening paragraph):\nReported row (transcription):\nModel: Claude 2\nBenchmark: GRE reading\nMeasure: percentile\nValue: above the 90th percentile\n\nSource excerpt:\nClaude 2 scores above the 90th percentile on the GRE reading and writing exams\n\nExcluded nonnumeric claim (former assertion 192; opening paragraph):\nReported row (transcription):\nModel: Claude 2\nBenchmark: GRE writing\nMeasure: percentile\nValue: above the 90th percentile\n\nSource excerpt:\nClaude 2 scores above the 90th percentile on the GRE reading and writing exams"
+          }
+        }
+      ]
+    },
+    {
+      "id": 196,
+      "model_id": 29,
+      "benchmark_measure_id": 117,
+      "value_numeric": null,
+      "conditions": null,
+      "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
+      "model": {
+        "id": 29,
+        "name": "Claude 2",
+        "developer_id": 1
+      },
+      "measure": {
+        "id": 117,
+        "benchmark_id": 79,
+        "name": "relative harmless-response performance",
+        "unit": null,
+        "higher_is_better": null
+      },
+      "benchmark": {
+        "id": 79,
+        "name": "internal red-teaming evaluation",
+        "url": "https://www.anthropic.com/news/claude-2"
+      },
+      "citations": [
+        {
+          "id": 196,
+          "score_assertion_id": 196,
+          "source_id": 22,
+          "locator": "safety paragraph",
+          "excerpt": "Reported row (transcription):\nModel: Claude 2\nBenchmark: internal red-teaming evaluation\nMeasure: relative harmless-response performance\nValue: 2x better\n\nSource excerpt:\nClaude 2 was 2x better at giving harmless responses compared to Claude 1.3",
+          "note": "Relative metric, no absolute score.",
+          "source": {
+            "id": 22,
+            "title": "Claude 2",
+            "url": "https://www.anthropic.com/news/claude-2",
+            "publisher_id": 1,
+            "published_at": "2023-07-11",
+            "coverage_note": "Excluded nonnumeric claim (former assertion 191; opening paragraph):\nReported row (transcription):\nModel: Claude 2\nBenchmark: GRE reading\nMeasure: percentile\nValue: above the 90th percentile\n\nSource excerpt:\nClaude 2 scores above the 90th percentile on the GRE reading and writing exams\n\nExcluded nonnumeric claim (former assertion 192; opening paragraph):\nReported row (transcription):\nModel: Claude 2\nBenchmark: GRE writing\nMeasure: percentile\nValue: above the 90th percentile\n\nSource excerpt:\nClaude 2 scores above the 90th percentile on the GRE reading and writing exams\n\nExcluded nonnumeric claim (former assertion 193; opening paragraph):\nReported row (transcription):\nModel: Claude 2\nBenchmark: GRE quantitative reasoning\nMeasure: percentile\nValue: similarly to the median applicant\n\nSource excerpt:\nsimilarly to the median applicant on quantitative reasoning"
+          }
+        }
+      ]
+    },
+    {
+      "id": 199,
+      "model_id": 31,
+      "benchmark_measure_id": 119,
+      "value_numeric": null,
+      "conditions": null,
+      "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
+      "model": {
+        "id": 31,
+        "name": "Claude 2.1",
+        "developer_id": 1
+      },
+      "measure": {
+        "id": 119,
+        "benchmark_id": 81,
+        "name": "false statement rate relative to Claude 2.0",
+        "unit": null,
+        "higher_is_better": null
+      },
+      "benchmark": {
+        "id": 81,
+        "name": "internal factual-question honesty evaluation",
+        "url": "https://www.anthropic.com/news/claude-2-1"
+      },
+      "citations": [
+        {
+          "id": 199,
+          "score_assertion_id": 199,
+          "source_id": 24,
+          "locator": "2x Decrease in Hallucination Rates",
+          "excerpt": "Reported row (transcription):\nModel: Claude 2.1\nBenchmark: internal factual-question honesty evaluation\nMeasure: false statement rate relative to Claude 2.0\nValue: 2x decrease\n\nSource excerpt:\n2x decrease in false statements compared to our previous Claude 2.0 model",
+          "note": "Relative result; no absolute rate.",
+          "source": {
+            "id": 24,
+            "title": "Introducing Claude 2.1",
+            "url": "https://www.anthropic.com/news/claude-2-1",
+            "publisher_id": 1,
+            "published_at": "2023-11-21",
+            "coverage_note": null
+          }
+        }
+      ]
+    },
+    {
+      "id": 201,
+      "model_id": 31,
+      "benchmark_measure_id": 121,
+      "value_numeric": null,
+      "conditions": null,
+      "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
+      "model": {
+        "id": 31,
+        "name": "Claude 2.1",
+        "developer_id": 1
+      },
+      "measure": {
+        "id": 121,
+        "benchmark_id": 82,
+        "name": "false-support conclusion rate change",
+        "unit": null,
+        "higher_is_better": null
+      },
+      "benchmark": {
+        "id": 82,
+        "name": "internal long-document comprehension and summarization evaluation",
+        "url": "https://www.anthropic.com/news/claude-2-1"
+      },
+      "citations": [
+        {
+          "id": 201,
+          "score_assertion_id": 201,
+          "source_id": 24,
+          "locator": "2x Decrease in Hallucination Rates",
+          "excerpt": "Reported row (transcription):\nModel: Claude 2.1\nBenchmark: internal long-document comprehension and summarization evaluation\nMeasure: false-support conclusion rate change\nValue: 3-4x lower rate\n\nSource excerpt:\n3-4x lower rate of mistakenly concluding a document supports a particular claim",
+          "note": "Relative result; baseline model not explicitly identified in this sentence.",
+          "source": {
+            "id": 24,
+            "title": "Introducing Claude 2.1",
+            "url": "https://www.anthropic.com/news/claude-2-1",
+            "publisher_id": 1,
+            "published_at": "2023-11-21",
+            "coverage_note": "Excluded nonnumeric claim (former assertion 199; 2x Decrease in Hallucination Rates):\nReported row (transcription):\nModel: Claude 2.1\nBenchmark: internal factual-question honesty evaluation\nMeasure: false statement rate relative to Claude 2.0\nValue: 2x decrease\n\nSource excerpt:\n2x decrease in false statements compared to our previous Claude 2.0 model"
+          }
+        }
+      ]
+    },
+    {
+      "id": 386,
+      "model_id": 58,
+      "benchmark_measure_id": 219,
+      "value_numeric": null,
+      "conditions": null,
+      "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
+      "model": {
+        "id": 58,
+        "name": "OpenAI o3-mini (high)",
+        "developer_id": 2
+      },
+      "measure": {
+        "id": 219,
+        "benchmark_id": 163,
+        "name": "first-attempt solve rate with Python",
+        "unit": null,
+        "higher_is_better": null
+      },
+      "benchmark": {
+        "id": 163,
+        "name": "FrontierMath",
+        "url": "https://epoch.ai/frontiermath"
+      },
+      "citations": [
+        {
+          "id": 386,
+          "score_assertion_id": 386,
+          "source_id": 45,
+          "locator": "FrontierMath",
+          "excerpt": "Reported row (transcription):\nModel: OpenAI o3-mini (high)\nBenchmark: FrontierMath\nMeasure: first-attempt solve rate with Python\nValue: over 32%\n\nSource excerpt:\nOn FrontierMath, when prompted to use a Python tool, o3-mini with high reasoning effort solves over 32% of problems on the first attempt",
+          "note": null,
+          "source": {
+            "id": 45,
+            "title": "OpenAI o3-mini",
+            "url": "https://openai.com/index/openai-o3-mini",
+            "publisher_id": 2,
+            "published_at": "2025-01-31",
+            "coverage_note": null
+          }
+        }
+      ]
+    },
+    {
+      "id": 387,
+      "model_id": 58,
+      "benchmark_measure_id": 220,
+      "value_numeric": null,
+      "conditions": null,
+      "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
+      "model": {
+        "id": 58,
+        "name": "OpenAI o3-mini (high)",
+        "developer_id": 2
+      },
+      "measure": {
+        "id": 220,
+        "benchmark_id": 164,
+        "name": "first-attempt solve rate with Python",
+        "unit": null,
+        "higher_is_better": null
+      },
+      "benchmark": {
+        "id": 164,
+        "name": "FrontierMath T3",
+        "url": "https://epoch.ai/frontiermath"
+      },
+      "citations": [
+        {
+          "id": 387,
+          "score_assertion_id": 387,
+          "source_id": 45,
+          "locator": "FrontierMath",
+          "excerpt": "Reported row (transcription):\nModel: OpenAI o3-mini (high)\nBenchmark: FrontierMath T3\nMeasure: first-attempt solve rate with Python\nValue: more than 28%\n\nSource excerpt:\nincluding more than 28% of the challenging (T3) problems",
+          "note": null,
+          "source": {
+            "id": 45,
+            "title": "OpenAI o3-mini",
+            "url": "https://openai.com/index/openai-o3-mini",
+            "publisher_id": 2,
+            "published_at": "2025-01-31",
+            "coverage_note": "Excluded nonnumeric claim (former assertion 386; FrontierMath):\nReported row (transcription):\nModel: OpenAI o3-mini (high)\nBenchmark: FrontierMath\nMeasure: first-attempt solve rate with Python\nValue: over 32%\n\nSource excerpt:\nOn FrontierMath, when prompted to use a Python tool, o3-mini with high reasoning effort solves over 32% of problems on the first attempt"
+          }
+        }
+      ]
+    },
+    {
+      "id": 826,
+      "model_id": 89,
+      "benchmark_measure_id": 441,
+      "value_numeric": null,
+      "conditions": null,
+      "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
+      "model": {
+        "id": 89,
+        "name": "GPT-4",
+        "developer_id": 2
+      },
+      "measure": {
+        "id": 441,
+        "benchmark_id": 332,
+        "name": "approximate human percentile",
+        "unit": null,
+        "higher_is_better": null
+      },
+      "benchmark": {
+        "id": 332,
+        "name": "Uniform Bar Exam",
+        "url": "https://cdn.openai.com/papers/gpt-4.pdf"
+      },
+      "citations": [
+        {
+          "id": 827,
+          "score_assertion_id": 826,
+          "source_id": 67,
+          "locator": "opening paragraph",
+          "excerpt": "Reported row (transcription):\nModel: GPT-4\nBenchmark: Uniform Bar Exam\nMeasure: approximate human percentile\nValue: around the top 10%\n\nSource excerpt:\npasses a simulated bar exam with a score around the top 10% of test takers",
+          "note": null,
+          "source": {
+            "id": 67,
+            "title": "GPT-4",
+            "url": "https://openai.com/index/gpt-4-research",
+            "publisher_id": 2,
+            "published_at": "2023-03-14",
+            "coverage_note": "Charts in blog load dynamically. Exact linked technical-report data recorded separately above; do not deduplicate this qualitative claim into an extra test run."
+          }
+        }
+      ]
+    },
+    {
+      "id": 850,
+      "model_id": 90,
+      "benchmark_measure_id": 465,
+      "value_numeric": null,
+      "conditions": null,
+      "reason": "No single exact score: bound, approximation, range, or unresolved relative wording.",
+      "model": {
+        "id": 90,
+        "name": "gpt-4-0613",
+        "developer_id": 2
+      },
+      "measure": {
+        "id": 465,
+        "benchmark_id": 364,
+        "name": "reliability",
+        "unit": null,
+        "higher_is_better": null
+      },
+      "benchmark": {
+        "id": 364,
+        "name": "OpenAI complex JSON schema following eval",
+        "url": "https://openai.com/index/introducing-structured-outputs-in-the-api/"
+      },
+      "citations": [
+        {
+          "id": 851,
+          "score_assertion_id": 850,
+          "source_id": 87,
+          "locator": "Opening section, paragraph beginning 'On our evals'",
+          "excerpt": "Reported row (transcription):\nModel: gpt-4-0613\nBenchmark: OpenAI complex JSON schema following eval\nMeasure: reliability\nValue: less than 40%\n\nSource excerpt:\nIn comparison, gpt-4-0613 scores less than 40%",
+          "note": null,
+          "source": {
+            "id": 87,
+            "title": "Introducing Structured Outputs in the API",
+            "url": "https://openai.com/index/introducing-structured-outputs-in-the-api",
+            "publisher_id": 2,
+            "published_at": "2024-08-06",
+            "coverage_note": "The 100% score depends on strict Structured Outputs/constrained decoding; the article separately reports 93% for the model before constrained sampling. Do not treat these as the same configuration."
+          }
+        }
+      ]
+    }
+  ]
+}
