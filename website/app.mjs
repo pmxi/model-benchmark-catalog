@@ -5,6 +5,7 @@ import {
   scoreLabel,
   csvForResults,
 } from "./data.mjs";
+import { loadCatalog } from "./catalog.mjs";
 
 const $ = (selector) => document.querySelector(selector);
 const h = (value) =>
@@ -483,10 +484,7 @@ $("#export").addEventListener("click", () => {
 async function load(refresh = false) {
   $("#refresh").disabled = true;
   try {
-    const response = await fetch("/api/catalog", { cache: "no-store" });
-    if (!response.ok)
-      throw new Error("The local server could not read the catalog.");
-    catalog = prepareCatalog(await response.json());
+    catalog = prepareCatalog(await loadCatalog());
     $("#organization").innerHTML =
       '<option value="">All organizations</option>' +
       catalog.organizations
@@ -497,7 +495,7 @@ async function load(refresh = false) {
     $("#nav-count").textContent = n(catalog.results.length);
     $("#connection-status").textContent = "Catalog connected";
     $("#snapshot-time").textContent =
-      `Updated at ${new Date(catalog.generated_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
+      `Loaded at ${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
     setView();
     if (refresh) toast("Catalog refreshed.");
   } catch (error) {
@@ -505,7 +503,7 @@ async function load(refresh = false) {
     if (catalog) toast("Refresh failed. Showing the last loaded data.");
     else
       $("#initial-state").innerHTML =
-        '<h1>Couldn’t open the catalog</h1><p>Check the local server, then try reloading.</p><button class="button primary" id="retry">Try again</button>';
+        '<h1>Couldn’t open the catalog</h1><p>The catalog could not be downloaded or read. Check your connection and try again.</p><button class="button primary" id="retry">Try again</button>';
     $("#retry")?.addEventListener("click", () => load());
   } finally {
     $("#refresh").disabled = false;

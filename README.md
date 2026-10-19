@@ -60,17 +60,57 @@ Reuse an assertion when model, measure, value, and recorded conditions match. GP
 
 The normalized model and benchmark IDs are provisional exact-name groupings. Matching IDs do not establish that evaluation configurations, benchmark versions, or score units are comparable. Where a unit or configuration was not recorded, it remains unknown. Source URLs, citation locators, and excerpts provide the preserved evidence; there are no snapshot or content-hash columns.
 
-## Local website
+## Website and GitHub Pages
 
-Run the viewer from `model-benchmark-catalog/`:
+The viewer is a static site. It downloads `catalog.sqlite` and queries it in memory
+using the bundled [sql.js](https://sql.js.org/) 1.15.1 JavaScript/WebAssembly runtime.
+SQLite remains the source of truth: there is no JSON export, hosted API, or browser
+storage to synchronize. All runtime assets are served with the site.
+
+The interface provides compact tables of results, models, and sources, filters,
+sortable result columns, source evidence dialogs, and CSV export. All matching
+results remain available without paging. The benchmark explorer narrows results
+to one benchmark measure. Units come from that measure; sorting across different
+measures does not establish comparability. Excluded claims remain in the evidence
+archive. The interface uses system fonts and a neutral palette.
+
+### Local preview
+
+Run from the repository root (Python 3.11 or later):
 
 ```sh
 uv run --no-project python website/server.py
 ```
 
-Open [the local catalog viewer](http://127.0.0.1:8765). [model-benchmark-catalog/website/server.py](website/server.py) uses Python's standard library and reads the current SQLite database in read-only mode. The interface is plain HTML, CSS, and JavaScript, with no build step, third-party packages, external assets, or hosting integration. Use the refresh button to read database edits; no data export or rebuild is necessary. An alternate database or port can be selected with `--db /absolute/path/catalog.sqlite --port 8766`.
+Open [the local catalog viewer](http://127.0.0.1:8765). The preview serves the same
+static assets as Pages, plus a fresh, consistent SQLite snapshot on each request.
+Refresh picks up local database edits without a build. Use `--db /absolute/path/catalog.sqlite`
+or `--port 8766` to select another database or port. The source database is opened
+read-only; committed WAL data is included in the standalone snapshot.
 
-The viewer provides compact tables of results, models, and sources, with filters, sortable result columns, source evidence dialogs, and CSV export. All matching results remain available without paging. The benchmark explorer narrows results to one benchmark measure. Units come from that measure. Every displayed assertion has a required numeric value; excluded claims remain in the evidence archive rather than the result table. Sorting values across different measures does not establish comparability. The interface uses system fonts and a neutral palette.
+To preview the exact deployment artifact:
+
+```sh
+uv run --no-project python -m website.build
+uv run --no-project python -m http.server 8765 --bind 127.0.0.1 --directory _site
+```
+
+The build packages the public assets and a standalone SQLite snapshot in `_site/`.
+It does not export or transform the catalog into another data format. Rebuild to
+include database edits in this static preview. Relative URLs support both an
+account site and a project path such as `/model-benchmark-catalog/`.
+
+### Deployment
+
+In the GitHub repository's **Settings → Pages**, set **Source** to **GitHub Actions**.
+The [Pages workflow](.github/workflows/pages.yml) tests and packages the site on
+pull requests and pushes to `main`, then deploys successful `main` builds. It can
+also be run manually. No npm install or external CDN is needed.
+
+Commit and push database updates to publish them. On the public site, Refresh
+reloads the latest deployed database; it cannot see unpublished local edits.
+The displayed load time is when this browser loaded the data, not a data collection
+timestamp. The entire database is publicly downloadable with the site.
 
 ## Write directly to SQLite
 
@@ -100,11 +140,11 @@ Use parameterized SQL in scripts. Every table uses `id INTEGER PRIMARY KEY`, wit
 
 Benchmark URLs are required. Prefer the official benchmark project, dataset, repository, or paper, using a version-specific page when available. For a custom variant or internal evaluation without a dedicated page, use the source document describing that evaluation. A shared URL does not make different variants or evaluation settings comparable.
 
-Run the schema, local API, and graph-data regression tests with:
+Run the schema, static packaging, local preview, and browser data regression tests with:
 
 ```sh
 uv run --no-project python -m unittest discover -s tests -v
-node --test tests/test_viewer.mjs
+node --test tests/*.mjs
 ```
 
 ## Query

@@ -1,47 +1,46 @@
-"""Serve the local catalog viewer and a read-only snapshot of the SQLite data.
+"""Preview the static catalog viewer with a fresh SQLite snapshot on each load.
 
 Run from anywhere: uv run --no-project python /path/to/website/server.py
-No third-party packages or build step are required.
+Requires Python 3.11 or later. The browser queries SQLite using bundled sql.js.
 """
 
 import argparse
 from contextlib import closing
-from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-import json
 from pathlib import Path
 import sqlite3
 from urllib.parse import urlsplit
 
 
 ROOT = Path(__file__).resolve().parent
-TABLES = {
-    "organizations": "organization", "models": "model", "benchmarks": "benchmark",
-    "measures": "benchmark_measure", "sources": "source",
-    "assertions": "score_assertion", "citations": "score_citation",
-}
 ASSETS = {
     "/": ("index.html", "text/html; charset=utf-8"),
     "/index.html": ("index.html", "text/html; charset=utf-8"),
     "/styles.css": ("styles.css", "text/css; charset=utf-8"),
     "/app.mjs": ("app.mjs", "text/javascript; charset=utf-8"),
     "/data.mjs": ("data.mjs", "text/javascript; charset=utf-8"),
+    "/catalog.mjs": ("catalog.mjs", "text/javascript; charset=utf-8"),
     "/favicon.svg": ("favicon.svg", "image/svg+xml"),
+    "/vendor/sql.js/sql-wasm.js": ("vendor/sql.js/sql-wasm.js", "text/javascript; charset=utf-8"),
+    "/vendor/sql.js/sql-wasm.wasm": ("vendor/sql.js/sql-wasm.wasm", "application/wasm"),
+    "/vendor/sql.js/LICENSE": ("vendor/sql.js/LICENSE", "text/plain; charset=utf-8"),
 }
 
 
-def load_catalog(database):
-    """Read all relations from a consistent snapshot; never create or write a DB."""
+def database_snapshot(database):
+    """Return a standalone SQLite snapshot, including any committed WAL data."""
     with closing(sqlite3.connect(Path(database).resolve().as_uri() + "?mode=ro", uri=True)) as db:
-        db.row_factory = sqlite3.Row
         db.execute("PRAGMA query_only = ON")
-        db.execute("BEGIN")
         if "url" not in {row[1] for row in db.execute("PRAGMA table_info(source)")}:
             raise ValueError("Unsupported catalog schema: source.url is missing. Use the current catalog.sqlite.")
-        catalog = {name: [dict(row) for row in db.execute(f"SELECT * FROM {table} ORDER BY id")]
-                   for name, table in TABLES.items()}
-        catalog["generated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
-        return catalog
+        with closing(sqlite3.connect(":memory:")) as snapshot:
+            db.backup(snapshot)
+            data = bytearray(snapshot.serialize())
+            # Backup includes committed WAL pages but retains the source header.
+            # SQLite's deserialize API requires rollback-mode header bytes:
+            # https://www.sqlite.org/c3ref/deserialize.html
+            data[18:20] = b"\x01\x01"
+            return bytes(data)
 
 
 def create_server(database, host="127.0.0.1", port=8765):
@@ -56,14 +55,14 @@ def create_server(database, host="127.0.0.1", port=8765):
 
         def respond(self, head_only=False):
             path = urlsplit(self.path).path
-            if path == "/api/catalog":
+            if path == "/catalog.sqlite":
                 try:
-                    body = json.dumps(load_catalog(database), ensure_ascii=False, allow_nan=False).encode()
+                    body = database_snapshot(database)
                 except (sqlite3.Error, ValueError) as error:
                     self.log_error("Catalog could not be read: %s", error)
                     self.send_error(503, "Catalog is unavailable. Check the local server log.")
                     return
-                mime = "application/json; charset=utf-8"
+                mime = "application/vnd.sqlite3"
             elif path in ASSETS:
                 filename, mime = ASSETS[path]
                 body = (ROOT / filename).read_bytes()
@@ -73,7 +72,7 @@ def create_server(database, host="127.0.0.1", port=8765):
             self.send_response(200)
             self.send_header("Content-Type", mime)
             self.send_header("Content-Length", str(len(body)))
-            self.send_header("Cache-Control", "no-store" if path == "/api/catalog" else "no-cache")
+            self.send_header("Cache-Control", "no-store" if path == "/catalog.sqlite" else "no-cache")
             self.send_header("X-Content-Type-Options", "nosniff")
             self.end_headers()
             if not head_only:
@@ -89,7 +88,7 @@ def main():
     parser.add_argument("--port", type=int, default=8765)
     args = parser.parse_args()
     try:
-        load_catalog(args.db)
+        database_snapshot(args.db)
     except (sqlite3.Error, ValueError) as error:
         parser.error(str(error))
     with create_server(args.db, args.host, args.port) as server:
