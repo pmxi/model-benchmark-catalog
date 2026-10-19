@@ -1,9 +1,11 @@
 from contextlib import closing
 from pathlib import Path
 import sqlite3
+import shutil
 import tempfile
 import threading
 import unittest
+from unittest.mock import patch
 from urllib.error import HTTPError
 from urllib.request import urlopen
 
@@ -67,6 +69,23 @@ class CatalogServerTests(unittest.TestCase):
         with self.assertRaises(sqlite3.OperationalError):
             database_snapshot(path)
         self.assertFalse(path.exists())
+
+    def test_build_versions_entry_points_and_imports_when_a_dependency_changes(self):
+        root = Path(self.directory.name) / "website"
+        shutil.copytree(ROOT / "website", root)
+        output = Path(self.directory.name) / "site"
+        with patch("website.build.ROOT", root):
+            build_site(output, self.path)
+            first = (output / "index.html").read_text()
+            self.assertIn('app.mjs?v=', first)
+            self.assertIn('styles.css?v=', first)
+            self.assertIn('sql-wasm.js?v=', first)
+            self.assertIn('./data.mjs?v=', (output / "app.mjs").read_text())
+            self.assertIn('./catalog.mjs?v=', (output / "app.mjs").read_text())
+            with (root / "data.mjs").open("a") as dependency:
+                dependency.write("\n// New dependency version\n")
+            build_site(output, self.path)
+            self.assertNotEqual(first, (output / "index.html").read_text())
 
     def test_http_reads_current_data_and_only_serves_known_assets(self):
         server = create_server(self.path, port=0)

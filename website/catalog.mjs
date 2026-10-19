@@ -27,7 +27,11 @@ export function readCatalog(SQL, bytes) {
 let runtime;
 export async function loadCatalog() {
   runtime ??= globalThis.initSqlJs({
-    locateFile: file => new URL(`./vendor/sql.js/${file}`, import.meta.url).href,
+    locateFile: file => {
+      const url = new URL(`./vendor/sql.js/${file}`, import.meta.url);
+      url.search = new URL(import.meta.url).search;
+      return url.href;
+    },
   }).catch(error => {
     runtime = undefined;
     throw error;
