@@ -481,8 +481,7 @@ $("#export").addEventListener("click", () => {
   toast(`Exported ${n(downloadRows.length)} results with source URLs.`);
 });
 
-async function load(refresh = false) {
-  $("#refresh").disabled = true;
+async function load() {
   try {
     catalog = prepareCatalog(await loadCatalog());
     $("#organization").innerHTML =
@@ -493,21 +492,11 @@ async function load(refresh = false) {
     $("#initial-state").hidden = true;
     $("#app").hidden = false;
     $("#nav-count").textContent = n(catalog.results.length);
-    $("#connection-status").textContent = "Catalog connected";
-    $("#snapshot-time").textContent =
-      `Loaded at ${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
     setView();
-    if (refresh) toast("Catalog refreshed.");
   } catch (error) {
-    $("#connection-status").textContent = "Catalog unavailable";
-    if (catalog) toast("Refresh failed. Showing the last loaded data.");
-    else
-      $("#initial-state").innerHTML =
-        '<h1>Couldn’t open the catalog</h1><p>The catalog could not be downloaded or read. Check your connection and try again.</p><button class="button primary" id="retry">Try again</button>';
-    $("#retry")?.addEventListener("click", () => load());
-  } finally {
-    $("#refresh").disabled = false;
+    $("#initial-state").innerHTML =
+      '<h1>Couldn’t open the catalog</h1><p>The catalog could not be downloaded or read. Check your connection and try again.</p><button class="button primary" id="retry">Try again</button>';
+    $("#retry").addEventListener("click", () => load());
   }
 }
-$("#refresh").addEventListener("click", () => load(true));
 load();

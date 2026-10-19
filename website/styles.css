@@ -71,22 +71,10 @@ p {
   white-space: nowrap;
   overflow-x: auto;
 }
-.header-main {
-  display: contents;
-}
 .brand {
   font-size: 13px;
   font-weight: 650;
   text-decoration: none;
-}
-.header-actions {
-  order: 2;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.connection-status {
-  display: none;
 }
 nav {
   display: flex;
@@ -357,13 +345,6 @@ th button:hover {
 }
 .empty .button {
   margin-top: 12px;
-}
-.main-footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: 11px;
 }
 .loading-state {
   padding: 40px 0;

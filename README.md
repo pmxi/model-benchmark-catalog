@@ -84,7 +84,7 @@ uv run --no-project python website/server.py
 
 Open [the local catalog viewer](http://127.0.0.1:8765). The preview serves the same
 static assets as Pages, plus a fresh, consistent SQLite snapshot on each request.
-Refresh picks up local database edits without a build. Use `--db /absolute/path/catalog.sqlite`
+Reload the page to pick up local database edits without a build. Use `--db /absolute/path/catalog.sqlite`
 or `--port 8766` to select another database or port. The source database is opened
 read-only; committed WAL data is included in the standalone snapshot.
 
@@ -107,10 +107,9 @@ The [Pages workflow](.github/workflows/pages.yml) tests and packages the site on
 pull requests and pushes to `main`, then deploys successful `main` builds. It can
 also be run manually. No npm install or external CDN is needed.
 
-Commit and push database updates to publish them. On the public site, Refresh
-reloads the latest deployed database; it cannot see unpublished local edits.
-The displayed load time is when this browser loaded the data, not a data collection
-timestamp. The entire database is publicly downloadable with the site.
+Commit and push database updates to publish them. Reloading the public page loads
+the latest deployed database; it cannot see unpublished local edits. The entire
+database is publicly downloadable with the site.
 
 ## Write directly to SQLite
 

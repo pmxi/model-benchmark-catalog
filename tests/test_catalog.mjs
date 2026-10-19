@@ -40,7 +40,7 @@ test('invalid databases fail without preventing a later successful read', () => 
   assert.ok(readCatalog(SQL, bytes).assertions.length > 0);
 });
 
-test('refresh fetches the database again and reports unavailable downloads', async t => {
+test('repeated loads fetch the database again and report unavailable downloads', async t => {
   const requests = [];
   let status = 200;
   t.mock.method(globalThis, 'fetch', async (url, options) => {
